@@ -1,10 +1,10 @@
 # Phase 5 — Deduplication Report
 **Project:** BETC — Bangla Emotion TF-IDF Classifier Chain  
-**Phase:** Phase 5 — Deduplication  
+**Phase:** Phase 5 — Deduplication + Conflict Resolution  
 **Date:** 2026-09-19  
-**Status:** COMPLETE (partial) — 98 conflicting groups UNRESOLVED; require user decision  
+**Status:** FULLY COMPLETE — DROP resolution applied; all 41,184 rows are unique texts  
 **Input:** `Data/interim/harmonized_pre_dedup.csv` (41,994 rows)  
-**Output:** `Data/interim/harmonized_deduplicated.csv` (41,435 rows)
+**Final Output:** `Data/interim/harmonized_deduplicated.csv` (41,184 rows)
 
 > [!IMPORTANT]
 > `Data/raw/` was not modified. `harmonized_pre_dedup.csv` (Phase 4 output) was not overwritten. All rows removed have provenance records in `logs/deduplication/duplicate_provenance.csv`.
@@ -199,10 +199,73 @@ All 251 rows from conflicting groups are **retained as-is** in `harmonized_dedup
 
 ---
 
-## 12. Stop Condition
+## 12. Conflict Resolution — DROP Strategy (Approved 2026-09-19)
 
-Phase 5 is **complete for all objectively resolvable duplicates**. The remaining blocker is:
+**Decision:** DROP all rows belonging to the 98 conflicting duplicate groups.
 
-> **98 conflicting duplicate groups (251 rows) require a user-approved resolution strategy.**
+### Final Before/After Accounting
 
-**Do NOT proceed to Phase 6 (Splitting) until the conflict resolution policy is approved.**
+| Step | Count |
+|---|---|
+| Phase 4 input rows | 41,994 |
+| − Identical-label duplicate rows removed | 559 |
+| − Conflicting duplicate rows removed (DROP) | **251** |
+| = **Final deduplicated corpus** | **41,184** |
+| Reconciliation check | ✅ 41,994 − 559 − 251 = 41,184 |
+
+### Label Statistics — Final Corpus (41,184 rows)
+
+| Target Label | Positive | Prevalence | EmoNoBa | UBMEC | MONOVAB |
+|---|---|---|---|---|---|
+| `anger` | 11,279 | 27.39% | — | — | — |
+| `disgust` | 4,064 | 9.87% | 0* | — | — |
+| `fear` | 1,789 | 4.34% | — | — | — |
+| `joy` | 14,811 | 35.96% | — | — | — |
+| `sadness` | 9,432 | 22.90% | — | — | — |
+| `surprise` | 2,499 | 6.07% | — | — | — |
+
+*EmoNoBa `disgust=0` is the Strategy D operational assumption (F5-eligible rows)
+
+### Source Counts — Final Corpus
+
+| Source | Rows |
+|---|---|
+| EmoNoBa | 20,352 |
+| UBMEC | 12,896 |
+| MONOVAB | 7,936 |
+| **Total** | **41,184** |
+
+### Cardinality Distribution
+
+| Active Labels | Rows |
+|---|---|
+| 1 | 38,611 |
+| 2 | 2,460 |
+| 3 | 109 |
+| 4 | 4 |
+| **Mean** | **1.0653** |
+
+### Validation — All 9 Checks Passed ✅
+
+| Check | Result |
+|---|---|
+| Arithmetic (41,435 − 251 = 41,184) | ✅ PASS |
+| No duplicate texts remain | ✅ PASS (41,184 unique texts = 41,184 rows) |
+| All 6 target label columns binary only | ✅ PASS |
+| No `love` or `contempt` target columns | ✅ PASS |
+| `emonoba_disgust_assumption` preserved on all EmoNoBa rows | ✅ PASS (20,352 / 20,352) |
+| `f5_eligible` preserved on all EmoNoBa rows | ✅ PASS (20,352 / 20,352) |
+| `Data/raw/` unchanged | ✅ PASS |
+| `harmonized_pre_dedup.csv` (Phase 4) unchanged (41,994 rows) | ✅ PASS |
+| `conflicting_duplicates.csv` preserved (98 groups) | ✅ PASS |
+
+### Output Files (Final)
+
+| File | Location | Rows | Description |
+|---|---|---|---|
+| `harmonized_deduplicated.csv` | `Data/interim/` | **41,184** | **Final modeling corpus** |
+| `conflict_resolution_log.csv` | `logs/deduplication/` | 251 rows | DROP evidence — one row per dropped conflicting record |
+| `conflicting_duplicates.csv` | `logs/deduplication/` | 98 groups | Preserved unchanged — evidence of conflicts |
+| `deduplication_validation_final.json` | `logs/deduplication/` | — | All validation checks JSON |
+
+**Phase 5b (Splitting) is now unblocked.** The final modeling corpus is ready.

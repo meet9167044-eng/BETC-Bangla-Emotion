@@ -1,0 +1,124 @@
+{
+  "run_timestamp": "2026-09-19 12:40:53",
+  "resolution_strategy": "DROP",
+  "approved_by": "User decision 2026-09-19",
+  "phase5_input_rows": 41435,
+  "conflict_groups_dropped": 98,
+  "conflicting_rows_dropped": 251,
+  "final_output_rows": 41184,
+  "arithmetic_check": "41435 - 251 = 41184",
+  "arithmetic_correct": true,
+  "unique_texts_in_final_corpus": 41184,
+  "remaining_duplicate_texts": 0,
+  "validation_checks": {
+    "arithmetic": {
+      "pass": true,
+      "n_output": 41184
+    },
+    "no_duplicate_texts_remain": {
+      "pass": true,
+      "remaining": 0
+    },
+    "target_cols_binary": {
+      "pass": true
+    },
+    "no_love_contempt_cols": {
+      "pass": true
+    },
+    "emonoba_disgust_assumption_preserved": {
+      "pass": true,
+      "emonoba_rows": 20352,
+      "flagged": 20352
+    },
+    "f5_eligible_preserved": {
+      "pass": true,
+      "f5_true": 20352
+    },
+    "raw_data_unchanged": {
+      "pass": true
+    },
+    "phase4_file_unchanged": {
+      "pass": true,
+      "rows": 41994
+    },
+    "conflict_log_preserved": {
+      "pass": true,
+      "groups": 98
+    }
+  },
+  "label_statistics": {
+    "anger": {
+      "total_positive": 11279,
+      "prevalence_pct": 27.39,
+      "by_source": {
+        "EmoNoBa": 4446,
+        "UBMEC": 2389,
+        "MONOVAB": 4444
+      }
+    },
+    "disgust": {
+      "total_positive": 4064,
+      "prevalence_pct": 9.87,
+      "by_source": {
+        "EmoNoBa": 0,
+        "UBMEC": 2017,
+        "MONOVAB": 2047
+      }
+    },
+    "fear": {
+      "total_positive": 1789,
+      "prevalence_pct": 4.34,
+      "by_source": {
+        "EmoNoBa": 398,
+        "UBMEC": 1335,
+        "MONOVAB": 56
+      }
+    },
+    "joy": {
+      "total_positive": 14811,
+      "prevalence_pct": 35.96,
+      "by_source": {
+        "EmoNoBa": 10047,
+        "UBMEC": 3253,
+        "MONOVAB": 1511
+      }
+    },
+    "sadness": {
+      "total_positive": 9432,
+      "prevalence_pct": 22.9,
+      "by_source": {
+        "EmoNoBa": 5670,
+        "UBMEC": 2581,
+        "MONOVAB": 1181
+      }
+    },
+    "surprise": {
+      "total_positive": 2499,
+      "prevalence_pct": 6.07,
+      "by_source": {
+        "EmoNoBa": 1082,
+        "UBMEC": 1321,
+        "MONOVAB": 96
+      }
+    }
+  },
+  "cardinality_distribution": {
+    "1": 38611,
+    "2": 2460,
+    "3": 109,
+    "4": 4
+  },
+  "mean_labels_per_example": 1.0653,
+  "source_counts": {
+    "EmoNoBa": 20352,
+    "UBMEC": 12896,
+    "MONOVAB": 7936
+  },
+  "notes": {
+    "conflict_log": "conflicting_duplicates.csv preserved unchanged at logs/deduplication/",
+    "raw_data": "Data/raw/ was not modified",
+    "phase4_input": "harmonized_pre_dedup.csv (41,994 rows) was not modified",
+    "f5": "EmoNoBa rows retain emonoba_disgust_assumption=True and f5_eligible=True"
+  },
+  "all_checks_passed": true
+}

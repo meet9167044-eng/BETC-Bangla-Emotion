@@ -236,38 +236,56 @@ be the only place a piece of logic exists.
 - **Do NOT:** Delete rows silently. EmoNoBa `disgust=0` is a documented assumption.
 - **Depends on:** Phase 3.
 
-## Phase 5 — Deduplication ✅ COMPLETED (partial — 1 blocker)
+## Phase 5 — Deduplication ✅ FULLY COMPLETED
 
-> **Status:** COMPLETE for all objectively resolvable duplicates — 2026-09-19.
-> **BLOCKER:** 98 conflicting duplicate groups (251 rows) require user-approved resolution strategy before Phase 5b (splitting) can begin.
+> **Status:** COMPLETE — 2026-09-19. All duplicate groups resolved. Conflict resolution applied (DROP).
 >
-> **Measured results:**
-> - Phase 4 input: 41,994 rows → Phase 5 output: **41,435 rows**
+> **Measured results (final):**
+> - Phase 4 input: 41,994 rows
 > - 559 identical-label duplicate rows removed (406 groups)
-> - 251 conflicting rows retained unresolved (98 groups) — logged in `conflicting_duplicates.csv`
-> - Cross-source groups: EmoNoBa↔UBMEC=8, EmoNoBa↔MONOVAB=9, UBMEC↔MONOVAB=41, all-three=2
-> - EmoNoBa cross-split groups: 12 (resolved via canonical selection)
-> - All 8 validation checks: PASSED
+> - 251 conflicting rows removed via DROP strategy (98 groups — approved 2026-09-19)
+> - **Final output: 41,184 rows** — all unique texts, no duplicate groups remaining
+> - All 9 validation checks: PASSED
 >
-> **Scripts:** `scripts/data_pipeline/phase5_dedup.py`  
-> **Outputs:** `Data/interim/harmonized_deduplicated.csv` (41,435 rows),
-> `logs/deduplication/` (5 files including conflict log)
+> **Scripts:** `scripts/data_pipeline/phase5_dedup.py`, `scripts/data_pipeline/phase5b_conflict_resolution.py`
+> **Outputs:** `Data/interim/harmonized_deduplicated.csv` (41,184 rows),
+> `logs/deduplication/` (6 files)
 
-- **Objective:** Remove duplicate texts; log all decisions; retain unresolvable conflicts for user review.
+- **Objective:** Remove duplicate texts; log all decisions.
 - **Inputs:** `Data/interim/harmonized_pre_dedup.csv`; Phase 4 provenance.
-- **Actual Outputs:** `Data/interim/harmonized_deduplicated.csv`,
-  `logs/deduplication/deduplication_report.md`,
-  `logs/deduplication/duplicate_groups.csv`,
-  `logs/deduplication/duplicate_provenance.csv`,
-  `logs/deduplication/conflicting_duplicates.csv`,
-  `logs/deduplication/deduplication_validation.json`.
-- **Canonical selection rule (deterministic):** Most metadata > EmoNoBa > UBMEC > MONOVAB > Train > Val > Test > smallest row ID.
-- **BLOCKER (98 conflicting groups):** Options: DROP all / UNION labels / FIRST occurrence / DATASET-PRIORITY. Requires user decision before splitting.
+- **Dedup step:** 559 identical-label rows removed (406 groups); 251 conflicting rows logged.
+- **Conflict resolution (DROP, user-approved):** All 251 rows from 98 conflicting groups removed.
+  Evidence preserved in `conflicting_duplicates.csv` (unchanged). Resolution logged in `conflict_resolution_log.csv`.
+- **Actual Outputs:**
+  - `Data/interim/harmonized_deduplicated.csv` (41,184 rows — final modeling corpus)
+  - `logs/deduplication/deduplication_report.md`
+  - `logs/deduplication/duplicate_groups.csv` (504 groups)
+  - `logs/deduplication/duplicate_provenance.csv` (41,994 rows)
+  - `logs/deduplication/conflicting_duplicates.csv` (98 groups — preserved)
+  - `logs/deduplication/conflict_resolution_log.csv` (251 rows — DROP evidence)
+  - `logs/deduplication/deduplication_validation_final.json` (all checks PASSED)
+- **Canonical selection rule:** Most metadata > EmoNoBa > UBMEC > MONOVAB > Train > Val > Test > smallest row ID.
 - **Depends on:** Phase 4.
 
-## Phase 5b — Reproducible Splitting (BLOCKED pending conflict resolution)
+## Phase 5b — Reproducible Splitting ✅ COMPLETED
 
-> **Status:** NOT STARTED — blocked by 98 unresolved conflicting duplicate groups from Phase 5.
+> **Status:** COMPLETE — 2026-09-19
+>
+> **Measured results:**
+> - Applied iterative multi-label-stratified split to 41,184 rows using `skmultilearn`
+> - Ratio: 70% Train / 15% Validation / 15% Test
+> - Split sizes:
+>   - **Train:** 28,840 rows (70.0%)
+>   - **Validation:** 6,170 rows (15.0%)
+>   - **Test:** 6,174 rows (15.0%)
+> - All validation checks PASSED (No overlap, all rows accounted for, all labels present)
+>
+> **Scripts:** `scripts/data_pipeline/phase5b_splitting.py`
+> **Outputs:**
+> - `Data/processed/train/train.csv`
+> - `Data/processed/validation/validation.csv`
+> - `Data/processed/test/test.csv`
+> - `artifacts/splits/split_v1.json`
 
 - **Objective:** Create the frozen train/validation/test split.
 - **Inputs:** `Data/interim/harmonized_deduplicated.csv` (after conflict resolution);
@@ -275,13 +293,12 @@ be the only place a piece of logic exists.
 - **Tasks:** Apply iterative multi-label-stratified split at 70/15/15;
   save row indices/IDs per split; save per-split label prevalence for
   sanity-checking stratification quality.
-- **Outputs:** `data/processed/{train,validation,test}/`;
+- **Actual Outputs:** `Data/processed/{train,validation,test}/*.csv`;
   `artifacts/splits/split_v1.json`.
 - **Validation checks:** No row ID appears in more than one split; every
   target label has a nonzero positive count in every split.
 - **Completion criteria:** Split saved and validated.
-- **Do NOT:** Re-split later without a new, separately versioned artifact.
-- **Depends on:** Phase 5 conflict resolution (user decision required).
+- **Depends on:** Phase 5 conflict resolution.
 
 ## Phase 6 — Preprocessing Implementation
 

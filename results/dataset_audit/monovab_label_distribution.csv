@@ -1,8 +1,0 @@
-label,positive_count,zero_count,other_or_nan,total_rows,prevalence_percent
-anger,4499,5725,0,10224,44.0
-contempt,2960,7264,0,10224,28.95
-disgust,2067,8157,0,10224,20.22
-enjoyment,1601,8623,0,10224,15.66
-fear,56,10168,0,10224,0.55
-sadness,1188,9036,0,10224,11.62
-surprise,100,10124,0,10224,0.98

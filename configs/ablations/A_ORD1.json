@@ -1,0 +1,19 @@
+{
+  "experiment_id": "A_ORD1",
+  "category": "ablation",
+  "description": "Group B: Reverse frequency",
+  "run_timestamp": "2026-09-19 16:33:03",
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "chain_order": [
+      "fear",
+      "surprise",
+      "disgust",
+      "sadness",
+      "anger",
+      "joy"
+    ],
+    "chain_seed": 42
+  }
+}

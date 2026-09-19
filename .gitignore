@@ -1,0 +1,18 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large data and models
+*.zip
+*.npz
+*.npy
+*.joblib
+*.csv
+Data/
+artifacts/
+
+# General IDE and OS files
+.DS_Store
+.vscode/
+.idea/

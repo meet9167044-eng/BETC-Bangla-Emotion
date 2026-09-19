@@ -1,0 +1,45 @@
+{
+  "seed": 123,
+  "total_time_seconds": 146.83,
+  "test_metrics": {
+    "macro_f1": 0.5103,
+    "micro_f1": 0.5791,
+    "macro_precision": 0.4574,
+    "macro_recall": 0.5951,
+    "hamming_loss": 0.178375,
+    "jaccard": 0.5643,
+    "subset_accuracy": 0.4424,
+    "per_class": {
+      "anger": {
+        "f1": 0.562,
+        "precision": 0.4726,
+        "recall": 0.6931
+      },
+      "disgust": {
+        "f1": 0.3329,
+        "precision": 0.2795,
+        "recall": 0.4116
+      },
+      "fear": {
+        "f1": 0.4786,
+        "precision": 0.5041,
+        "recall": 0.4556
+      },
+      "joy": {
+        "f1": 0.7977,
+        "precision": 0.7681,
+        "recall": 0.8298
+      },
+      "sadness": {
+        "f1": 0.4905,
+        "precision": 0.3776,
+        "recall": 0.6996
+      },
+      "surprise": {
+        "f1": 0.4,
+        "precision": 0.3423,
+        "recall": 0.4812
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "experiment_id": "A_BEST",
+  "description": "Group D: Best Combined (C=1.0, CW=None, Order=Rare-middle)",
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": null,
+    "chain_order": [
+      "joy",
+      "anger",
+      "fear",
+      "surprise",
+      "disgust",
+      "sadness"
+    ],
+    "chain_seed": 42
+  },
+  "thresholds": {
+    "anger": 0.17,
+    "disgust": 0.32,
+    "fear": 0.33,
+    "joy": 0.45,
+    "sadness": 0.08,
+    "surprise": 0.3
+  },
+  "validation_metrics": {
+    "macro_f1": 0.5331,
+    "micro_f1": 0.5781,
+    "macro_precision": 0.5098,
+    "macro_recall": 0.6224,
+    "hamming_loss": 0.191572,
+    "jaccard": 0.5444,
+    "subset_accuracy": 0.3687,
+    "per_class": {
+      "anger": {
+        "f1": 0.5414,
+        "precision": 0.3978,
+        "recall": 0.8475
+      },
+      "disgust": {
+        "f1": 0.347,
+        "precision": 0.3187,
+        "recall": 0.381
+      },
+      "fear": {
+        "f1": 0.6005,
+        "precision": 0.7879,
+        "recall": 0.4851
+      },
+      "joy": {
+        "f1": 0.8112,
+        "precision": 0.8083,
+        "recall": 0.8141
+      },
+      "sadness": {
+        "f1": 0.4854,
+        "precision": 0.3545,
+        "recall": 0.7696
+      },
+      "surprise": {
+        "f1": 0.4131,
+        "precision": 0.3914,
+        "recall": 0.4373
+      }
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.5213,
+    "micro_f1": 0.5728,
+    "macro_precision": 0.5046,
+    "macro_recall": 0.6079,
+    "hamming_loss": 0.193986,
+    "jaccard": 0.5407,
+    "subset_accuracy": 0.3664,
+    "per_class": {
+      "anger": {
+        "f1": 0.5409,
+        "precision": 0.396,
+        "recall": 0.8528
+      },
+      "disgust": {
+        "f1": 0.3422,
+        "precision": 0.3191,
+        "recall": 0.3689
+      },
+      "fear": {
+        "f1": 0.56,
+        "precision": 0.7628,
+        "recall": 0.4424
+      },
+      "joy": {
+        "f1": 0.8063,
+        "precision": 0.8125,
+        "recall": 0.8001
+      },
+      "sadness": {
+        "f1": 0.4819,
+        "precision": 0.3491,
+        "recall": 0.7781
+      },
+      "surprise": {
+        "f1": 0.3963,
+        "precision": 0.3878,
+        "recall": 0.4053
+      }
+    }
+  },
+  "fit_time_seconds": 7.71
+}

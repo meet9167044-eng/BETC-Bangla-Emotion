@@ -1,0 +1,90 @@
+{
+  "experiment_id": "M1",
+  "category": "betc_full",
+  "description": "Full BETC — Combined Word+Char TF-IDF → ClassifierChain (frequency-ordered) → LogisticRegression(C=1.0, balanced) → per-class val thresholds",
+  "run_timestamp": "2026-09-19 16:16:34",
+  "split_identifier": "split_v1 (artifacts/splits/split_v1.json)",
+  "features": {
+    "word_tfidf": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "max_features": 10000,
+      "sublinear_tf": true,
+      "analyzer": "word"
+    },
+    "char_tfidf": {
+      "analyzer": "char_wb",
+      "ngram_range": [
+        3,
+        5
+      ],
+      "max_features": 15000,
+      "sublinear_tf": true
+    },
+    "fusion": "scipy.sparse.hstack",
+    "combined_dim": 25000
+  },
+  "model": {
+    "type": "ClassifierChain",
+    "base_classifier": "LogisticRegression",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 2000,
+    "solver": "saga",
+    "random_state": 42
+  },
+  "chain_label_order": [
+    "joy",
+    "anger",
+    "sadness",
+    "disgust",
+    "surprise",
+    "fear"
+  ],
+  "chain_label_order_indices": [
+    3,
+    0,
+    4,
+    1,
+    5,
+    2
+  ],
+  "label_frequencies_train": {
+    "anger": 7895,
+    "disgust": 2845,
+    "fear": 1252,
+    "joy": 10368,
+    "sadness": 6602,
+    "surprise": 1749
+  },
+  "ordering_rule": "Descending training-set label frequency [INITIAL-HP per PIPELINE_SPEC.md §3.5]",
+  "threshold_selection": {
+    "method": "Per-class F1 maximization on validation probabilities",
+    "tau_range": [
+      0.05,
+      0.95
+    ],
+    "tau_step": 0.01,
+    "data_used": "Validation split ONLY"
+  },
+  "thresholds": {
+    "anger": 0.33,
+    "disgust": 0.26,
+    "fear": 0.53,
+    "joy": 0.58,
+    "sadness": 0.14,
+    "surprise": 0.28
+  },
+  "timing_seconds": {
+    "fit": 192.4,
+    "threshold_optimization": 1.0,
+    "total": 193.4
+  },
+  "artifacts": {
+    "chain_model": "artifacts/models/betc_full_chain.joblib",
+    "thresholds": "artifacts/thresholds.json",
+    "config": "configs/betc_full/betc_full.json"
+  }
+}

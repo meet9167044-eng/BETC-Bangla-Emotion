@@ -1,0 +1,32 @@
+{
+  "source_EmoNoBa": {
+    "count": 4750,
+    "macro_f1": 0.4168,
+    "micro_f1": 0.6111
+  },
+  "source_UBMEC": {
+    "count": 1256,
+    "macro_f1": 0.3707,
+    "micro_f1": 0.4238
+  },
+  "source_MONOVAB": {
+    "count": 168,
+    "macro_f1": 0.3471,
+    "micro_f1": 0.6687
+  },
+  "domain_Facebook": {
+    "count": 998,
+    "macro_f1": 0.3546,
+    "micro_f1": 0.5019
+  },
+  "domain_Youtube": {
+    "count": 3688,
+    "macro_f1": 0.4378,
+    "micro_f1": 0.6485
+  },
+  "domain_Twitter": {
+    "count": 64,
+    "macro_f1": 0.2607,
+    "micro_f1": 0.4
+  }
+}

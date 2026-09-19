@@ -1,7 +1,0 @@
-label,train_positive,val_positive,test_positive,total_positive,total_rows,prevalence_percent
-Love,3786,414,388,4588,22739,20.18
-Joy,8314,942,856,10112,22739,44.47
-Surprise,848,91,147,1086,22739,4.78
-Anger,3542,388,548,4478,22739,19.69
-Sadness,4569,505,607,5681,22739,24.98
-Fear,279,32,90,401,22739,1.76

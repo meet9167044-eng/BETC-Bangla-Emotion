@@ -1,0 +1,19 @@
+{
+  "experiment_id": "A_ORD3",
+  "category": "ablation",
+  "description": "Group B: Alphabetical",
+  "run_timestamp": "2026-09-19 16:33:03",
+  "hyperparameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "chain_order": [
+      "anger",
+      "disgust",
+      "fear",
+      "joy",
+      "sadness",
+      "surprise"
+    ],
+    "chain_seed": 42
+  }
+}

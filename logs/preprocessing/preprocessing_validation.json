@@ -1,0 +1,122 @@
+{
+  "run_timestamp": "2026-09-19 15:21:05",
+  "phase": "Phase 6 — Preprocessing",
+  "preprocessing_function": "src.features.preprocessing.preprocess",
+  "normalizer": "bnunicodenormalizer==0.1.7 (Bangla-specific, word-level)",
+  "rows_processed": {
+    "train": 28840,
+    "validation": 6170,
+    "test": 6174,
+    "total": 41184
+  },
+  "empty_outputs": {
+    "train": 1,
+    "validation": 0,
+    "test": 0,
+    "total": 1
+  },
+  "validation_checks": {
+    "row_counts": {
+      "train": {
+        "pass": true,
+        "count": 28840,
+        "expected": 28840
+      },
+      "validation": {
+        "pass": true,
+        "count": 6170,
+        "expected": 6170
+      },
+      "test": {
+        "pass": true,
+        "count": 6174,
+        "expected": 6174
+      }
+    },
+    "labels_unchanged": {
+      "pass": true,
+      "train": {
+        "pass": true,
+        "fail_col": null
+      },
+      "validation": {
+        "pass": true,
+        "fail_col": null
+      },
+      "test": {
+        "pass": true,
+        "fail_col": null
+      }
+    },
+    "no_row_ids_lost": {
+      "pass": true
+    },
+    "no_split_overlap": {
+      "pass": true,
+      "overlap_count": 0
+    },
+    "no_null_processed_text": {
+      "pass": true,
+      "null_train": 0,
+      "null_val": 0,
+      "null_test": 0
+    },
+    "deterministic": {
+      "pass": true,
+      "sample_size": 50
+    },
+    "same_function_all_splits": {
+      "pass": true,
+      "note": "All splits use src.features.preprocessing.preprocess_series"
+    },
+    "negation_intensifier_preserved": {
+      "pass": true,
+      "sample_size": 200,
+      "negations_lost": 0,
+      "intensifiers_lost": 0
+    },
+    "raw_data_unchanged": {
+      "pass": true
+    },
+    "original_splits_untouched": {
+      "pass": true,
+      "train_rows": 28840,
+      "val_rows": 6170,
+      "test_rows": 6174
+    },
+    "no_tfidf_model_executed": {
+      "pass": true,
+      "note": "No sklearn TF-IDF, LogisticRegression, ClassifierChain, or any model code was imported or called"
+    }
+  },
+  "all_checks_passed": true,
+  "unit_test_results": "47/47 passed (python tests/test_preprocessing.py)",
+  "spot_check_file": "logs/dataset_audit/preprocessing_spotcheck.md",
+  "preprocessing_rules_implemented": [
+    "1. Null/NaN/empty handling (returns empty string)",
+    "2. URL removal (http/https/ftp/www)",
+    "3. @mention removal",
+    "4. HTML tag removal (<tag>, </tag>)",
+    "5. HTML entity removal (&amp; etc.)",
+    "6. Bangla-specific Unicode normalization (bnunicodenormalizer, word-by-word)",
+    "7. Repeated punctuation collapsing (3+ -> 2) for ?,!,.,,,;,:,-,_,।",
+    "8. Whitespace normalization (any whitespace -> single space, strip)"
+  ],
+  "not_applied": [
+    "Stemming (not in PIPELINE_SPEC.md)",
+    "Lemmatization (not in PIPELINE_SPEC.md)",
+    "Stopword removal (not in PIPELINE_SPEC.md)",
+    "Emoji removal (not specified as noise in PIPELINE_SPEC.md)",
+    "Spell correction (not in PIPELINE_SPEC.md)",
+    "TF-IDF / vocabulary fitting (Phase 7 only)",
+    "Label modification (labels preserved exactly)"
+  ],
+  "research_decisions_required": [
+    "[RESEARCH DECISION REQUIRED] configs/negations_bn.txt is DRAFT — must be manually reviewed by project owner",
+    "[RESEARCH DECISION REQUIRED] configs/intensifiers_bn.txt is DRAFT — must be manually reviewed by project owner",
+    "[RESEARCH DECISION CONFIRMED: PRESERVE] Emojis are preserved — PIPELINE_SPEC.md Section 3.1 does not list emoji removal"
+  ],
+  "note_original_splits": "Original split CSV files (train.csv, validation.csv, test.csv) were NOT modified",
+  "note_raw_data": "Data/raw/ was NOT modified",
+  "note_leakage": "No corpus-level statistics, vocabulary, or label information was used in preprocessing"
+}

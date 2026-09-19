@@ -1,0 +1,131 @@
+{
+  "experiment_id": "B5",
+  "category": "baseline",
+  "description": "Combined TF-IDF + Random Forest (MultiOutputClassifier)",
+  "representation": "Word+Char TF-IDF combined (25,000 dims)",
+  "run_timestamp": "2026-09-19 15:45:40",
+  "split_identifier": "split_v1 (artifacts/splits/split_v1.json)",
+  "feature_source": "artifacts/features/ (Phase 7 output)",
+  "config_file": "configs/baselines/b5.json",
+  "hyperparameters": {
+    "wrapper": "MultiOutputClassifier",
+    "estimator_type": "RandomForestClassifier",
+    "estimator_params": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": "balanced",
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": "sqrt",
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 200,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    }
+  },
+  "thresholds": {
+    "anger": 0.28,
+    "disgust": 0.3,
+    "fear": 0.44,
+    "joy": 0.44,
+    "sadness": 0.43,
+    "surprise": 0.38
+  },
+  "threshold_selection": "Per-class F1 maximization on validation set, tau sweep [0.05,0.95] step 0.01",
+  "timing_seconds": {
+    "fit": 264.03,
+    "total": 271.46
+  },
+  "validation_metrics": {
+    "macro_f1": 0.5331,
+    "micro_f1": 0.5714,
+    "macro_precision": 0.5014,
+    "macro_recall": 0.6349,
+    "hamming_loss": 0.195705,
+    "jaccard": 0.5163,
+    "subset_accuracy": 0.3246,
+    "per_class": {
+      "anger": {
+        "f1": 0.5195,
+        "precision": 0.3779,
+        "recall": 0.831
+      },
+      "disgust": {
+        "f1": 0.3818,
+        "precision": 0.2958,
+        "recall": 0.5386
+      },
+      "fear": {
+        "f1": 0.5857,
+        "precision": 0.8092,
+        "recall": 0.459
+      },
+      "joy": {
+        "f1": 0.7698,
+        "precision": 0.7234,
+        "recall": 0.8227
+      },
+      "sadness": {
+        "f1": 0.512,
+        "precision": 0.4094,
+        "recall": 0.6834
+      },
+      "surprise": {
+        "f1": 0.43,
+        "precision": 0.3929,
+        "recall": 0.4747
+      }
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.515,
+    "micro_f1": 0.5675,
+    "macro_precision": 0.4813,
+    "macro_recall": 0.6217,
+    "hamming_loss": 0.1979,
+    "jaccard": 0.5149,
+    "subset_accuracy": 0.3252,
+    "per_class": {
+      "anger": {
+        "f1": 0.5278,
+        "precision": 0.3843,
+        "recall": 0.8422
+      },
+      "disgust": {
+        "f1": 0.3986,
+        "precision": 0.3036,
+        "recall": 0.5803
+      },
+      "fear": {
+        "f1": 0.5228,
+        "precision": 0.7365,
+        "recall": 0.4052
+      },
+      "joy": {
+        "f1": 0.7638,
+        "precision": 0.7223,
+        "recall": 0.8104
+      },
+      "sadness": {
+        "f1": 0.5075,
+        "precision": 0.4033,
+        "recall": 0.6841
+      },
+      "surprise": {
+        "f1": 0.3696,
+        "precision": 0.3377,
+        "recall": 0.408
+      }
+    }
+  },
+  "leakage_declaration": "Thresholds selected from validation probabilities only. Test evaluated exactly once."
+}

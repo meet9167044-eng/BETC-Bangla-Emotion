@@ -300,59 +300,99 @@ be the only place a piece of logic exists.
 - **Completion criteria:** Split saved and validated.
 - **Depends on:** Phase 5 conflict resolution.
 
-## Phase 6 — Preprocessing Implementation
+## Phase 6 — Preprocessing Implementation ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19
+>
+> **Measured results:**
+> - `bnunicodenormalizer==0.1.7` (Bangla-specific, word-level) — installed and used
+> - `configs/negations_bn.txt` and `configs/intensifiers_bn.txt` created (DRAFT — require human review)
+> - **47 / 47 unit tests passed** (`tests/test_preprocessing.py`)
+> - Applied to Train (28,840), Validation (6,170), Test (6,174) — total 41,184 rows
+> - Empty outputs: 1 train, 0 val, 0 test
+> - **All 11 validation checks: PASSED**
+>
+> **Scripts:** `scripts/data_pipeline/phase6_apply_preprocessing.py`
+> **Outputs:** `src/features/preprocessing.py`, `tests/test_preprocessing.py`,
+> `configs/negations_bn.txt` [DRAFT], `configs/intensifiers_bn.txt` [DRAFT],
+> `Data/processed/train/train_preprocessed.csv`,
+> `Data/processed/validation/validation_preprocessed.csv`,
+> `Data/processed/test/test_preprocessed.csv`,
+> `logs/dataset_audit/preprocessing_spotcheck.md`,
+> `logs/preprocessing/preprocessing_validation.json`,
+> `logs/preprocessing/phase6_preprocessing_report.md`
+>
+> **[RESEARCH DECISION REQUIRED]:** `configs/negations_bn.txt` and
+> `configs/intensifiers_bn.txt` are DRAFT files seeded from PIPELINE_SPEC.md
+> examples. Must be manually reviewed by project owner before Phase 7.
 
 - **Objective:** Implement and unit-test the preprocessing function from
   `PIPELINE_SPEC.md` Section 3.1.
-- **Inputs:** `data/processed/train/` (for manual inspection only, not
-  fitting); negation/intensifier word lists.
-- **Tasks:** Implement Unicode normalization, noise/URL/@mention
-  removal, negation/intensifier preservation as a single deterministic
-  function in `src/features/preprocessing.py`; manually inspect output
-  on 20–30 real sample sentences from the training split.
-- **Outputs:** `src/features/preprocessing.py`;
-  `tests/test_preprocessing.py`; a manual-inspection note in
-  `logs/dataset_audit/preprocessing_spotcheck.md`.
-- **Validation checks:** Negation/intensifier words are never stripped;
-  function is deterministic (same input → same output); unit tests pass.
-- **Completion criteria:** Tests pass; spot-check note confirms
-  preprocessing looks correct on real Bangla examples.
-- **Do NOT:** Apply this function differently to different splits. Do
-  NOT use a generic (non-Bangla-aware) Unicode normalizer.
-- **Depends on:** Phase 5.
+- **Steps implemented:** Null handling → URL removal → @mention removal →
+  HTML removal → Bangla Unicode normalization (bnunicodenormalizer, word-level) →
+  Repeated punctuation collapsing → Whitespace normalization.
+- **NOT applied:** Stemming, lemmatization, stopword removal, emoji removal,
+  TF-IDF, any model code.
+- **Depends on:** Phase 5b.
 
-## Phase 7 — TF-IDF Feature Extraction and Fusion
+## Phase 7 — TF-IDF Feature Extraction and Fusion ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19
+>
+> **Measured results:**
+> - Word TF-IDF vocab size: **10,000** (hit max_features cap — full coverage)
+> - Char TF-IDF vocab size: **15,000** (hit max_features cap — full coverage)
+> - Combined feature dim: **25,000** exactly
+> - X_train: (28,840 × 25,000) sparse — sparsity 99.52%
+> - X_val:   (6,170 × 25,000) sparse — sparsity 99.57%
+> - X_test:  (6,174 × 25,000) sparse — sparsity 99.57%
+> - **36 / 36 unit tests passed** (`tests/test_tfidf.py`)
+> - **All 10 validation checks: PASSED**
+>
+> **Leakage verified:** Vocab frozen after fit_transform(); transform() on
+> val/test did not alter vocab. Reload test: loaded vectorizer produces
+> identical matrices.
+>
+> **Scripts:** `scripts/data_pipeline/phase7_tfidf.py`
+> **Outputs:** `src/features/tfidf.py`, `tests/test_tfidf.py`,
+> `artifacts/vectorizers/word_tfidf.joblib`,
+> `artifacts/vectorizers/char_tfidf.joblib`,
+> `artifacts/features/X_{train,val,test}.npz`,
+> `artifacts/features/Y_{train,val,test}.npy`,
+> `logs/features/phase7_tfidf_validation.json`
 
 - **Objective:** Implement word TF-IDF, character TF-IDF, and fusion per
   `PIPELINE_SPEC.md` Sections 3.2–3.4.
-- **Inputs:** Preprocessed train/validation/test text.
-- **Tasks:** Fit both vectorizers on training text only; transform all
-  three splits; fuse with `scipy.sparse.hstack`; save fitted
-  vectorizers.
-- **Outputs:** `src/features/tfidf.py`; `artifacts/vectorizers/word_tfidf.joblib`,
-  `artifacts/vectorizers/char_tfidf.joblib`; feature matrices saved or
-  reproducibly regenerable.
-- **Validation checks:** Vectorizers are fit-once on train only (unit
-  test asserting `.fit()` is never called on val/test data); resulting
-  matrix shapes match `(n_samples, 25000)` at initial hyperparameters.
-- **Completion criteria:** Feature matrices produced for all three
-  splits; leakage unit test passes.
-- **Do NOT:** Fit on validation or test data, even "just to check."
+- **Hyperparameters used [INITIAL-HP]:**
+  Word `ngram_range=(1,2), max_features=10000, sublinear_tf=True`;
+  Char `analyzer='char_wb', ngram_range=(3,5), max_features=15000, sublinear_tf=True`.
+- **Fusion:** `scipy.sparse.hstack` → 25,000-dim CSR matrix.
+- **Leakage:** Vectorizers fit on train only; val/test use `.transform()`.
 - **Depends on:** Phase 6.
 
-## Phase 8 — Baselines
 
-- **Objective:** Implement and run B1–B5 from `EXPERIMENT_PLAN.md`
-  Section 1.
-- **Inputs:** Fused features from Phase 7; frozen split from Phase 5.
-- **Tasks:** Train each baseline model; evaluate per
-  `EVALUATION_PROTOCOL.md`; save configs and results.
-- **Outputs:** `results/baselines/{B1..B5}.json` (or similar), each
-  tagged `category: baseline`.
-- **Validation checks:** Each baseline uses the exact same split and
-  feature-fitting rules as BETC will.
-- **Completion criteria:** All five baseline results saved.
-- **Do NOT:** Tune baseline hyperparameters on the test set.
+## Phase 8 — Baselines ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19
+>
+> **Measured results (Test Macro-F1):**
+> - B1 (Word TF-IDF + LR): 0.4825
+> - B2 (Char TF-IDF + LR): 0.4914
+> - B3 (Combined + Indep. LR): 0.5120
+> - B4 (Combined + Linear SVM): 0.4823
+> - B5 (Combined + Random Forest): **0.5150**
+>
+> **Leakage verified:** All models trained on train.npz only. Per-class thresholds
+> optimized strictly on val.npz probabilities (tau sweep 0.05-0.95). Test evaluated
+> exactly once using frozen thresholds.
+>
+> **Scripts:** `scripts/experiments/phase8_baselines.py`, `scripts/experiments/phase8_b4_b5_rerun.py`
+> **Outputs:** `src/models/evaluate.py`, `results/baselines/b{1..5}.json`,
+> `configs/baselines/b{1..5}.json`, `results/baselines/baselines_summary.json`
+
+- **Objective:** Implement and run B1–B5 from `EXPERIMENT_PLAN.md` Section 1.
+- **Rules applied:** Strict leakage boundaries for threshold tuning; exact same
+  splits/features as BETC will use. B6/B7 remain external cited numbers.
 - **Depends on:** Phase 7.
 
 ## Phase 9 — BETC Training (M1)

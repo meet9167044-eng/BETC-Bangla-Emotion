@@ -1,0 +1,38 @@
+{
+  "experiment_id": "B4",
+  "category": "baseline",
+  "description": "Combined TF-IDF + Linear SVM (CalibratedClassifierCV, MultiOutputClassifier)",
+  "representation": "Word+Char TF-IDF combined (25,000 dims)",
+  "hyperparameters": {
+    "wrapper": "MultiOutputClassifier",
+    "estimator_type": "CalibratedClassifierCV",
+    "estimator_params": {
+      "cv": 3,
+      "ensemble": "auto",
+      "estimator__C": 1.0,
+      "estimator__class_weight": "balanced",
+      "estimator__dual": "auto",
+      "estimator__fit_intercept": true,
+      "estimator__intercept_scaling": 1,
+      "estimator__loss": "squared_hinge",
+      "estimator__max_iter": 2000,
+      "estimator__multi_class": "ovr",
+      "estimator__penalty": "l2",
+      "estimator__random_state": 42,
+      "estimator__tol": 0.0001,
+      "estimator__verbose": 0,
+      "estimator": "LinearSVC(class_weight='balanced', max_iter=2000, random_state=42)",
+      "method": "sigmoid",
+      "n_jobs": null
+    }
+  },
+  "thresholds": {
+    "anger": 0.26,
+    "disgust": 0.11,
+    "fear": 0.15,
+    "joy": 0.42,
+    "sadness": 0.24,
+    "surprise": 0.13
+  },
+  "run_timestamp": "2026-09-19 15:45:40"
+}

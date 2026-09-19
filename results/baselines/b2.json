@@ -1,0 +1,128 @@
+{
+  "experiment_id": "B2",
+  "category": "baseline",
+  "description": "Char-only TF-IDF + Logistic Regression (MultiOutputClassifier)",
+  "representation": "Char TF-IDF only (char_wb, ngram=(3,5), max_features=15000)",
+  "run_timestamp": "2026-09-19 15:38:44",
+  "split_identifier": "split_v1 (artifacts/splits/split_v1.json)",
+  "feature_source": "artifacts/features/ (Phase 7 output)",
+  "config_file": "configs/baselines/b2.json",
+  "hyperparameters": {
+    "estimator": "LogisticRegression",
+    "estimator_params": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "saga",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "wrapper": "MultiOutputClassifier"
+  },
+  "thresholds": {
+    "anger": 0.37,
+    "disgust": 0.73,
+    "fear": 0.76,
+    "joy": 0.54,
+    "sadness": 0.56,
+    "surprise": 0.95
+  },
+  "threshold_selection": "Per-class F1 maximization on validation set, tau sweep [0.05, 0.95] step 0.01 (PIPELINE_SPEC.md §3.7)",
+  "timing_seconds": {
+    "fit": 90.7,
+    "val_proba": 0.03,
+    "test_proba": 0.03,
+    "total": 93.25
+  },
+  "validation_metrics": {
+    "macro_f1": 0.5044,
+    "micro_f1": 0.5621,
+    "macro_precision": 0.4531,
+    "macro_recall": 0.6327,
+    "hamming_loss": 0.195705,
+    "jaccard": 0.5076,
+    "subset_accuracy": 0.3263,
+    "per_class": {
+      "anger": {
+        "f1": 0.5195,
+        "precision": 0.394,
+        "recall": 0.7624
+      },
+      "disgust": {
+        "f1": 0.4066,
+        "precision": 0.4076,
+        "recall": 0.4056
+      },
+      "fear": {
+        "f1": 0.4981,
+        "precision": 0.516,
+        "recall": 0.4813
+      },
+      "joy": {
+        "f1": 0.8047,
+        "precision": 0.781,
+        "recall": 0.8299
+      },
+      "sadness": {
+        "f1": 0.5195,
+        "precision": 0.4464,
+        "recall": 0.6212
+      },
+      "surprise": {
+        "f1": 0.2778,
+        "precision": 0.1735,
+        "recall": 0.696
+      }
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.4914,
+    "micro_f1": 0.5548,
+    "macro_precision": 0.4441,
+    "macro_recall": 0.6145,
+    "hamming_loss": 0.19898,
+    "jaccard": 0.504,
+    "subset_accuracy": 0.3291,
+    "per_class": {
+      "anger": {
+        "f1": 0.5305,
+        "precision": 0.4014,
+        "recall": 0.7819
+      },
+      "disgust": {
+        "f1": 0.3675,
+        "precision": 0.3712,
+        "recall": 0.3639
+      },
+      "fear": {
+        "f1": 0.4872,
+        "precision": 0.5167,
+        "recall": 0.461
+      },
+      "joy": {
+        "f1": 0.7992,
+        "precision": 0.7812,
+        "recall": 0.8181
+      },
+      "sadness": {
+        "f1": 0.5066,
+        "precision": 0.434,
+        "recall": 0.6085
+      },
+      "surprise": {
+        "f1": 0.2574,
+        "precision": 0.1602,
+        "recall": 0.6533
+      }
+    }
+  },
+  "leakage_declaration": "Thresholds selected from validation probabilities only. Test set evaluated exactly once, after all decisions frozen."
+}

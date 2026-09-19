@@ -1,0 +1,149 @@
+{
+  "run_timestamp": "2026-09-19 15:29:17",
+  "phase": "Phase 7 — TF-IDF Feature Extraction",
+  "inputs": {
+    "train_preprocessed": "Data/processed/train/train_preprocessed.csv",
+    "val_preprocessed": "Data/processed/validation/validation_preprocessed.csv",
+    "test_preprocessed": "Data/processed/test/test_preprocessed.csv"
+  },
+  "hyperparameters": {
+    "word_tfidf": {
+      "ngram_range": [
+        1,
+        2
+      ],
+      "max_features": 10000,
+      "analyzer": "word",
+      "sublinear_tf": true,
+      "strip_accents": null
+    },
+    "char_tfidf": {
+      "analyzer": "char_wb",
+      "ngram_range": [
+        3,
+        5
+      ],
+      "max_features": 15000,
+      "sublinear_tf": true,
+      "strip_accents": null
+    },
+    "fusion": "scipy.sparse.hstack"
+  },
+  "vocab_sizes": {
+    "word_tfidf": 10000,
+    "char_tfidf": 15000,
+    "combined_dim": 25000
+  },
+  "feature_shapes": {
+    "X_train": [
+      28840,
+      25000
+    ],
+    "X_val": [
+      6170,
+      25000
+    ],
+    "X_test": [
+      6174,
+      25000
+    ],
+    "Y_train": [
+      28840,
+      6
+    ],
+    "Y_val": [
+      6170,
+      6
+    ],
+    "Y_test": [
+      6174,
+      6
+    ]
+  },
+  "sparsity": {
+    "train": 0.995218,
+    "val": 0.995713,
+    "test": 0.995691
+  },
+  "artifacts": {
+    "word_vectorizer": "artifacts/vectorizers/word_tfidf.joblib",
+    "char_vectorizer": "artifacts/vectorizers/char_tfidf.joblib",
+    "X_train": "artifacts/features/X_train.npz",
+    "X_val": "artifacts/features/X_val.npz",
+    "X_test": "artifacts/features/X_test.npz",
+    "Y_train": "artifacts/features/Y_train.npy",
+    "Y_val": "artifacts/features/Y_val.npy",
+    "Y_test": "artifacts/features/Y_test.npy"
+  },
+  "validation_checks": {
+    "shape_train": {
+      "pass": true,
+      "shape": [
+        28840,
+        25000
+      ],
+      "expected_rows": 28840
+    },
+    "shape_val": {
+      "pass": true,
+      "shape": [
+        6170,
+        25000
+      ],
+      "expected_rows": 6170
+    },
+    "shape_test": {
+      "pass": true,
+      "shape": [
+        6174,
+        25000
+      ],
+      "expected_rows": 6174
+    },
+    "all_same_dim": {
+      "pass": true,
+      "train_dim": 25000,
+      "val_dim": 25000,
+      "test_dim": 25000
+    },
+    "dim_cap": {
+      "pass": true,
+      "combined_dim": 25000,
+      "word_vocab": 10000,
+      "char_vocab": 15000
+    },
+    "matrices_sparse": {
+      "pass": true
+    },
+    "vectorizers_fitted": {
+      "pass": true
+    },
+    "reload_transform_matches": {
+      "pass": true,
+      "sample_rows": 10
+    },
+    "label_matrix_rows": {
+      "pass": true,
+      "Y_train_shape": [
+        28840,
+        6
+      ],
+      "Y_val_shape": [
+        6170,
+        6
+      ],
+      "Y_test_shape": [
+        6174,
+        6
+      ]
+    },
+    "no_fitting_on_val_test": {
+      "pass": true,
+      "note": "Word vocab size unchanged after transform() calls"
+    }
+  },
+  "all_checks_passed": true,
+  "unit_test_results": "36/36 passed (python tests/test_tfidf.py)",
+  "leakage_safety": "Vectorizers fitted ONLY on training split. Validation and test transformed with .transform() only. Verified by vocab-freeze check and reload test.",
+  "note_no_model": "No LogisticRegression, ClassifierChain, or threshold optimization was executed."
+}

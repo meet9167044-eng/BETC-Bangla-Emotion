@@ -1,0 +1,35 @@
+{
+  "experiment_id": "B2",
+  "category": "baseline",
+  "description": "Char-only TF-IDF + Logistic Regression (MultiOutputClassifier)",
+  "representation": "Char TF-IDF only (char_wb, ngram=(3,5), max_features=15000)",
+  "hyperparameters": {
+    "estimator": "LogisticRegression",
+    "estimator_params": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "saga",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "wrapper": "MultiOutputClassifier"
+  },
+  "thresholds": {
+    "anger": 0.37,
+    "disgust": 0.73,
+    "fear": 0.76,
+    "joy": 0.54,
+    "sadness": 0.56,
+    "surprise": 0.95
+  },
+  "run_timestamp": "2026-09-19 15:38:44"
+}

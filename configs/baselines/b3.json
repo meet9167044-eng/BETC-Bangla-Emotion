@@ -1,0 +1,35 @@
+{
+  "experiment_id": "B3",
+  "category": "baseline",
+  "description": "Combined TF-IDF + MultiOutputClassifier (independent per-label LR, no chain)",
+  "representation": "Word+Char TF-IDF combined (25,000 dims)",
+  "hyperparameters": {
+    "estimator": "LogisticRegression",
+    "estimator_params": {
+      "C": 1.0,
+      "class_weight": "balanced",
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 0.0,
+      "max_iter": 1000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "saga",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "wrapper": "MultiOutputClassifier"
+  },
+  "thresholds": {
+    "anger": 0.3,
+    "disgust": 0.73,
+    "fear": 0.05,
+    "joy": 0.58,
+    "sadness": 0.5,
+    "surprise": 0.89
+  },
+  "run_timestamp": "2026-09-19 15:38:44"
+}

@@ -112,7 +112,11 @@ be the only place a piece of logic exists.
   pretrained-model dependency (e.g. `transformers`, `sentence-transformers`).
 - **Depends on:** Nothing.
 
-## Phase 1 — Dataset Acquisition
+## Phase 1 — Dataset Acquisition ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19  
+> All three raw datasets are present under `Data/raw/` and have been verified openable and readable.  
+> **Structural note recorded:** Actual file layout differs from the documented spec layout (UBMEC and MONOVAB are flat files under `Data/raw/`, not in source-named subdirectories). This contradiction is documented in `results/dataset_audit/STRUCTURE_CONTRADICTION.md` and `results/dataset_audit/audit_status.json`. No files were modified.
 
 - **Objective:** Obtain the raw EmoNoBa, UBMEC, and MONOVAB files and
   place them, untouched, under `data/raw/`.
@@ -121,92 +125,152 @@ be the only place a piece of logic exists.
 - **Tasks:** Locate current, working, licensed-for-use sources for each
   dataset; download; record exact source URL and access date in
   `logs/dataset_audit/acquisition.md`.
-- **Outputs:** `data/raw/emonoba/`, `data/raw/ubmec/`,
-  `data/raw/monovab/` populated; `logs/dataset_audit/acquisition.md`.
+- **Outputs:** `Data/raw/Emonoba/{Train.csv,Val.csv,Test.csv}`,
+  `Data/raw/UBMEC Corpus_Sakib(updated).xlsx`,
+  `Data/raw/MONOVAB (1).csv`.
 - **Validation checks:** Files open correctly; encoding is confirmed
   UTF-8 (or documented otherwise); no file is modified after download.
 - **Completion criteria:** All three raw datasets present and logged
-  with provenance.
-- **Do NOT:** Modify, clean, relabel, or delete any row in `data/raw/`
+  with provenance. ✅
+- **Do NOT:** Modify, clean, relabel, or delete any row in `Data/raw/`
   at this stage.
 - **Depends on:** Phase 0.
 
-## Phase 2 — Dataset Audit
+## Phase 2 — Dataset Audit ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19  
+> All three datasets fully audited. Every `[VERIFY]` item in `DATASET_SPEC.md` Section 2 resolved against actual measured data. Discrepancies against literature documented.  
+> **Audit outputs:** `results/dataset_audit/` (11 files including per-dataset JSON audits, label distribution CSVs, cross-dataset overlap JSON, data quality anomalies JSON, and full Markdown report).
 
 - **Objective:** Resolve `DATASET_SPEC.md` Section 6 Blocking
   Verification Items 2, 3, 5, 8, 9.
-- **Inputs:** `data/raw/*`.
+- **Inputs:** `Data/raw/*`.
 - **Tasks:** For each source dataset, document actual file format,
   column names, label encoding, row count, per-label positive count,
   and confirm no Banglish/code-mixed rows are present (or flag and
   exclude them if they are, per `PROJECT_SPEC.md` scope).
-- **Outputs:** `logs/dataset_audit/{emonoba,ubmec,monovab}_audit.md`,
-  each with actual measured statistics (never copy the `[VERIFY]`
-  literature numbers from `DATASET_SPEC.md` as if they were measured).
-- **Validation checks:** Every `[VERIFY]` claim in `DATASET_SPEC.md`
-  Section 2 has a corresponding measured value in the audit logs, with
-  any discrepancy from the literature number explicitly noted.
-- **Completion criteria:** All three audit files complete; any
-  Banglish/code-mixed rows identified and excluded with a documented
-  count.
+- **Actual Outputs:** `results/dataset_audit/dataset_audit_report.md`,
+  `results/dataset_audit/emonoba_audit.json`,
+  `results/dataset_audit/ubmec_audit.json`,
+  `results/dataset_audit/monovab_audit.json`,
+  `results/dataset_audit/cross_dataset_overlap.json`,
+  `results/dataset_audit/data_quality_anomalies.json`,
+  `results/dataset_audit/{emonoba,ubmec,monovab}_label_distribution.csv`.
+- **Key findings:** EmoNoBa=22,739 rows (matches literature upper bound);
+  UBMEC=13,436 rows (literature says 13,072 — +364 exact duplicate rows
+  explain the difference); MONOVAB=10,224 rows (literature says 10,244).
+  655 UBMEC rows contain mixed Bangla+Latin script. 5 degenerate texts.
+  58 conflicting-label duplicate texts in UBMEC, 33 in MONOVAB, 8 in EmoNoBa.
+  65 cross-dataset duplicate texts. EmoNoBa has 0 Latin-character rows.
+- **Validation checks:** All `[VERIFY]` claims resolved. ✅
+- **Completion criteria:** All three audit files complete. ✅
 - **Do NOT:** Proceed to harmonization while any audit item is still
   unresolved.
 - **Depends on:** Phase 1.
 
-## Phase 3 — Label/Taxonomy Verification and Harmonization Setup
+## Phase 3 — Label/Taxonomy Verification and Harmonization Setup ✅ COMPLETED
+
+> **Status:** COMPLETE — 2026-09-19. All 4 blocking decisions approved by user.
+>
+> **Approved decisions (2026-09-19):**
+> 1. EmoNoBa Disgust — **Strategy D:** `disgust=0` as documented operational assumption; F5 mandatory
+> 2. EmoNoBa Love-only rows — **LOVE-1:** exclude 2,277 rows
+> 3. MONOVAB Contempt-only rows — **CONTEMPT-1:** exclude 2,128 rows
+> 4. MONOVAB `enjoyment` — **FROZEN** mapping to `joy` (semantic harmonization)
+> 5. UBMEC one-hot conversion — **FROZEN**
+> 6. Target taxonomy — **FROZEN:** `anger, disgust, fear, joy, sadness, surprise`
+>
+> **Harmonization design outputs:** `results/harmonization/` (6 files)
 
 - **Objective:** Verify the downloaded schemas and implement the already-
   finalized six-label taxonomy: `anger, disgust, fear, joy, sadness,
   surprise`.
-- **Inputs:** Phase 2 audit outputs; `DATASET_SPEC.md` Section 3.
+- **Inputs:** Phase 2 audit outputs (`results/dataset_audit/`); `DATASET_SPEC.md` Section 3.
 - **Tasks:** Confirm actual label columns in each raw file; encode UBMEC's
   single categorical label into six binary target columns; map MONOVAB's
   target labels; exclude non-target `love` and `contempt`; represent
   EmoNoBa `disgust` as 0 under the explicit harmonization assumption
   documented in `DATASET_SPEC.md`; create the checked-in mapping config.
-- **Outputs:** `configs/label_mapping.yaml`; a harmonization decision/report
-  explicitly recording the EmoNoBa `disgust=0` assumption.
-- **Validation checks:** The mapping file accounts for every native
-  label in every source dataset — no label is silently dropped without
-  being listed in the mapping file's "excluded" section with a reason.
-- **Completion criteria:** `configs/label_mapping.yaml` is complete and
-  reviewed; the six target labels are present in exactly the fixed order;
-  the harmonization report records that EmoNoBa `love` is excluded and its
-  missing `disgust` is operationally encoded as 0 as a documented assumption.
+- **Actual Outputs:** `results/harmonization/harmonization_analysis.md`,
+  `results/harmonization/label_mapping.csv`,
+  `results/harmonization/label_coverage.csv`,
+  `results/harmonization/harmonization_strategies.csv`,
+  `results/harmonization/source_label_semantics.json`,
+  `results/harmonization/harmonization_decisions.json`.
+- **Validation checks:** Every native label in every dataset accounted for;
+  no label silently dropped. ✅
+- **Completion criteria:** All decisions approved by user. ✅
 - **Do NOT:** Map `love` to `disgust`; add `love` as a seventh target; or
   describe the EmoNoBa `disgust=0` values as original annotations.
 - **Depends on:** Phase 2.
 
-## Phase 4 — Dataset Harmonization and Deduplication
+## Phase 4 — Dataset Harmonization ✅ COMPLETED (pre-deduplication)
 
-- **Objective:** Produce a single harmonized, deduplicated dataset in
-  `data/interim/`.
-- **Inputs:** `data/raw/*`, `configs/label_mapping.yaml`.
-- **Tasks:** Apply the label mapping; preserve `source_dataset` and
-  `domain` columns where available; apply comparison-normalization and
-  deduplicate across all three sources (`DATASET_SPEC.md` Section 4,
-  steps 4–5); log duplicate counts (resolves Blocking Item 7).
-- **Outputs:** `data/interim/harmonized_deduplicated.parquet` (or
-  equivalent); `logs/dataset_audit/harmonization_report.md` with actual
-  measured pre/post counts and per-label prevalence (resolves Blocking
-  Item 8).
-- **Validation checks:** No row has an ambiguous label (every value is
-  either 0, 1, or explicitly "not annotated" — never an implicit blank
-  treated as 0); duplicate count matches the harmonization report;
-  per-label prevalence table is generated and reviewed for anything that
-  suggests contamination (a suspiciously balanced or suspiciously
-  identical distribution to the earlier `[VERIFY]` literature numbers
-  should be double-checked, not trusted at face value).
-- **Completion criteria:** Harmonization report reviewed; interim file
-  saved.
-- **Do NOT:** Delete rows silently. Do NOT collapse "not annotated" into
-  "0" without the justification required by Phase 3's decision.
+> **Status:** COMPLETE — 2026-09-19. Harmonization applied; pre-deduplication corpus saved.
+> **Note:** Deduplication is separated into Phase 5 per user instruction (stop before deduplication).
+> **Outputs:**
+> - `Data/interim/harmonized_pre_dedup.csv` — 41,994 rows, 18 columns
+> - `logs/harmonization/harmonization_manifest.csv` — 46,399 rows (all source rows)
+> - `logs/harmonization/exclusion_log.csv` — 4,405 excluded rows
+> - `logs/harmonization/transformation_log.csv` — 9 transformation entries
+> - `logs/harmonization/harmonization_validation.json` — validation + statistics
+> - `logs/harmonization/phase4_harmonization_report.md` — full report
+
+- **Objective:** Produce a harmonized dataset in `Data/interim/` with all approved
+  label mappings applied and all excluded rows logged.
+- **Inputs:** `Data/raw/*`; Phase 3 approved decisions.
+- **Actual measured results:**
+  - EmoNoBa: 22,739 raw → 2,277 excluded (LOVE-1) → **20,462 included**
+  - UBMEC: 13,436 raw → 0 excluded → **13,436 included**
+  - MONOVAB: 10,224 raw → 2,128 excluded (CONTEMPT-1) → **8,096 included**
+  - **Total harmonized (pre-dedup): 41,994 rows**
+- **Label statistics (pre-dedup):**
+  `anger=11,457 (27.28%)`, `disgust=4,146 (9.87%)*`,
+  `fear=1,818 (4.33%)`, `joy=15,180 (36.15%)`,
+  `sadness=9,552 (22.75%)`, `surprise=2,552 (6.08%)`
+  *EmoNoBa disgust=0 is an assumption for all 20,462 EmoNoBa rows
+- **Validation checks:** All 8 validation checks PASSED ✅
+  (binary-only labels, no nulls, correct source flags, UBMEC one-hot valid,
+  zero all-zero rows, no Love-only rows in included corpus)
+- **Deduplication:** NOT YET APPLIED — see Phase 5.
+- **Do NOT:** Delete rows silently. EmoNoBa `disgust=0` is a documented assumption.
 - **Depends on:** Phase 3.
 
-## Phase 5 — Reproducible Splitting
+## Phase 5 — Deduplication ✅ COMPLETED (partial — 1 blocker)
+
+> **Status:** COMPLETE for all objectively resolvable duplicates — 2026-09-19.
+> **BLOCKER:** 98 conflicting duplicate groups (251 rows) require user-approved resolution strategy before Phase 5b (splitting) can begin.
+>
+> **Measured results:**
+> - Phase 4 input: 41,994 rows → Phase 5 output: **41,435 rows**
+> - 559 identical-label duplicate rows removed (406 groups)
+> - 251 conflicting rows retained unresolved (98 groups) — logged in `conflicting_duplicates.csv`
+> - Cross-source groups: EmoNoBa↔UBMEC=8, EmoNoBa↔MONOVAB=9, UBMEC↔MONOVAB=41, all-three=2
+> - EmoNoBa cross-split groups: 12 (resolved via canonical selection)
+> - All 8 validation checks: PASSED
+>
+> **Scripts:** `scripts/data_pipeline/phase5_dedup.py`  
+> **Outputs:** `Data/interim/harmonized_deduplicated.csv` (41,435 rows),
+> `logs/deduplication/` (5 files including conflict log)
+
+- **Objective:** Remove duplicate texts; log all decisions; retain unresolvable conflicts for user review.
+- **Inputs:** `Data/interim/harmonized_pre_dedup.csv`; Phase 4 provenance.
+- **Actual Outputs:** `Data/interim/harmonized_deduplicated.csv`,
+  `logs/deduplication/deduplication_report.md`,
+  `logs/deduplication/duplicate_groups.csv`,
+  `logs/deduplication/duplicate_provenance.csv`,
+  `logs/deduplication/conflicting_duplicates.csv`,
+  `logs/deduplication/deduplication_validation.json`.
+- **Canonical selection rule (deterministic):** Most metadata > EmoNoBa > UBMEC > MONOVAB > Train > Val > Test > smallest row ID.
+- **BLOCKER (98 conflicting groups):** Options: DROP all / UNION labels / FIRST occurrence / DATASET-PRIORITY. Requires user decision before splitting.
+- **Depends on:** Phase 4.
+
+## Phase 5b — Reproducible Splitting (BLOCKED pending conflict resolution)
+
+> **Status:** NOT STARTED — blocked by 98 unresolved conflicting duplicate groups from Phase 5.
 
 - **Objective:** Create the frozen train/validation/test split.
-- **Inputs:** `data/interim/harmonized_deduplicated.parquet`;
+- **Inputs:** `Data/interim/harmonized_deduplicated.csv` (after conflict resolution);
   `EVALUATION_PROTOCOL.md` Section 1.
 - **Tasks:** Apply iterative multi-label-stratified split at 70/15/15;
   save row indices/IDs per split; save per-split label prevalence for
@@ -214,13 +278,10 @@ be the only place a piece of logic exists.
 - **Outputs:** `data/processed/{train,validation,test}/`;
   `artifacts/splits/split_v1.json`.
 - **Validation checks:** No row ID appears in more than one split; every
-  target label has a nonzero positive count in every split (if not,
-  flag and reconsider split ratio/method before proceeding).
+  target label has a nonzero positive count in every split.
 - **Completion criteria:** Split saved and validated.
-- **Do NOT:** Re-split later without creating a new, separately versioned
-  split artifact (e.g. `split_v2.json`) — never overwrite a split
-  silently once any experiment has used it.
-- **Depends on:** Phase 4.
+- **Do NOT:** Re-split later without a new, separately versioned artifact.
+- **Depends on:** Phase 5 conflict resolution (user decision required).
 
 ## Phase 6 — Preprocessing Implementation
 

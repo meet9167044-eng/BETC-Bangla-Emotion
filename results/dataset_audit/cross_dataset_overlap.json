@@ -1,0 +1,12 @@
+{
+  "unique_texts_emonoba": 22621,
+  "unique_texts_ubmec": 12993,
+  "unique_texts_monovab": 10096,
+  "overlap_emonoba_ubmec": 10,
+  "overlap_emonoba_monovab": 12,
+  "overlap_ubmec_monovab": 45,
+  "overlap_all_three": 2,
+  "union_unique_texts": 45645,
+  "total_unique_across_datasets_sum": 45710,
+  "cross_dataset_duplicate_texts": 65
+}

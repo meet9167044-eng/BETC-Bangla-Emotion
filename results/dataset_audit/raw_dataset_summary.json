@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-09-19",
+  "dataset_counts": {
+    "emonoba": {
+      "train_rows": 18420,
+      "val_rows": 2047,
+      "test_rows": 2272,
+      "total_rows": 22739,
+      "columns": 11,
+      "text_column": "Data",
+      "type": "multi-label"
+    },
+    "ubmec": {
+      "total_rows": 13436,
+      "columns": 2,
+      "text_column": "text",
+      "type": "single-label"
+    },
+    "monovab": {
+      "total_rows": 10224,
+      "columns": 9,
+      "text_column": "comment",
+      "type": "multi-label"
+    },
+    "grand_total_raw_rows": 46399
+  },
+  "cross_dataset_overlap": {
+    "unique_texts_emonoba": 22621,
+    "unique_texts_ubmec": 12993,
+    "unique_texts_monovab": 10096,
+    "overlap_emonoba_ubmec": 10,
+    "overlap_emonoba_monovab": 12,
+    "overlap_ubmec_monovab": 45,
+    "overlap_all_three": 2,
+    "union_unique_texts": 45645,
+    "total_unique_across_datasets_sum": 45710,
+    "cross_dataset_duplicate_texts": 65
+  }
+}

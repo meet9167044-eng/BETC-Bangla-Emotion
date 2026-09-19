@@ -1,0 +1,87 @@
+{
+  "dataset": "UBMEC",
+  "file_name": "UBMEC Corpus_Sakib(updated).xlsx",
+  "file_format": "Excel (.xlsx)",
+  "file_size_bytes": 1116902,
+  "sheet_name": "UBMEC",
+  "rows": 13436,
+  "columns": 2,
+  "column_names": [
+    "text",
+    "classes"
+  ],
+  "dtypes": {
+    "text": "object",
+    "classes": "object"
+  },
+  "text_column": "text",
+  "label_columns": [
+    "classes"
+  ],
+  "is_single_or_multi_label": "single-label",
+  "missing_values_per_column": {
+    "text": 0,
+    "classes": 0
+  },
+  "exact_duplicate_rows": 364,
+  "text_audit": {
+    "total_rows": 13436,
+    "null_count": 0,
+    "null_percentage": 0.0,
+    "empty_exact": 0,
+    "whitespace_only": 0,
+    "total_unusable_texts": 0,
+    "usable_texts_count": 13436,
+    "unique_raw_texts": 13007,
+    "unique_non_null_texts": 13007,
+    "unique_stripped_texts": 12993,
+    "unique_normalized_texts": 12984,
+    "duplicate_raw_texts": 429,
+    "duplicate_normalized_texts": 452,
+    "char_length_stats": {
+      "min": 1,
+      "max": 3648,
+      "mean": 109.73,
+      "median": 86.0,
+      "std": 130.15,
+      "q25": 47.0,
+      "q75": 140.0
+    },
+    "word_count_stats": {
+      "min": 1,
+      "max": 552,
+      "mean": 18.79,
+      "median": 15.0,
+      "std": 20.73,
+      "q25": 8.0,
+      "q75": 24.0
+    },
+    "language_and_content_breakdown": {
+      "pure_bangla_no_latin": 12780,
+      "mixed_bangla_and_latin": 655,
+      "latin_only_no_bangla": 0,
+      "no_letters_only_symbols_digits": 1,
+      "contains_bangla_any": 13435,
+      "contains_latin_any": 655,
+      "contains_url": 48,
+      "contains_mention": 19
+    }
+  },
+  "raw_label_distribution": {
+    "joy": 3467,
+    "sadness": 2683,
+    "anger": 2480,
+    "disgust": 2079,
+    "surprise": 1366,
+    "fear": 1361
+  },
+  "cleaned_label_distribution": {
+    "joy": 3467,
+    "sadness": 2683,
+    "anger": 2480,
+    "disgust": 2079,
+    "surprise": 1366,
+    "fear": 1361
+  },
+  "mean_labels_per_example": 1.0
+}

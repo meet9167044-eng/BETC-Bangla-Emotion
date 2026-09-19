@@ -1,0 +1,33 @@
+{
+  "audit_scope": "raw dataset audit of EmoNoBa, UBMEC, and MONOVAB",
+  "status": "blocked_before_content_inspection",
+  "phase_requested_by_user": "Phase 1 only",
+  "timestamp_local": "2026-09-19",
+  "blocking_rule": "DATASET_SPEC.md Section 6 and the user instruction require stopping when the actual dataset structure contradicts the documentation.",
+  "contradiction": {
+    "documented_structure": [
+      "data/raw/emonoba/",
+      "data/raw/ubmec/",
+      "data/raw/monovab/"
+    ],
+    "actual_structure": [
+      "data/raw/Emonoba/Test.csv",
+      "data/raw/Emonoba/Train.csv",
+      "data/raw/Emonoba/Val.csv",
+      "data/raw/UBMEC Corpus_Sakib(updated).xlsx",
+      "data/raw/MONOVAB (1).csv"
+    ],
+    "details": "Only EmoNoBa is in a source-named directory (with a case mismatch); UBMEC and MONOVAB are raw files directly under data/raw rather than their documented source directories."
+  },
+  "actions_not_performed": [
+    "dataset-content schema inspection",
+    "row counting",
+    "label inventory or distribution analysis",
+    "missing-value analysis",
+    "duplicate analysis",
+    "text or encoding analysis",
+    "label harmonization",
+    "data merging, preprocessing, deduplication, deletion, or model training"
+  ],
+  "decision_required": "Confirm whether the documented raw-data directory layout should be corrected or whether the repository layout is the intended authoritative layout. After that decision, the raw content audit can resume."
+}

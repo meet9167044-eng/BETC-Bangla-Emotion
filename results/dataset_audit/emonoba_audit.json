@@ -1,0 +1,595 @@
+{
+  "dataset": "EmoNoBa",
+  "total_rows": 22739,
+  "total_columns": 11,
+  "column_names": [
+    "ID",
+    "Data",
+    "Love",
+    "Joy",
+    "Surprise",
+    "Anger",
+    "Sadness",
+    "Fear",
+    "Topic",
+    "Domain",
+    "is_admin"
+  ],
+  "text_column": "Data",
+  "label_columns": [
+    "Love",
+    "Joy",
+    "Surprise",
+    "Anger",
+    "Sadness",
+    "Fear"
+  ],
+  "metadata_columns": [
+    "ID",
+    "Topic",
+    "Domain",
+    "is_admin"
+  ],
+  "missing_values_per_column": {
+    "ID": 0,
+    "Data": 0,
+    "Love": 0,
+    "Joy": 0,
+    "Surprise": 0,
+    "Anger": 0,
+    "Sadness": 0,
+    "Fear": 0,
+    "Topic": 0,
+    "Domain": 0,
+    "is_admin": 0
+  },
+  "exact_duplicate_rows": 41,
+  "text_audit": {
+    "total_rows": 22739,
+    "null_count": 0,
+    "null_percentage": 0.0,
+    "empty_exact": 0,
+    "whitespace_only": 0,
+    "total_unusable_texts": 0,
+    "usable_texts_count": 22739,
+    "unique_raw_texts": 22623,
+    "unique_non_null_texts": 22623,
+    "unique_stripped_texts": 22621,
+    "unique_normalized_texts": 22614,
+    "duplicate_raw_texts": 116,
+    "duplicate_normalized_texts": 125,
+    "char_length_stats": {
+      "min": 9,
+      "max": 1249,
+      "mean": 59.72,
+      "median": 43.0,
+      "std": 54.83,
+      "q25": 27.0,
+      "q75": 74.0
+    },
+    "word_count_stats": {
+      "min": 2,
+      "max": 204,
+      "mean": 10.55,
+      "median": 8.0,
+      "std": 9.52,
+      "q25": 5.0,
+      "q75": 13.0
+    },
+    "language_and_content_breakdown": {
+      "pure_bangla_no_latin": 22739,
+      "mixed_bangla_and_latin": 0,
+      "latin_only_no_bangla": 0,
+      "no_letters_only_symbols_digits": 0,
+      "contains_bangla_any": 22739,
+      "contains_latin_any": 0,
+      "contains_url": 0,
+      "contains_mention": 3
+    }
+  },
+  "label_distribution": {
+    "Love": {
+      "0": 18151,
+      "1": 4588
+    },
+    "Joy": {
+      "0": 12627,
+      "1": 10112
+    },
+    "Surprise": {
+      "0": 21653,
+      "1": 1086
+    },
+    "Anger": {
+      "0": 18261,
+      "1": 4478
+    },
+    "Sadness": {
+      "0": 17058,
+      "1": 5681
+    },
+    "Fear": {
+      "0": 22338,
+      "1": 401
+    }
+  },
+  "active_labels_per_example_distribution": {
+    "1": 19214,
+    "2": 3445,
+    "3": 78,
+    "4": 2
+  },
+  "mean_labels_per_example": 1.1586,
+  "is_single_or_multi_label": "multi-label",
+  "domains": {
+    "Youtube": 17565,
+    "Facebook": 4753,
+    "Twitter": 421
+  },
+  "topics": {
+    "Personal": 6029,
+    "Politics": 3712,
+    "Entertainment": 3388,
+    "Sports": 2860,
+    "Music": 2510,
+    "Education": 2250,
+    "Business": 644,
+    "Food": 481,
+    "Travel": 444,
+    "Game": 253,
+    "Fashion": 109,
+    "Health": 59
+  },
+  "is_admin": {
+    "false": 21516,
+    "true": 1223
+  },
+  "splits": {
+    "Train.csv": {
+      "file_name": "Train.csv",
+      "file_size_bytes": 3649059,
+      "encoding_test": {
+        "utf-8": true,
+        "utf-8-sig": true,
+        "latin-1": true,
+        "cp1252": false
+      },
+      "rows": 18420,
+      "columns": 11,
+      "column_names": [
+        "ID",
+        "Data",
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "dtypes": {
+        "ID": "int64",
+        "Data": "object",
+        "Love": "int64",
+        "Joy": "int64",
+        "Surprise": "int64",
+        "Anger": "int64",
+        "Sadness": "int64",
+        "Fear": "int64",
+        "Topic": "object",
+        "Domain": "object",
+        "is_admin": "bool"
+      },
+      "text_column": "Data",
+      "label_columns": [
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear"
+      ],
+      "metadata_columns": [
+        "ID",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "missing_values_per_column": {
+        "ID": 0,
+        "Data": 0,
+        "Love": 0,
+        "Joy": 0,
+        "Surprise": 0,
+        "Anger": 0,
+        "Sadness": 0,
+        "Fear": 0,
+        "Topic": 0,
+        "Domain": 0,
+        "is_admin": 0
+      },
+      "exact_duplicate_rows": 0,
+      "text_audit": {
+        "total_rows": 18420,
+        "null_count": 0,
+        "null_percentage": 0.0,
+        "empty_exact": 0,
+        "whitespace_only": 0,
+        "total_unusable_texts": 0,
+        "usable_texts_count": 18420,
+        "unique_raw_texts": 18362,
+        "unique_non_null_texts": 18362,
+        "unique_stripped_texts": 18360,
+        "unique_normalized_texts": 18354,
+        "duplicate_raw_texts": 58,
+        "duplicate_normalized_texts": 66,
+        "char_length_stats": {
+          "min": 9,
+          "max": 1249,
+          "mean": 59.46,
+          "median": 43.0,
+          "std": 55.02,
+          "q25": 27.0,
+          "q75": 73.0
+        },
+        "word_count_stats": {
+          "min": 2,
+          "max": 204,
+          "mean": 10.5,
+          "median": 8.0,
+          "std": 9.54,
+          "q25": 5.0,
+          "q75": 13.0
+        },
+        "language_and_content_breakdown": {
+          "pure_bangla_no_latin": 18420,
+          "mixed_bangla_and_latin": 0,
+          "latin_only_no_bangla": 0,
+          "no_letters_only_symbols_digits": 0,
+          "contains_bangla_any": 18420,
+          "contains_latin_any": 0,
+          "contains_url": 0,
+          "contains_mention": 2
+        }
+      },
+      "label_distribution": {
+        "Love": {
+          "0": 14634,
+          "1": 3786
+        },
+        "Joy": {
+          "0": 10106,
+          "1": 8314
+        },
+        "Surprise": {
+          "0": 17572,
+          "1": 848
+        },
+        "Anger": {
+          "0": 14878,
+          "1": 3542
+        },
+        "Sadness": {
+          "0": 13851,
+          "1": 4569
+        },
+        "Fear": {
+          "0": 18141,
+          "1": 279
+        }
+      },
+      "active_labels_per_example_distribution": {
+        "1": 15566,
+        "2": 2791,
+        "3": 62,
+        "4": 1
+      },
+      "mean_labels_per_example": 1.1584,
+      "is_single_or_multi_label": "multi-label",
+      "metadata_unique_counts": {
+        "Topic": 12,
+        "Domain": 3,
+        "is_admin": 2
+      }
+    },
+    "Val.csv": {
+      "file_name": "Val.csv",
+      "file_size_bytes": 418988,
+      "encoding_test": {
+        "utf-8": true,
+        "utf-8-sig": true,
+        "latin-1": true,
+        "cp1252": false
+      },
+      "rows": 2047,
+      "columns": 11,
+      "column_names": [
+        "ID",
+        "Data",
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "dtypes": {
+        "ID": "int64",
+        "Data": "object",
+        "Love": "int64",
+        "Joy": "int64",
+        "Surprise": "int64",
+        "Anger": "int64",
+        "Sadness": "int64",
+        "Fear": "int64",
+        "Topic": "object",
+        "Domain": "object",
+        "is_admin": "bool"
+      },
+      "text_column": "Data",
+      "label_columns": [
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear"
+      ],
+      "metadata_columns": [
+        "ID",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "missing_values_per_column": {
+        "ID": 0,
+        "Data": 0,
+        "Love": 0,
+        "Joy": 0,
+        "Surprise": 0,
+        "Anger": 0,
+        "Sadness": 0,
+        "Fear": 0,
+        "Topic": 0,
+        "Domain": 0,
+        "is_admin": 0
+      },
+      "exact_duplicate_rows": 0,
+      "text_audit": {
+        "total_rows": 2047,
+        "null_count": 0,
+        "null_percentage": 0.0,
+        "empty_exact": 0,
+        "whitespace_only": 0,
+        "total_unusable_texts": 0,
+        "usable_texts_count": 2047,
+        "unique_raw_texts": 2046,
+        "unique_non_null_texts": 2046,
+        "unique_stripped_texts": 2046,
+        "unique_normalized_texts": 2045,
+        "duplicate_raw_texts": 1,
+        "duplicate_normalized_texts": 2,
+        "char_length_stats": {
+          "min": 10,
+          "max": 613,
+          "mean": 61.93,
+          "median": 44.0,
+          "std": 56.29,
+          "q25": 27.0,
+          "q75": 78.5
+        },
+        "word_count_stats": {
+          "min": 2,
+          "max": 110,
+          "mean": 10.93,
+          "median": 8.0,
+          "std": 10.0,
+          "q25": 5.0,
+          "q75": 14.0
+        },
+        "language_and_content_breakdown": {
+          "pure_bangla_no_latin": 2047,
+          "mixed_bangla_and_latin": 0,
+          "latin_only_no_bangla": 0,
+          "no_letters_only_symbols_digits": 0,
+          "contains_bangla_any": 2047,
+          "contains_latin_any": 0,
+          "contains_url": 0,
+          "contains_mention": 1
+        }
+      },
+      "label_distribution": {
+        "Love": {
+          "0": 1633,
+          "1": 414
+        },
+        "Joy": {
+          "0": 1105,
+          "1": 942
+        },
+        "Surprise": {
+          "0": 1956,
+          "1": 91
+        },
+        "Anger": {
+          "0": 1659,
+          "1": 388
+        },
+        "Sadness": {
+          "0": 1542,
+          "1": 505
+        },
+        "Fear": {
+          "0": 2015,
+          "1": 32
+        }
+      },
+      "active_labels_per_example_distribution": {
+        "1": 1730,
+        "2": 309,
+        "3": 8
+      },
+      "mean_labels_per_example": 1.1588,
+      "is_single_or_multi_label": "multi-label",
+      "metadata_unique_counts": {
+        "Topic": 12,
+        "Domain": 3,
+        "is_admin": 2
+      }
+    },
+    "Test.csv": {
+      "file_name": "Test.csv",
+      "file_size_bytes": 450627,
+      "encoding_test": {
+        "utf-8": true,
+        "utf-8-sig": true,
+        "latin-1": true,
+        "cp1252": false
+      },
+      "rows": 2272,
+      "columns": 11,
+      "column_names": [
+        "ID",
+        "Data",
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "dtypes": {
+        "ID": "int64",
+        "Data": "object",
+        "Love": "int64",
+        "Joy": "int64",
+        "Surprise": "int64",
+        "Anger": "int64",
+        "Sadness": "int64",
+        "Fear": "int64",
+        "Topic": "object",
+        "Domain": "object",
+        "is_admin": "bool"
+      },
+      "text_column": "Data",
+      "label_columns": [
+        "Love",
+        "Joy",
+        "Surprise",
+        "Anger",
+        "Sadness",
+        "Fear"
+      ],
+      "metadata_columns": [
+        "ID",
+        "Topic",
+        "Domain",
+        "is_admin"
+      ],
+      "missing_values_per_column": {
+        "ID": 0,
+        "Data": 0,
+        "Love": 0,
+        "Joy": 0,
+        "Surprise": 0,
+        "Anger": 0,
+        "Sadness": 0,
+        "Fear": 0,
+        "Topic": 0,
+        "Domain": 0,
+        "is_admin": 0
+      },
+      "exact_duplicate_rows": 41,
+      "text_audit": {
+        "total_rows": 2272,
+        "null_count": 0,
+        "null_percentage": 0.0,
+        "empty_exact": 0,
+        "whitespace_only": 0,
+        "total_unusable_texts": 0,
+        "usable_texts_count": 2272,
+        "unique_raw_texts": 2229,
+        "unique_non_null_texts": 2229,
+        "unique_stripped_texts": 2229,
+        "unique_normalized_texts": 2229,
+        "duplicate_raw_texts": 43,
+        "duplicate_normalized_texts": 43,
+        "char_length_stats": {
+          "min": 9,
+          "max": 919,
+          "mean": 59.85,
+          "median": 44.0,
+          "std": 51.87,
+          "q25": 28.0,
+          "q75": 77.0
+        },
+        "word_count_stats": {
+          "min": 3,
+          "max": 149,
+          "mean": 10.59,
+          "median": 8.0,
+          "std": 8.88,
+          "q25": 5.0,
+          "q75": 13.0
+        },
+        "language_and_content_breakdown": {
+          "pure_bangla_no_latin": 2272,
+          "mixed_bangla_and_latin": 0,
+          "latin_only_no_bangla": 0,
+          "no_letters_only_symbols_digits": 0,
+          "contains_bangla_any": 2272,
+          "contains_latin_any": 0,
+          "contains_url": 0,
+          "contains_mention": 0
+        }
+      },
+      "label_distribution": {
+        "Love": {
+          "0": 1884,
+          "1": 388
+        },
+        "Joy": {
+          "0": 1416,
+          "1": 856
+        },
+        "Surprise": {
+          "0": 2125,
+          "1": 147
+        },
+        "Anger": {
+          "0": 1724,
+          "1": 548
+        },
+        "Sadness": {
+          "0": 1665,
+          "1": 607
+        },
+        "Fear": {
+          "0": 2182,
+          "1": 90
+        }
+      },
+      "active_labels_per_example_distribution": {
+        "1": 1918,
+        "2": 345,
+        "3": 8,
+        "4": 1
+      },
+      "mean_labels_per_example": 1.1602,
+      "is_single_or_multi_label": "multi-label",
+      "metadata_unique_counts": {
+        "Topic": 12,
+        "Domain": 3,
+        "is_admin": 2
+      }
+    }
+  }
+}

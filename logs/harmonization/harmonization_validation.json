@@ -1,0 +1,195 @@
+{
+  "run_timestamp": "2026-09-19 12:15:59",
+  "approved_decisions": {
+    "emonoba_disgust": "STRATEGY-D: disgust=0 operational assumption; F5 mandatory",
+    "emonoba_love_only": "LOVE-1: 2277 rows excluded",
+    "monovab_contempt_only": "CONTEMPT-1: 2128 rows excluded",
+    "monovab_enjoyment_joy": "FROZEN: enjoyment->joy semantic harmonization",
+    "ubmec_conversion": "FROZEN: single-label->one-hot six-binary",
+    "target_taxonomy": [
+      "anger",
+      "disgust",
+      "fear",
+      "joy",
+      "sadness",
+      "surprise"
+    ]
+  },
+  "row_counts": {
+    "emonoba_raw": 22739,
+    "emonoba_excluded_love_only": 2277,
+    "emonoba_included": 20462,
+    "ubmec_raw": 13436,
+    "ubmec_excluded_unexpected_class": 0,
+    "ubmec_included": 13436,
+    "monovab_raw": 10224,
+    "monovab_excluded_contempt_only": 2128,
+    "monovab_included": 8096,
+    "total_raw": 46399,
+    "total_excluded": 4405,
+    "total_harmonized_pre_dedup": 41994
+  },
+  "exclusion_reasons_summary": {
+    "LOVE-1 (EmoNoBa Love-only)": 2277,
+    "CONTEMPT-1 (MONOVAB Contempt-only)": 2128,
+    "UBMEC-UNEXPECTED-CLASS": 0
+  },
+  "validation_checks": {
+    "target_col_anger_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "target_col_disgust_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "target_col_fear_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "target_col_joy_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "target_col_sadness_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "target_col_surprise_binary_only": {
+      "pass": true,
+      "unique_values": [
+        0,
+        1
+      ]
+    },
+    "no_null_text": {
+      "pass": true,
+      "null_count": 0
+    },
+    "source_dataset_valid": {
+      "pass": true,
+      "found": [
+        "EmoNoBa",
+        "UBMEC",
+        "MONOVAB"
+      ]
+    },
+    "emonoba_disgust_assumption_flag": {
+      "pass": true,
+      "count_true": 20462,
+      "total_emonoba": 20462
+    },
+    "non_emonoba_disgust_assumption_false": {
+      "pass": true,
+      "false_positives": 0
+    },
+    "all_zero_rows": {
+      "count": 0,
+      "pct": 0.0
+    },
+    "ubmec_one_hot_valid": {
+      "pass": true,
+      "rows_not_exactly_one": 0
+    },
+    "row_counts_by_source": {
+      "EmoNoBa": 20462,
+      "UBMEC": 13436,
+      "MONOVAB": 8096
+    },
+    "no_love_only_in_included": {
+      "pass": true,
+      "count": 0
+    }
+  },
+  "label_statistics": {
+    "anger": {
+      "total_positive": 11457,
+      "total_rows": 41994,
+      "prevalence_pct": 27.28,
+      "positive_by_source": {
+        "EmoNoBa": 4478,
+        "UBMEC": 2480,
+        "MONOVAB": 4499
+      }
+    },
+    "disgust": {
+      "total_positive": 4146,
+      "total_rows": 41994,
+      "prevalence_pct": 9.87,
+      "positive_by_source": {
+        "EmoNoBa": 0,
+        "UBMEC": 2079,
+        "MONOVAB": 2067
+      },
+      "note": "EmoNoBa disgust positive = 0 (expected 0 under Strategy D). True annotated Disgust positives UBMEC+MONOVAB = 4146. All EmoNoBa rows have disgust=0 by assumption (f5_eligible=True)."
+    },
+    "fear": {
+      "total_positive": 1818,
+      "total_rows": 41994,
+      "prevalence_pct": 4.33,
+      "positive_by_source": {
+        "EmoNoBa": 401,
+        "UBMEC": 1361,
+        "MONOVAB": 56
+      }
+    },
+    "joy": {
+      "total_positive": 15180,
+      "total_rows": 41994,
+      "prevalence_pct": 36.15,
+      "positive_by_source": {
+        "EmoNoBa": 10112,
+        "UBMEC": 3467,
+        "MONOVAB": 1601
+      }
+    },
+    "sadness": {
+      "total_positive": 9552,
+      "total_rows": 41994,
+      "prevalence_pct": 22.75,
+      "positive_by_source": {
+        "EmoNoBa": 5681,
+        "UBMEC": 2683,
+        "MONOVAB": 1188
+      }
+    },
+    "surprise": {
+      "total_positive": 2552,
+      "total_rows": 41994,
+      "prevalence_pct": 6.08,
+      "positive_by_source": {
+        "EmoNoBa": 1086,
+        "UBMEC": 1366,
+        "MONOVAB": 100
+      }
+    }
+  },
+  "cardinality_distribution": {
+    "1": 39401,
+    "2": 2479,
+    "3": 110,
+    "4": 4
+  },
+  "mean_labels_per_example": 1.0646,
+  "enjoyment_to_joy_mapped_rows": 1601,
+  "f5_eligible_rows": 20462,
+  "emonoba_disgust_assumption_rows": 20462,
+  "note_deduplication": "NOT YET APPLIED. This is the pre-deduplication harmonized corpus. Deduplication is Phase 5.",
+  "note_f5": "EmoNoBa rows flagged f5_eligible=True and emonoba_disgust_assumption=True. These rows must be identifiable and excludable for Experiment F5 sensitivity analysis on Disgust performance.",
+  "note_reproducibility": "Raw data in Data/raw/ is unchanged. To reproduce this corpus: re-run phase4_harmonize.py with the same approved decisions. The harmonization_manifest.csv records every row decision."
+}

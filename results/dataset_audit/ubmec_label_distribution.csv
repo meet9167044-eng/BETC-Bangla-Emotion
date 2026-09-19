@@ -1,0 +1,7 @@
+class_label,count,total_rows,prevalence_percent
+joy,3467,13436,25.8
+sadness,2683,13436,19.97
+anger,2480,13436,18.46
+disgust,2079,13436,15.47
+surprise,1366,13436,10.17
+fear,1361,13436,10.13

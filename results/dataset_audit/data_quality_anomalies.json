@@ -1,0 +1,823 @@
+{
+  "ubmec": {
+    "total_rows": 13436,
+    "no_alpha_count": 1,
+    "no_alpha_examples": [
+      {
+        "row_index": 12039,
+        "text": "1",
+        "class": "sadness"
+      }
+    ],
+    "mixed_latin_bangla_count": 655,
+    "sample_mixed_latin": [
+      "দুই দিন থেকে দেখতে দেখতে এখন রাত্রি 2:18 তে কাঁদতে কাঁদতে শেষ করলাম😭😭 18/08/2021 ❤️Love you বাকের ভাই। আপনার বেশির ভাগ নাটকেই কেন কাঁদতে হয় স্যার (লেখা- হুমায়ুন আহমেদ স্যার)।",
+      "রাত৮.০০ থেকে শুরু করে সকাল ৬.৫৫ am পর্যন্ত  নাটকটি দেখে শেষ করলাম। আমি অভিভূত।\nপ্রতিটি সেকেন্ড এমন যাদুকরী মনে হয়েছে যে, সম্পূর্ণ নাটক না টেনেই দেখেছি।\nঅনবদ্য অভিনয় করেছেন আবুল হায়াত, আব্দুল কাদের ও আসাদুজ্জামান নূর।\nশমী কায়সারের অভিনয়ও চমৎকার হয়েছে। \nতবে বাকের ভাই খ্যাত \"কোথাও কেউ নেই\" নাটকের সূবর্না মুস্তফার অভিনয়ে আমি তার প্রেমে পড়েছি।",
+      "সেটা আগেই করা উচিৎ না ।আগে আমরা Imran H Sarker এর মন্তব্য শুনতে চাই ... ও হ্যাঁ , কোথায় যেন শুনেছিলাম মৌনতা সম্মতির লক্ষণ.........",
+      "Dormant Milon আপনি খুব বেশি ব্যস্ত ছিলেন হয়ত তখন!!! জখন ব্যাংকের টাকা হ্যাকিং নিয়ে আন্দলন চলছিল, এবং এখন ও চলছে।।।।",
+      "ওনার এক টা সাখতকার দেখেন s t v তে মনে হয় দেখলাম। তারপর আপনি দেখি কি বলেন ওনার সম্পর্ক কে। প্লিজ দেখবেন।"
+    ],
+    "duplicate_exact_rows": 364,
+    "duplicate_texts_count": 429,
+    "conflicting_label_texts_count": 58,
+    "sample_conflicting_labels": [
+      {
+        "text": "   বা আশির দশকে যারা আমরা জন্মেছি যা খেয়েছি যা দেখেছি যা শুনেছি যা অনুদাবন করেছি  যে আবেগ ভালোবাসা আমরা পেয়েছি  ইতিহাসে তা কখনো আর কেউ পাবে না",
+        "classes": [
+          "joy",
+          "sadness"
+        ],
+        "indices": [
+          1614,
+          1615
+        ]
+      },
+      {
+        "text": " বছর পর প্রতিবেদন অনুযায়ী সালমান শাহ আত্মহত্যা করেছে   বছর পর সাংবাদিক সাগর রুনির প্রতিবেদন হবে  একে অপরকে হত্যা করে তারা আত্মহত্যা করেছে ",
+        "classes": [
+          "fear",
+          "sadness"
+        ],
+        "indices": [
+          1597,
+          1598
+        ]
+      },
+      {
+        "text": " সালের মার্চ থেকে সংঘাতে জর্জর হয়ে আছে ইয়েমেন  ওই সময় হুতি বিদ্রোহীরা দেশটির পশ্চিমাঞ্চলের নিয়ন্ত্রণ নিয়ে নেয় এবং প্রেসিডেন্ট হাদিকে বিদেশে পালিয়ে যেতে বাধ্য করে  বিশ্লেষকদের মতে  ইয়েমেনে গৃহযুদ্ধের আড়ালে সৌদি আরবসহ সুন্নি দেশগুলোর সঙ্গে ছায়াযুদ্ধ চলছে শিয়া মতাবলম্বী ইরানের",
+        "classes": [
+          "fear",
+          "sadness"
+        ],
+        "indices": [
+          1578,
+          1579
+        ]
+      },
+      {
+        "text": "Yousuf Kazi পৃথিবীতে এখনও আপনার মত কিছু মানুষ আছে বলে,পৃথিবীটা এখনও এত সুন্দর।ধর্মের থেকে মানুষ বড়,সত্যি, আপনাকে ধন্যবাদ দিয়ে আর ছোট করব না।",
+        "classes": [
+          "joy",
+          "fear"
+        ],
+        "indices": [
+          8385,
+          9239
+        ]
+      },
+      {
+        "text": "অপরাধ কারী এবং অপরাধী কে প্রশ্রয় দানকারী দুজনেই সমান অপরাধী ? এদেকে কি বলে মোনাফেক, কাফের, জারজ, নাস্তিক, আস্তিক, মালউন, আরো কত কি কি বলে???????",
+        "classes": [
+          "anger",
+          "sadness",
+          "disgust",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness",
+          "sadness"
+        ],
+        "indices": [
+          8260,
+          8299,
+          8363,
+          8563,
+          8564,
+          8565,
+          8566,
+          8567,
+          8568,
+          8569,
+          8570,
+          8571,
+          8572,
+          8573
+        ]
+      },
+      {
+        "text": "অসাধারণ",
+        "classes": [
+          "joy",
+          "surprise",
+          "surprise",
+          "joy"
+        ],
+        "indices": [
+          10401,
+          11505,
+          11519,
+          12624
+        ]
+      },
+      {
+        "text": "আজ আমার বোন,কাল আপনার বোন, পরে আপনার মেয়ে,তার আরেকজন এর পালা, এই ভাবে চলতে থাকলে, আমাদের বোনেরা,নেয়েরা লেখা করতে পারবেনা,নিরাপদে,রাস্তায় চলা ফিরা করতে পারবেনা, আসুন সবাই মিলে প্রতিবাদ করি।এর দায়িত্ব শুধু কুমিল্লাহ র ছাত্র- ছাত্রী ভাই,বোন দের না। আমার, আপনার, সকলের। আমি মনে করি বাংলাদেশের সকল শিক্ষা প্রতিষ্ঠানের ছাত্র,ছাত্রী,শিক্ষক,কর্মচারী,অভিবাবক,সচেতন নাগ রিক মাত্রই প্রতিবাদ করা উচিত।",
+        "classes": [
+          "fear",
+          "anger",
+          "anger"
+        ],
+        "indices": [
+          11112,
+          11162,
+          11167
+        ]
+      },
+      {
+        "text": "আমরা কি স্ট্যাটাসের বাকি লাইনগুলো অস্বীকার করবো ? কোনটির আগে বিচার হওয়া উচিত ?? অপহরণ চেষ্টা নাকি খুনের ??? এইযে ইমাম- মুয়াজ্জিন , লেখক - প্রকাশক, ধর্ষণ- গুম, সন্ত্রাস- চাঁদাবাজি, ৮০০ কোটি টাকা লুট কোনটি ????",
+        "classes": [
+          "anger",
+          "surprise",
+          "sadness"
+        ],
+        "indices": [
+          7333,
+          7456,
+          7473
+        ]
+      },
+      {
+        "text": "আমরা যারা ছাএ আছি আমাদের ত NID CARD নাই তাহলে আমরা কি সিম ব্যবহার করতে পারব না",
+        "classes": [
+          "surprise",
+          "sadness",
+          "sadness"
+        ],
+        "indices": [
+          11593,
+          11628,
+          11648
+        ]
+      },
+      {
+        "text": "আমি একমাত্র সরকারি কোন কাজে আঙ্গুলের চাপ দিতে রাজি আছি, শিক্ষিত ব্যক্তি আঙ্গুলের চাপ দেয় না।আমি স্বাক্ষর করতে জানি, বায়োমেট্রিক পদ্ধতি দিয়ে দেশের মানুষদের বিপদের দিকে এগিয়ে নিয়ে যাচ্ছে।",
+        "classes": [
+          "surprise",
+          "fear"
+        ],
+        "indices": [
+          11606,
+          11651
+        ]
+      }
+    ]
+  },
+  "monovab": {
+    "total_rows": 10224,
+    "no_alpha_count": 4,
+    "no_alpha_examples": [
+      {
+        "row_index": 5477,
+        "comment": "????!!!!!"
+      },
+      {
+        "row_index": 8180,
+        "comment": "!!!!"
+      },
+      {
+        "row_index": 8988,
+        "comment": "!!"
+      },
+      {
+        "row_index": 9656,
+        "comment": ",,,,"
+      }
+    ],
+    "mixed_latin_bangla_count": 21,
+    "sample_mixed_latin": [
+      "ভাই ভিসির পুটকিবায় বিচি ডুকানো হউক_x000D_\nতারে সব ছাত্র ছাত্রী রা মিলিয়ে ডিম থেরাপি দিয়ে সিলেট থেকে বিতারিত করা হউক_x000D_\nএতে আমাদের ছাত্র সমাজ এক হতে হবে",
+      "ততকালীন ইংরেজ শাসকদের থেকেও খারাপ এই মানুষগুলো। এরা নিজেদের শিক্ষক বলেও দাবী করে। এরা শিক্ষক কম, রাজনৈতিক। জনৈক লোক যুব লী* পেলে প্রমাণ দিতেন।_x000D_\nজাতীয় কবি বেচে থাকলে এদেরকে উৎসর্গ করতেন;_x000D_\n\"এ দেশ ছাড়বি কিনা বল_x000D_\nনইলে কিলের চোটে হাড় করিব জল।_x000D_\nমোরা মারের চোটে ভূত ভাগাব_x000D_\nমন্ত্র দিয়ে নয়_x000D_\nমোরা জীবন ভর মার খেয়েছি_x000D_\nআর প্রাণে না সয়।\"",
+      "ফরিদ উদ্দিন পদত্যাগ করছেন না বলে কী অন্য ৩৪ ভিসি জন পদত্যাগ করতে চাচ্ছেন ?_x000D_\nতাহলে তো খুব ভালোই হয়।",
+      "ছাত্ররা কবে বলবে আমরা কেউ আর পড়বো না,_x000D_\nস্কুল কলেজে যাবো না,নিরাপদ সড়ক আন্দোলনে সবাইকে এক হতে দেখেছি।",
+      "সবগুলা করলেই কি??_x000D_\nএখন সব বিশ্ববিদ্যালয়ের শিক্ষার্থীদদেরও শাহজালাল এর শিক্ষার্থীদের ন্যা্য দাবির সাথে একাত্মতা প্রকাশ করা উচিত।_x000D_\nভিসিদের ভন্ডামি রুখে দিতে হবে।"
+    ],
+    "duplicate_exact_rows_including_id": 0,
+    "duplicate_exact_rows_excluding_id": 92,
+    "duplicate_texts_count": 128,
+    "conflicting_label_texts_count": 33,
+    "sample_conflicting_labels": [
+      {
+        "text": "আমার অন্তরের অন্তথল থেকে ছাত্রদের জন্ন্য দোয়া রইলো, নিউ মাকেটের ডাকাত ব্যাবসায়ীদের অনেক দিন থেকে দোলাই দেওয়ার ইচ্ছা ছিলো মনে, আজ তা পুরন হলো, যদিও আমি অংশগ্রহন করতে পারি নাই",
+        "indices": [
+          1232,
+          1600
+        ],
+        "labels": [
+          {
+            "anger": 1,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 1,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "উগ্র কম জ্ঞ্যানী শিক্ষক ও লজ্জার কারন।",
+        "indices": [
+          3441,
+          3732,
+          3737,
+          3848
+        ],
+        "labels": [
+          {
+            "anger": 1,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "উন্নয়ন",
+        "indices": [
+          7790,
+          8978
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 1,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "এটাই বাকি ছিল",
+        "indices": [
+          371,
+          737
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "খালেদা জিয়া এবং তারেক রহমানকেও আসামি করার জোর দাবি জানাচ্ছি",
+        "indices": [
+          302,
+          761
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 1,
+            "contempt": 0,
+            "disgust": 1,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "খেলা হবে",
+        "indices": [
+          2276,
+          9406
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 1,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "খেলা হবে।",
+        "indices": [
+          2240,
+          7964
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 1,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "চমৎকার",
+        "indices": [
+          564,
+          6790
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 1,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 1
+          }
+        ]
+      },
+      {
+        "text": "চল্লিশ লক্ষ টাকা",
+        "indices": [
+          1431,
+          1637
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 1
+          },
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      },
+      {
+        "text": "চালিয়ে যাও",
+        "indices": [
+          1024,
+          2393,
+          4718
+        ],
+        "labels": [
+          {
+            "anger": 0,
+            "contempt": 1,
+            "disgust": 0,
+            "enjoyment": 0,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 1,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          },
+          {
+            "anger": 0,
+            "contempt": 0,
+            "disgust": 0,
+            "enjoyment": 1,
+            "fear": 0,
+            "sadness": 0,
+            "surprise": 0
+          }
+        ]
+      }
+    ]
+  },
+  "emonoba": {
+    "total_rows": 22739,
+    "duplicate_exact_rows": 41,
+    "duplicate_texts_count": 116,
+    "conflicting_label_texts_count": 17,
+    "sample_conflicting_labels": [
+      {
+        "text": "আকাশ হয়ে তবু থাকবো তার জুড়ে রদ্র বেলায় রোদের সুরে ",
+        "indices": [
+          5244,
+          7334
+        ],
+        "labels": [
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "আর মিষ্টিতে তো প্রতিদিনই পোকা ধরে ",
+        "indices": [
+          6466,
+          15299
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 1,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 1,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "এই অফিসে প্রয়োজনের তুলনায় কর্মী বেশি। কর্মী ছাঁটাই করা হোক। পরের সপ্তাহেই বেশ কয়েকজন কর্মী ছাঁটাই করা হলো। বলুন তো ",
+        "indices": [
+          16031,
+          18195
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 1,
+            "Sadness": 1,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 1,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "এক কথায় অসাধারণ ",
+        "indices": [
+          7440,
+          18794
+        ],
+        "labels": [
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "কারণ হল মায়া। মেয়েরা মায়ার টানে ফেলনা জিনিষও ফেলে না। অসংখ্য কষ্ট ",
+        "indices": [
+          3918,
+          9157
+        ],
+        "labels": [
+          {
+            "Love": 1,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 1,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 1,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "খুব ভাল লাগল ",
+        "indices": [
+          1116,
+          11454,
+          13754
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "খুব ভালো লাগলো ",
+        "indices": [
+          3400,
+          10040,
+          15846,
+          18267,
+          18294,
+          18693
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "খুব ভালো লেগেছে ",
+        "indices": [
+          7532,
+          8074,
+          17751
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 1,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "জনাক হতে সন্ধ্যা বেলায় আলোর মাঝে তাঁকে তুমি দেখেতে পাবে সেও তোমার দিকে হাত বাড়ালে ",
+        "indices": [
+          8252,
+          14986
+        ],
+        "labels": [
+          {
+            "Love": 1,
+            "Joy": 0,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      },
+      {
+        "text": "তাতে কোম্পানির উৎপাদন হতো প্রচুর এবং এর ফলে সে আনন্দের সঙ্গেই জীবন নির্বাহ করত। ওই অফিসের সিইও সিংহ অবাক হয়ে দেখত ",
+        "indices": [
+          15275,
+          21399
+        ],
+        "labels": [
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 1,
+            "Anger": 1,
+            "Sadness": 0,
+            "Fear": 0
+          },
+          {
+            "Love": 0,
+            "Joy": 1,
+            "Surprise": 0,
+            "Anger": 0,
+            "Sadness": 0,
+            "Fear": 0
+          }
+        ]
+      }
+    ],
+    "cross_split_leakage_in_original_split": {
+      "train_val_shared_texts": 6,
+      "train_test_shared_texts": 8,
+      "val_test_shared_texts": 0
+    }
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "run_timestamp": "2026-09-19 12:28:09",
+  "phase_input": "Data/interim/harmonized_pre_dedup.csv",
+  "phase_output": "Data/interim/harmonized_deduplicated.csv",
+  "row_counts": {
+    "phase4_input": 41994,
+    "singletons": 40778,
+    "total_dup_groups": 504,
+    "identical_label_groups": 406,
+    "conflicting_label_groups": 98,
+    "cross_source_groups": 60,
+    "emonoba_cross_split_groups": 12,
+    "rows_removed_identical_dups": 559,
+    "rows_retained_conflicting": 251,
+    "phase5_output": 41435
+  },
+  "cross_dataset_pairs": {
+    "EmoNoBa-UBMEC": 8,
+    "EmoNoBa-MONOVAB": 9,
+    "UBMEC-MONOVAB": 41,
+    "ALL_THREE": 2
+  },
+  "before_after_accounting": {
+    "phase4_input_rows": 41994,
+    "identical_label_duplicate_rows_removed": 559,
+    "conflicting_rows_retained_unresolved": 251,
+    "phase5_output_rows": 41435,
+    "reconciliation_check": true
+  },
+  "validation_checks": {
+    "target_anger_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "target_disgust_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "target_fear_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "target_joy_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "target_sadness_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "target_surprise_binary": {
+      "pass": true,
+      "values": [
+        0,
+        1
+      ]
+    },
+    "no_null_text": {
+      "pass": true,
+      "null_count": 0
+    },
+    "no_love_contempt_target_cols": {
+      "pass": true,
+      "found": []
+    },
+    "raw_data_unchanged": {
+      "pass": true
+    },
+    "phase4_file_unchanged": {
+      "pass": true,
+      "rows": 41994
+    },
+    "all_removals_logged": {
+      "pass": true,
+      "resolved_removed": 559,
+      "provenance_collapse_records": 559
+    },
+    "no_resolved_dups_remaining": {
+      "pass": true,
+      "remaining_resolved_dups": 0
+    }
+  },
+  "label_statistics_post_dedup": {
+    "anger": {
+      "total_positive": 11368,
+      "prevalence_pct": 27.44
+    },
+    "disgust": {
+      "total_positive": 4104,
+      "prevalence_pct": 9.9
+    },
+    "fear": {
+      "total_positive": 1802,
+      "prevalence_pct": 4.35
+    },
+    "joy": {
+      "total_positive": 14853,
+      "prevalence_pct": 35.85
+    },
+    "sadness": {
+      "total_positive": 9496,
+      "prevalence_pct": 22.92
+    },
+    "surprise": {
+      "total_positive": 2521,
+      "prevalence_pct": 6.08
+    }
+  },
+  "source_counts_post_dedup": {
+    "EmoNoBa": 20365,
+    "UBMEC": 13078,
+    "MONOVAB": 7992
+  },
+  "cardinality_distribution_post_dedup": {
+    "1": 38844,
+    "2": 2477,
+    "3": 110,
+    "4": 4
+  },
+  "mean_labels_per_example_post_dedup": 1.0654,
+  "unresolved_decisions": {
+    "count": 98,
+    "description": "98 text groups have conflicting label vectors across their duplicate rows. These require user decision before resolution. Their rows are retained in the output corpus (both copies) and are logged in conflicting_duplicates.csv. Do NOT proceed with splitting until a resolution policy is approved.",
+    "file": "logs/deduplication/conflicting_duplicates.csv"
+  },
+  "canonical_selection_rule": "1. Prefer row with most populated metadata fields (domain+topic non-empty = higher score). 2. Dataset priority: EmoNoBa > UBMEC > MONOVAB. 3. Split priority: Train > Val > Test > NONE. 4. Smallest source_row_id (numeric). Rule is deterministic; no randomness used.",
+  "note_conflicting": "Conflicting duplicate groups are retained in full (all duplicate rows kept). They require a user-approved resolution strategy before the final split can be created.",
+  "note_raw_data": "Data/raw/ was not modified. harmonized_pre_dedup.csv was not overwritten."
+}

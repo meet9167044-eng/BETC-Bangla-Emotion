@@ -1,0 +1,167 @@
+{
+  "phase": "Phase 3 — Harmonization Design",
+  "date": "2026-09-19",
+  "status": "DESIGN ONLY — No data has been modified. Awaiting user review.",
+  "frozen_decisions": [
+    {
+      "decision": "Target taxonomy is exactly: anger, disgust, fear, joy, sadness, surprise",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3"
+    },
+    {
+      "decision": "EmoNoBa Love is excluded from target space; NOT mapped to Disgust",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; RESEARCH_RULES.md rule 20"
+    },
+    {
+      "decision": "MONOVAB contempt is excluded from target space",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; RESEARCH_RULES.md rule 22"
+    },
+    {
+      "decision": "UBMEC single categorical label is converted to a six-column one-hot binary vector",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; RESEARCH_RULES.md rule 21"
+    },
+    {
+      "decision": "EmoNoBa native labels Joy/Anger/Sadness/Surprise/Fear are DIRECT mappings to target Joy/Anger/Sadness/Surprise/Fear",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; direct semantic equivalence"
+    },
+    {
+      "decision": "UBMEC joy/sadness/anger/disgust/surprise/fear are DIRECT mappings to corresponding target labels",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; Ekman six emotions; direct semantic equivalence"
+    },
+    {
+      "decision": "MONOVAB anger/disgust/fear/sadness/surprise are DIRECT mappings to corresponding target labels",
+      "status": "[FROZEN]",
+      "source": "DATASET_SPEC.md Sec 3; direct semantic equivalence"
+    }
+  ],
+  "proposed_decisions": [
+    {
+      "decision": "MONOVAB enjoyment maps to target Joy",
+      "status": "[PROPOSED]",
+      "rationale": "Semantic near-equivalence; enjoyment is the hedonic positive emotion in MONOVAB's scheme, corresponding to Ekman's Joy/Happiness",
+      "requires_user_approval": true,
+      "risk_if_wrong": "1601 examples would have incorrect Joy label"
+    },
+    {
+      "decision": "EmoNoBa Disgust strategy: DISGUST-D (Strategy A + mandatory F5 sensitivity analysis)",
+      "status": "[PROPOSED — per DATASET_SPEC.md Sec 3 operational rule]",
+      "rationale": "Aligns with DATASET_SPEC.md Sec 3 documented rule while requiring F5 to quantify the assumption's impact. Simplest operationally. Alternative strategies B/C are also viable.",
+      "requires_user_approval": true,
+      "risk_if_wrong": "Label noise for Disgust if chosen without sensitivity analysis"
+    }
+  ],
+  "requires_user_decision": [
+    {
+      "issue": "EmoNoBa Disgust strategy",
+      "question": "Which strategy (A / B / C / D) should be used for EmoNoBa's unobserved Disgust annotations? DATASET_SPEC.md prescribes A (disgust=0 assumption) but Strategy D is recommended here as it combines A with the required F5 sensitivity analysis.",
+      "options": [
+        "DISGUST-A (simple 0-fill)",
+        "DISGUST-B (masked labels)",
+        "DISGUST-C (exclude from disgust training only)",
+        "DISGUST-D (A + mandatory F5 sensitivity)"
+      ],
+      "blocking": true
+    },
+    {
+      "issue": "EmoNoBa Love-only rows (2277 rows)",
+      "question": "How should 2277 EmoNoBa rows where Love is the ONLY active label be handled after Love is excluded from the target taxonomy?",
+      "options": [
+        "LOVE-1 (exclude from corpus)",
+        "LOVE-2 (retain with masked labels)",
+        "LOVE-3 (retain as all-zero target vector with documented assumption)"
+      ],
+      "blocking": true
+    },
+    {
+      "issue": "MONOVAB Contempt-only rows (2128 rows)",
+      "question": "How should 2128 MONOVAB rows where Contempt is the ONLY active label be handled after Contempt is excluded from the target taxonomy?",
+      "options": [
+        "CONTEMPT-1 (exclude from corpus)",
+        "CONTEMPT-2 (retain with masked labels)",
+        "CONTEMPT-3 (retain as all-zero target vector with documented assumption)"
+      ],
+      "blocking": true
+    },
+    {
+      "issue": "MONOVAB enjoyment → Joy mapping",
+      "question": "Should the MONOVAB 'enjoyment' label be formally frozen as mapping to target 'joy'? This is semantically well-motivated but not confirmed against MONOVAB's original annotation guidelines.",
+      "options": [
+        "Freeze the mapping as [FROZEN]",
+        "Keep as [PROPOSED] and verify against MONOVAB documentation",
+        "Reject mapping and treat MONOVAB enjoyment as non-target"
+      ],
+      "blocking": true
+    },
+    {
+      "issue": "Conflicting duplicate annotations (UBMEC: 58 texts; MONOVAB: 33 texts; EmoNoBa: 8 texts)",
+      "question": "What resolution strategy should be applied to identical texts with conflicting emotion labels during Phase 4 deduplication?",
+      "options": [
+        "Drop all rows for conflicting texts (safest)",
+        "Take label union (most inclusive)",
+        "Keep first occurrence by row index",
+        "Manual annotation review for disputed labels"
+      ],
+      "blocking": false,
+      "note": "This will be addressed in Phase 4; flagged here for user awareness."
+    },
+    {
+      "issue": "Degenerate texts (5 rows: UBMEC row 12039 = integer '1'; MONOVAB rows 5477, 8180, 8988, 9656 = punctuation only)",
+      "question": "Should degenerate/non-alphabetic texts be explicitly dropped during harmonization, or retained?",
+      "options": [
+        "Drop and log (recommended)",
+        "Retain as-is"
+      ],
+      "blocking": false,
+      "note": "Minor in scale (5 rows); recommended to drop during Phase 4 dedup/cleanup."
+    }
+  ],
+  "usable_rows_estimates": {
+    "note": "Estimates computed from Phase 1 audit. These are pre-deduplication upper bounds.",
+    "strategy_combinations": [
+      {
+        "disgust_strategy": "DISGUST-A or DISGUST-D",
+        "love_strategy": "LOVE-1 (exclude Love-only)",
+        "contempt_strategy": "CONTEMPT-1 (exclude contempt-only)",
+        "emonoba_rows": 20462,
+        "ubmec_rows": 13436,
+        "monovab_rows": 8096,
+        "combined_before_dedup": 42994,
+        "cross_dataset_dups_to_remove_estimate": 65,
+        "within_dataset_dups_to_remove_estimate": 533,
+        "estimated_final_rows": 42396,
+        "comment": "Cleanest corpus; recommended combination"
+      },
+      {
+        "disgust_strategy": "DISGUST-A or DISGUST-D",
+        "love_strategy": "LOVE-3 (all-zero target vector)",
+        "contempt_strategy": "CONTEMPT-1 (exclude contempt-only)",
+        "emonoba_rows": 22739,
+        "ubmec_rows": 13436,
+        "monovab_rows": 8096,
+        "combined_before_dedup": 44271,
+        "cross_dataset_dups_to_remove_estimate": 65,
+        "within_dataset_dups_to_remove_estimate": 533,
+        "estimated_final_rows": 43673,
+        "comment": "Closest to literature-reported 43676; includes Love-only as all-zero"
+      },
+      {
+        "disgust_strategy": "DISGUST-A or DISGUST-D",
+        "love_strategy": "LOVE-3 (all-zero target vector)",
+        "contempt_strategy": "CONTEMPT-3 (all-zero target vector)",
+        "emonoba_rows": 22739,
+        "ubmec_rows": 13436,
+        "monovab_rows": 10224,
+        "combined_before_dedup": 46399,
+        "cross_dataset_dups_to_remove_estimate": 65,
+        "within_dataset_dups_to_remove_estimate": 533,
+        "estimated_final_rows": 45801,
+        "comment": "Maximum row retention; highest label noise risk for Love-only and Contempt-only rows"
+      }
+    ]
+  }
+}

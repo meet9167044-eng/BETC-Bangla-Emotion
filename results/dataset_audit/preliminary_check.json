@@ -1,0 +1,52 @@
+{
+  "emonoba_cols": [
+    "ID",
+    "Data",
+    "Love",
+    "Joy",
+    "Surprise",
+    "Anger",
+    "Sadness",
+    "Fear",
+    "Topic",
+    "Domain",
+    "is_admin"
+  ],
+  "ubmec_cols": [
+    "text",
+    "classes"
+  ],
+  "monovab_cols": [
+    "Unnamed: 0",
+    "comment",
+    "anger",
+    "contempt",
+    "disgust",
+    "enjoyment",
+    "fear",
+    "sadness",
+    "surprise"
+  ],
+  "emonoba_shapes": {
+    "Train.csv": [
+      18420,
+      11
+    ],
+    "Val.csv": [
+      2047,
+      11
+    ],
+    "Test.csv": [
+      2272,
+      11
+    ]
+  },
+  "ubmec_shape": [
+    13436,
+    2
+  ],
+  "monovab_shape": [
+    10224,
+    9
+  ]
+}

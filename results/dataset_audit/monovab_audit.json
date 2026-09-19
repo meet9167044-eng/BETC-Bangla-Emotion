@@ -1,0 +1,149 @@
+{
+  "dataset": "MONOVAB",
+  "file_name": "MONOVAB (1).csv",
+  "file_format": "CSV (.csv)",
+  "file_size_bytes": 1938912,
+  "encoding_test": {
+    "utf-8": true,
+    "utf-8-sig": true,
+    "latin-1": true,
+    "cp1252": false
+  },
+  "rows": 10224,
+  "columns": 9,
+  "column_names": [
+    "Unnamed: 0",
+    "comment",
+    "anger",
+    "contempt",
+    "disgust",
+    "enjoyment",
+    "fear",
+    "sadness",
+    "surprise"
+  ],
+  "dtypes": {
+    "Unnamed: 0": "int64",
+    "comment": "object",
+    "anger": "int64",
+    "contempt": "int64",
+    "disgust": "int64",
+    "enjoyment": "int64",
+    "fear": "int64",
+    "sadness": "int64",
+    "surprise": "int64"
+  },
+  "index_column": "Unnamed: 0",
+  "text_column": "comment",
+  "label_columns": [
+    "anger",
+    "contempt",
+    "disgust",
+    "enjoyment",
+    "fear",
+    "sadness",
+    "surprise"
+  ],
+  "is_single_or_multi_label": "multi-label",
+  "missing_values_per_column": {
+    "Unnamed: 0": 0,
+    "comment": 0,
+    "anger": 0,
+    "contempt": 0,
+    "disgust": 0,
+    "enjoyment": 0,
+    "fear": 0,
+    "sadness": 0,
+    "surprise": 0
+  },
+  "exact_duplicate_rows": 0,
+  "exact_duplicate_rows_excluding_index": 92,
+  "text_audit": {
+    "total_rows": 10224,
+    "null_count": 0,
+    "null_percentage": 0.0,
+    "empty_exact": 0,
+    "whitespace_only": 0,
+    "total_unusable_texts": 0,
+    "usable_texts_count": 10224,
+    "unique_raw_texts": 10096,
+    "unique_non_null_texts": 10096,
+    "unique_stripped_texts": 10096,
+    "unique_normalized_texts": 10074,
+    "duplicate_raw_texts": 128,
+    "duplicate_normalized_texts": 150,
+    "char_length_stats": {
+      "min": 2,
+      "max": 2741,
+      "mean": 63.18,
+      "median": 39.0,
+      "std": 105.6,
+      "q25": 23.0,
+      "q75": 68.0
+    },
+    "word_count_stats": {
+      "min": 1,
+      "max": 416,
+      "mean": 10.88,
+      "median": 7.0,
+      "std": 17.31,
+      "q25": 4.0,
+      "q75": 12.0
+    },
+    "language_and_content_breakdown": {
+      "pure_bangla_no_latin": 10199,
+      "mixed_bangla_and_latin": 21,
+      "latin_only_no_bangla": 0,
+      "no_letters_only_symbols_digits": 4,
+      "contains_bangla_any": 10220,
+      "contains_latin_any": 21,
+      "contains_url": 0,
+      "contains_mention": 0
+    }
+  },
+  "label_distribution": {
+    "anger": {
+      "0": 5725,
+      "1": 4499
+    },
+    "contempt": {
+      "0": 7264,
+      "1": 2960
+    },
+    "disgust": {
+      "0": 8157,
+      "1": 2067
+    },
+    "enjoyment": {
+      "0": 8623,
+      "1": 1601
+    },
+    "fear": {
+      "0": 10168,
+      "1": 56
+    },
+    "sadness": {
+      "0": 9036,
+      "1": 1188
+    },
+    "surprise": {
+      "0": 10124,
+      "1": 100
+    }
+  },
+  "active_labels_per_example_all_7": {
+    "1": 8202,
+    "2": 1804,
+    "3": 211,
+    "4": 7
+  },
+  "mean_labels_per_example_all_7": 1.2198,
+  "active_labels_per_example_target_6": {
+    "0": 2128,
+    "1": 6744,
+    "2": 1291,
+    "3": 59,
+    "4": 2
+  },
+  "mean_labels_per_example_target_6": 0.9303
+}

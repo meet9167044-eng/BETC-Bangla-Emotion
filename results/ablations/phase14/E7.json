@@ -1,0 +1,33 @@
+{
+  "experiment_id": "E7",
+  "phase": "phase14_feature_ablation",
+  "category": "feature_engineering_ablation",
+  "description": "E0 + emoji + sentiment + expressive",
+  "feature_groups_enabled": [
+    "tfidf",
+    "emoji",
+    "sentiment",
+    "expressive"
+  ],
+  "total_feature_dim": 25075,
+  "validation_metrics": {
+    "macro_f1": 0.3679,
+    "micro_f1": 0.4466,
+    "per_class": {
+      "anger": {"f1": 0.466},
+      "disgust": {"f1": 0.2894},
+      "fear": {"f1": 0.1850},
+      "joy": {"f1": 0.637},
+      "sadness": {"f1": 0.408},
+      "surprise": {"f1": 0.2221}
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.3606,
+    "_note": "Test metrics recorded for reference only. Feature selection decisions are based solely on validation metrics."
+  },
+  "timing_seconds": {
+    "feature_extraction": 14.7,
+    "model_fit": 455.6
+  }
+}

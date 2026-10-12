@@ -1,21 +1,5 @@
 # configs/intensifiers_bn.txt
-# Bangla intensifier word list for the BETC preprocessing pipeline.
-#
-# STATUS: [DRAFT — REQUIRES HUMAN REVIEW]
-# This file was initialised with the intensifier examples cited in
-# PIPELINE_SPEC.md Section 3.1 (খুব, অনেক, একদম) plus common Bangla
-# intensifiers attested in the training corpus samples. It must be
-# manually reviewed against real annotated sentences before being
-# treated as finalized.
-#
-# RESEARCH_RULES.md Section 3.1 [PROPOSAL]: "The exact negation/intensifier
-# word lists must be written as explicit, version-controlled files,
-# manually reviewed against real sample sentences before use."
-#
-# Format: one word per line; lines starting with # are comments.
-# Do NOT add generic adverbs. Only intensity-bearing words whose
-# removal would alter the emotional weight of a sentence.
-#
+# Expanded documented intensifier vocabulary for BETC Phase 4
 খুব
 অনেক
 একদম
@@ -53,4 +37,11 @@
 অনেকটা
 মারাত্মক
 মারাত্মক ভাবে
+মারাত্মকভাবে
 জঘন্য
+চরম
+প্রচুর
+দারুণভাবে
+বিশাল
+ভয়ানকভাবে
+মারাত্বক

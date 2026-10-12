@@ -1,0 +1,310 @@
+{
+  "timestamp": "2026-10-12 00:36:13",
+  "sentiment_lexicon_audit": {
+    "source": "Ekman vocabulary & Bangla opinion mining literature (Das & Bandyopadhyay 2010, Alam & Yao 2020)",
+    "license": "Open research lexicon under MIT/Academic use",
+    "language": "Bangla Unicode (pure Bangla script)",
+    "informal_bangla_support": "Contains common social-media spelling variants (ঘেন্না, ছি, ছিঃ, বমি, মন খারাপ, হাসিখুশি)",
+    "pos_words_count": 77,
+    "neg_words_count": 87,
+    "token_coverage_pct": 2.3,
+    "text_coverage_pct": 24.0
+  },
+  "emotion_lexicon_audit": {
+    "anger": {
+      "vocab_size": 17,
+      "matched_texts": 406,
+      "overall_pct": 1.41,
+      "true_class_recall": 1.84,
+      "words": [
+        "বিরক্তিকর",
+        "রাগান্বিত",
+        "প্রতিশোধ",
+        "রাগ",
+        "খুন",
+        "জ্বালাময়ী",
+        "উত্তেজনা",
+        "ক্রোধ",
+        "উত্তেজিত",
+        "গালি",
+        "অপমান",
+        "মারামারি",
+        "ক্ষোভ",
+        "বিরক্ত",
+        "অত্যাচার",
+        "ঝগড়া",
+        "চিৎকার"
+      ]
+    },
+    "disgust": {
+      "vocab_size": 18,
+      "matched_texts": 462,
+      "overall_pct": 1.6,
+      "true_class_recall": 3.3,
+      "words": [
+        "ধিক্কার",
+        "ঘেন্না",
+        "ঘৃণ্য",
+        "নষ্ট",
+        "বিরক্তি",
+        "ঘৃণিত",
+        "বাজে",
+        "নিকৃষ্ট",
+        "কুৎসিত",
+        "পচা",
+        "বমি",
+        "ছি",
+        "অপছন্দ",
+        "অখাদ্য",
+        "ঘৃণা",
+        "ছিঃ",
+        "জঘন্য",
+        "নোংরা"
+      ]
+    },
+    "fear": {
+      "vocab_size": 16,
+      "matched_texts": 70,
+      "overall_pct": 0.24,
+      "true_class_recall": 3.43,
+      "words": [
+        "ভয়",
+        "অনিশ্চয়তা",
+        "শঙ্কা",
+        "ভীত",
+        "বিপদ",
+        "ত্রাস",
+        "ভয়াবহ",
+        "ভীতি",
+        "আতঙ্কগ্রস্ত",
+        "বিপজ্জনক",
+        "উদ্বিগ্ন",
+        "ভয়ঙ্কর",
+        "উদ্বেগ",
+        "আতঙ্ক",
+        "অসহায়",
+        "আতঙ্কিত"
+      ]
+    },
+    "joy": {
+      "vocab_size": 28,
+      "matched_texts": 2773,
+      "overall_pct": 9.62,
+      "true_class_recall": 21.19,
+      "words": [
+        "বিজয়",
+        "অভিনন্দন",
+        "শান্তি",
+        "চমৎকার",
+        "আনন্দ",
+        "হাসিখুশি",
+        "অপূর্ব",
+        "শুভ",
+        "ভালোবাসি",
+        "নিখুঁত",
+        "উল্লাস",
+        "অসাধারণ",
+        "প্রশংসা",
+        "সফল",
+        "ধন্যবাদ",
+        "সুন্দর",
+        "মজা",
+        "সুখী",
+        "মিষ্টি",
+        "খুশি",
+        "সেরা",
+        "সাফল্য",
+        "গর্ব",
+        "উপভোগ",
+        "দারুণ",
+        "হাসি",
+        "সুখ",
+        "ভালোবাসা"
+      ]
+    },
+    "sadness": {
+      "vocab_size": 24,
+      "matched_texts": 722,
+      "overall_pct": 2.5,
+      "true_class_recall": 5.24,
+      "words": [
+        "যন্ত্রণা",
+        "কষ্ট",
+        "হতাশ",
+        "ব্যর্থতা",
+        "দুঃখিত",
+        "বিষণ্ণতা",
+        "বেদনা",
+        "বিপর্যয়",
+        "হাহাকার",
+        "দুর্দশা",
+        "হতাশা",
+        "দুঃখ",
+        "বিষণ্ণ",
+        "লজ্জা",
+        "একাকী",
+        "দুর্ভোগ",
+        "নিরাশ",
+        "কান্না",
+        "ব্যথা",
+        "মন খারাপ",
+        "শোক",
+        "মৃত্যু",
+        "অশ্রু",
+        "অসুখী"
+      ]
+    },
+    "surprise": {
+      "vocab_size": 13,
+      "matched_texts": 264,
+      "overall_pct": 0.92,
+      "true_class_recall": 10.18,
+      "words": [
+        "বিস্ময়",
+        "বিস্ময়কর",
+        "অপ্রত্যাশিত",
+        "অবিশ্বাস্য",
+        "তাজ্জব",
+        "চমকে",
+        "স্তব্ধ",
+        "অবিশ্বাস্যভাবে",
+        "অবাক",
+        "আশ্চর্য",
+        "অদ্ভুত",
+        "হতবাক",
+        "আশ্চর্যজনক"
+      ]
+    }
+  },
+  "ablation_results": {
+    "E8_Baseline": {
+      "macro_f1": 0.4849,
+      "micro_f1": 0.5794,
+      "macro_precision": 0.4434,
+      "macro_recall": 0.5688,
+      "hamming_loss": 0.184063,
+      "jaccard": 0.5346,
+      "subset_accuracy": 0.371,
+      "per_class": {
+        "anger": {
+          "f1": 0.5439,
+          "precision": 0.4245,
+          "recall": 0.7565
+        },
+        "disgust": {
+          "f1": 0.3412,
+          "precision": 0.3259,
+          "recall": 0.358
+        },
+        "fear": {
+          "f1": 0.3797,
+          "precision": 0.4369,
+          "recall": 0.3358
+        },
+        "joy": {
+          "f1": 0.8244,
+          "precision": 0.8026,
+          "recall": 0.8474
+        },
+        "sadness": {
+          "f1": 0.5007,
+          "precision": 0.3701,
+          "recall": 0.7739
+        },
+        "surprise": {
+          "f1": 0.3196,
+          "precision": 0.3005,
+          "recall": 0.3413
+        }
+      },
+      "fit_time": 225.67633652687073,
+      "dim": 25072
+    },
+    "E8_Plus_EmotionLexicon": {
+      "macro_f1": 0.4886,
+      "micro_f1": 0.5816,
+      "macro_precision": 0.4466,
+      "macro_recall": 0.575,
+      "hamming_loss": 0.184387,
+      "jaccard": 0.5382,
+      "subset_accuracy": 0.372,
+      "per_class": {
+        "anger": {
+          "f1": 0.5461,
+          "precision": 0.4207,
+          "recall": 0.7778
+        },
+        "disgust": {
+          "f1": 0.3438,
+          "precision": 0.3228,
+          "recall": 0.3678
+        },
+        "fear": {
+          "f1": 0.3803,
+          "precision": 0.445,
+          "recall": 0.3321
+        },
+        "joy": {
+          "f1": 0.8227,
+          "precision": 0.7945,
+          "recall": 0.8528
+        },
+        "sadness": {
+          "f1": 0.5025,
+          "precision": 0.3729,
+          "recall": 0.7703
+        },
+        "surprise": {
+          "f1": 0.3359,
+          "precision": 0.3235,
+          "recall": 0.3493
+        }
+      },
+      "fit_time": 213.38642597198486,
+      "dim": 25090
+    },
+    "E8_EmotionLexicon_Replaced": {
+      "macro_f1": 0.4907,
+      "micro_f1": 0.5723,
+      "macro_precision": 0.4488,
+      "macro_recall": 0.5843,
+      "hamming_loss": 0.187952,
+      "jaccard": 0.5113,
+      "subset_accuracy": 0.3429,
+      "per_class": {
+        "anger": {
+          "f1": 0.5466,
+          "precision": 0.4225,
+          "recall": 0.7736
+        },
+        "disgust": {
+          "f1": 0.3496,
+          "precision": 0.2892,
+          "recall": 0.4417
+        },
+        "fear": {
+          "f1": 0.3881,
+          "precision": 0.4527,
+          "recall": 0.3396
+        },
+        "joy": {
+          "f1": 0.8232,
+          "precision": 0.8655,
+          "recall": 0.7849
+        },
+        "sadness": {
+          "f1": 0.5033,
+          "precision": 0.373,
+          "recall": 0.7739
+        },
+        "surprise": {
+          "f1": 0.3333,
+          "precision": 0.2899,
+          "recall": 0.392
+        }
+      },
+      "fit_time": 210.27465510368347,
+      "dim": 25080
+    }
+  }
+}

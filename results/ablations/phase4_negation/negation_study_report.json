@@ -1,0 +1,181 @@
+{
+  "timestamp": "2026-10-12 20:09:47",
+  "negation_vocabulary": {
+    "total_negations": 31,
+    "total_intensifiers": 45,
+    "texts_with_negation": 4674,
+    "texts_with_intensifier": 4644,
+    "texts_with_emotion_scope": 262,
+    "scope_breakdown_by_emotion": {
+      "anger": 30,
+      "disgust": 29,
+      "fear": 3,
+      "joy": 117,
+      "sadness": 75,
+      "surprise": 13
+    }
+  },
+  "qualitative_examples": [
+    {
+      "text": "যার বিনিময়ে সে প্রতিউত্তরে শুধু গালিই দিলো। বাধ্য হলে গালি না দিয়ে আবারো বুঝিয়ে বলার অনুরোধ করলাম",
+      "labels": [
+        "anger"
+      ]
+    },
+    {
+      "text": "যে পন্থা তারা অবলম্বন করেছিলেন সেই পন্থাই তাদের উপর একদিন ফিরে আসতে বাধ্য। ওনারা ভেবেছিলেন গুন্ডা দিয়ে মারপিট করেই জনমত দাবাতে পারবেন। এ পন্থা যে কোনদিন সফল হয় নাই",
+      "labels": [
+        "sadness"
+      ]
+    },
+    {
+      "text": "জনগণ তাকে পিটিয়ে মারার জন্য জনগণকে ধন্যবাদ না হয় কত মানুষ অহংকার দেখাতে জীবন যাইতো",
+      "labels": [
+        "anger"
+      ]
+    },
+    {
+      "text": "যা শুধু গোপনে সয়ে যেতে হয় প্রতিবাদ করা যায় না”। (অপেক্ষা- রেদোয়ান মাসুদ) . বিয়ের পরে সেটা আর ভালোবাসা থাকে না",
+      "labels": [
+        "anger"
+      ]
+    },
+    {
+      "text": "ততটা মজা পাইলাম না",
+      "labels": [
+        "anger"
+      ]
+    }
+  ],
+  "ablation_results": {
+    "E8_Baseline": {
+      "macro_f1": 0.4838,
+      "micro_f1": 0.5754,
+      "macro_precision": 0.436,
+      "macro_recall": 0.5811,
+      "hamming_loss": 0.189708,
+      "jaccard": 0.531,
+      "subset_accuracy": 0.3632,
+      "per_class": {
+        "anger": {
+          "f1": 0.5444,
+          "precision": 0.4208,
+          "recall": 0.7707
+        },
+        "disgust": {
+          "f1": 0.3405,
+          "precision": 0.2817,
+          "recall": 0.4302
+        },
+        "fear": {
+          "f1": 0.3777,
+          "precision": 0.4444,
+          "recall": 0.3284
+        },
+        "joy": {
+          "f1": 0.8251,
+          "precision": 0.8032,
+          "recall": 0.8483
+        },
+        "sadness": {
+          "f1": 0.5,
+          "precision": 0.3695,
+          "recall": 0.7731
+        },
+        "surprise": {
+          "f1": 0.315,
+          "precision": 0.2965,
+          "recall": 0.336
+        }
+      },
+      "fit_time": 247.79871153831482,
+      "dim": 25072
+    },
+    "E8_Plus_NegScope": {
+      "macro_f1": 0.4825,
+      "micro_f1": 0.5784,
+      "macro_precision": 0.4377,
+      "macro_recall": 0.5711,
+      "hamming_loss": 0.185764,
+      "jaccard": 0.5334,
+      "subset_accuracy": 0.3669,
+      "per_class": {
+        "anger": {
+          "f1": 0.5458,
+          "precision": 0.4265,
+          "recall": 0.7577
+        },
+        "disgust": {
+          "f1": 0.3362,
+          "precision": 0.3223,
+          "recall": 0.3514
+        },
+        "fear": {
+          "f1": 0.3722,
+          "precision": 0.4118,
+          "recall": 0.3396
+        },
+        "joy": {
+          "f1": 0.8252,
+          "precision": 0.8038,
+          "recall": 0.8479
+        },
+        "sadness": {
+          "f1": 0.4996,
+          "precision": 0.3649,
+          "recall": 0.7915
+        },
+        "surprise": {
+          "f1": 0.3163,
+          "precision": 0.2967,
+          "recall": 0.3387
+        }
+      },
+      "fit_time": 222.0377516746521,
+      "dim": 25088
+    },
+    "Full_Optimal_Pipeline": {
+      "macro_f1": 0.4902,
+      "micro_f1": 0.582,
+      "macro_precision": 0.4479,
+      "macro_recall": 0.5767,
+      "hamming_loss": 0.183847,
+      "jaccard": 0.5373,
+      "subset_accuracy": 0.3723,
+      "per_class": {
+        "anger": {
+          "f1": 0.5488,
+          "precision": 0.4256,
+          "recall": 0.7725
+        },
+        "disgust": {
+          "f1": 0.3436,
+          "precision": 0.3163,
+          "recall": 0.376
+        },
+        "fear": {
+          "f1": 0.3923,
+          "precision": 0.4577,
+          "recall": 0.3433
+        },
+        "joy": {
+          "f1": 0.8249,
+          "precision": 0.802,
+          "recall": 0.8492
+        },
+        "sadness": {
+          "f1": 0.5022,
+          "precision": 0.372,
+          "recall": 0.7724
+        },
+        "surprise": {
+          "f1": 0.3295,
+          "precision": 0.314,
+          "recall": 0.3467
+        }
+      },
+      "fit_time": 339.5643208026886,
+      "dim": 25086
+    }
+  }
+}

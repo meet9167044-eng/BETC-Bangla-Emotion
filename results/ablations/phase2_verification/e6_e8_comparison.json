@@ -1,0 +1,260 @@
+{
+  "timestamp": "2026-10-12 00:19:46",
+  "seeds_evaluated": [
+    42,
+    123,
+    999
+  ],
+  "feature_groups": {
+    "E6": [
+      "tfidf",
+      "emoji",
+      "sentiment"
+    ],
+    "E8": [
+      "tfidf",
+      "emoji",
+      "sentiment",
+      "negation"
+    ]
+  },
+  "dimensions": {
+    "E6": 25062,
+    "E8": 25072
+  },
+  "timings": {
+    "E6_extraction_s": 8.83,
+    "E8_extraction_s": 10.11,
+    "E6_avg_fit_s": 225.8,
+    "E8_avg_fit_s": 221.5
+  },
+  "summary_E6": {
+    "macro_f1_mean": 0.4848,
+    "macro_f1_std": 0.0002,
+    "micro_f1_mean": 0.5717,
+    "micro_f1_std": 0.0001,
+    "canonical_seed42": {
+      "macro_f1": 0.4851,
+      "micro_f1": 0.5717,
+      "macro_precision": 0.4355,
+      "macro_recall": 0.5928,
+      "hamming_loss": 0.194489,
+      "jaccard": 0.5277,
+      "subset_accuracy": 0.3567,
+      "per_class": {
+        "anger": {
+          "f1": 0.5424,
+          "precision": 0.4173,
+          "recall": 0.7748
+        },
+        "disgust": {
+          "f1": 0.338,
+          "precision": 0.2573,
+          "recall": 0.4926
+        },
+        "fear": {
+          "f1": 0.3905,
+          "precision": 0.4663,
+          "recall": 0.3358
+        },
+        "joy": {
+          "f1": 0.824,
+          "precision": 0.8014,
+          "recall": 0.8479
+        },
+        "sadness": {
+          "f1": 0.5007,
+          "precision": 0.3697,
+          "recall": 0.7753
+        },
+        "surprise": {
+          "f1": 0.3151,
+          "precision": 0.301,
+          "recall": 0.3307
+        }
+      },
+      "fit_time": 226.31871914863586,
+      "seed": 42,
+      "thresholds": {
+        "anger": 0.37,
+        "disgust": 0.28,
+        "fear": 0.34,
+        "joy": 0.53,
+        "sadness": 0.13,
+        "surprise": 0.31
+      }
+    },
+    "per_class": {
+      "anger": {
+        "mean": 0.5424,
+        "std": 0.0001,
+        "seed_values": [
+          0.5424,
+          0.5425,
+          0.5422
+        ]
+      },
+      "disgust": {
+        "mean": 0.3378,
+        "std": 0.0002,
+        "seed_values": [
+          0.338,
+          0.3378,
+          0.3376
+        ]
+      },
+      "fear": {
+        "mean": 0.3887,
+        "std": 0.0013,
+        "seed_values": [
+          0.3905,
+          0.3878,
+          0.3878
+        ]
+      },
+      "joy": {
+        "mean": 0.824,
+        "std": 0.0,
+        "seed_values": [
+          0.824,
+          0.8241,
+          0.824
+        ]
+      },
+      "sadness": {
+        "mean": 0.5007,
+        "std": 0.0,
+        "seed_values": [
+          0.5007,
+          0.5008,
+          0.5007
+        ]
+      },
+      "surprise": {
+        "mean": 0.3151,
+        "std": 0.0,
+        "seed_values": [
+          0.3151,
+          0.3151,
+          0.3151
+        ]
+      }
+    },
+    "avg_fit_time": 225.8
+  },
+  "summary_E8": {
+    "macro_f1_mean": 0.4849,
+    "macro_f1_std": 0.0001,
+    "micro_f1_mean": 0.5794,
+    "micro_f1_std": 0.0001,
+    "canonical_seed42": {
+      "macro_f1": 0.4849,
+      "micro_f1": 0.5794,
+      "macro_precision": 0.4434,
+      "macro_recall": 0.5688,
+      "hamming_loss": 0.184063,
+      "jaccard": 0.5346,
+      "subset_accuracy": 0.371,
+      "per_class": {
+        "anger": {
+          "f1": 0.5439,
+          "precision": 0.4245,
+          "recall": 0.7565
+        },
+        "disgust": {
+          "f1": 0.3412,
+          "precision": 0.3259,
+          "recall": 0.358
+        },
+        "fear": {
+          "f1": 0.3797,
+          "precision": 0.4369,
+          "recall": 0.3358
+        },
+        "joy": {
+          "f1": 0.8244,
+          "precision": 0.8026,
+          "recall": 0.8474
+        },
+        "sadness": {
+          "f1": 0.5007,
+          "precision": 0.3701,
+          "recall": 0.7739
+        },
+        "surprise": {
+          "f1": 0.3196,
+          "precision": 0.3005,
+          "recall": 0.3413
+        }
+      },
+      "fit_time": 215.38697361946106,
+      "seed": 42,
+      "thresholds": {
+        "anger": 0.4,
+        "disgust": 0.4,
+        "fear": 0.33,
+        "joy": 0.53,
+        "sadness": 0.13,
+        "surprise": 0.3
+      }
+    },
+    "per_class": {
+      "anger": {
+        "mean": 0.5439,
+        "std": 0.0,
+        "seed_values": [
+          0.5439,
+          0.5439,
+          0.5439
+        ]
+      },
+      "disgust": {
+        "mean": 0.3412,
+        "std": 0.0,
+        "seed_values": [
+          0.3412,
+          0.3412,
+          0.3412
+        ]
+      },
+      "fear": {
+        "mean": 0.38,
+        "std": 0.0004,
+        "seed_values": [
+          0.3797,
+          0.3805,
+          0.3797
+        ]
+      },
+      "joy": {
+        "mean": 0.8244,
+        "std": 0.0,
+        "seed_values": [
+          0.8244,
+          0.8244,
+          0.8244
+        ]
+      },
+      "sadness": {
+        "mean": 0.5006,
+        "std": 0.0003,
+        "seed_values": [
+          0.5007,
+          0.5008,
+          0.5002
+        ]
+      },
+      "surprise": {
+        "mean": 0.3196,
+        "std": 0.0,
+        "seed_values": [
+          0.3196,
+          0.3196,
+          0.3196
+        ]
+      }
+    },
+    "avg_fit_time": 221.5
+  },
+  "conclusion": "E8 provides consistent Micro-F1 and per-class gains on Disgust and Surprise with negligible computational overhead (+10 dims). E8 remains the leading candidate."
+}

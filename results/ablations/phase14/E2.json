@@ -1,0 +1,31 @@
+{
+  "experiment_id": "E2",
+  "phase": "phase14_feature_ablation",
+  "category": "feature_engineering_ablation",
+  "description": "E0 + Bangla sentiment lexicon features",
+  "feature_groups_enabled": [
+    "tfidf",
+    "sentiment"
+  ],
+  "total_feature_dim": 25010,
+  "validation_metrics": {
+    "macro_f1": 0.4773,
+    "micro_f1": 0.5711,
+    "per_class": {
+      "anger": {"f1": 0.534},
+      "disgust": {"f1": 0.3303},
+      "fear": {"f1": 0.3715},
+      "joy": {"f1": 0.812},
+      "sadness": {"f1": 0.500},
+      "surprise": {"f1": 0.3155}
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.4705,
+    "_note": "Test metrics recorded for reference only. Feature selection decisions are based solely on validation metrics."
+  },
+  "timing_seconds": {
+    "feature_extraction": 9.8,
+    "model_fit": 443.0
+  }
+}

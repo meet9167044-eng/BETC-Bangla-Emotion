@@ -1,0 +1,265 @@
+{
+  "timestamp": "2026-10-12 21:16:33",
+  "base_champion_macro_f1": 0.4902,
+  "results": {
+    "Baseline_Champion": {
+      "macro_f1": 0.4902,
+      "micro_f1": 0.582,
+      "dim": 25086,
+      "per_class": {
+        "anger": {
+          "f1": 0.5488,
+          "precision": 0.4256,
+          "recall": 0.7725
+        },
+        "disgust": {
+          "f1": 0.3436,
+          "precision": 0.3163,
+          "recall": 0.376
+        },
+        "fear": {
+          "f1": 0.3923,
+          "precision": 0.4577,
+          "recall": 0.3433
+        },
+        "joy": {
+          "f1": 0.8249,
+          "precision": 0.802,
+          "recall": 0.8492
+        },
+        "sadness": {
+          "f1": 0.5022,
+          "precision": 0.372,
+          "recall": 0.7724
+        },
+        "surprise": {
+          "f1": 0.3295,
+          "precision": 0.314,
+          "recall": 0.3467
+        }
+      }
+    },
+    "Group_5.1_Elongation": {
+      "macro_f1": 0.487,
+      "micro_f1": 0.5725,
+      "dim": 25090,
+      "per_class": {
+        "anger": {
+          "f1": 0.5465,
+          "precision": 0.4232,
+          "recall": 0.7713
+        },
+        "disgust": {
+          "f1": 0.3389,
+          "precision": 0.3142,
+          "recall": 0.3678
+        },
+        "fear": {
+          "f1": 0.3845,
+          "precision": 0.4253,
+          "recall": 0.3507
+        },
+        "joy": {
+          "f1": 0.8239,
+          "precision": 0.8649,
+          "recall": 0.7867
+        },
+        "sadness": {
+          "f1": 0.5,
+          "precision": 0.3551,
+          "recall": 0.8445
+        },
+        "surprise": {
+          "f1": 0.3283,
+          "precision": 0.3097,
+          "recall": 0.3493
+        }
+      }
+    },
+    "Group_5.2_Hashtags": {
+      "macro_f1": 0.4904,
+      "micro_f1": 0.5821,
+      "dim": 25089,
+      "per_class": {
+        "anger": {
+          "f1": 0.5494,
+          "precision": 0.4206,
+          "recall": 0.792
+        },
+        "disgust": {
+          "f1": 0.3444,
+          "precision": 0.3176,
+          "recall": 0.376
+        },
+        "fear": {
+          "f1": 0.3923,
+          "precision": 0.4577,
+          "recall": 0.3433
+        },
+        "joy": {
+          "f1": 0.8249,
+          "precision": 0.802,
+          "recall": 0.8492
+        },
+        "sadness": {
+          "f1": 0.5025,
+          "precision": 0.3724,
+          "recall": 0.7724
+        },
+        "surprise": {
+          "f1": 0.3287,
+          "precision": 0.3125,
+          "recall": 0.3467
+        }
+      }
+    },
+    "Group_5.3_CodeMixing": {
+      "macro_f1": 0.4836,
+      "micro_f1": 0.5776,
+      "dim": 25090,
+      "per_class": {
+        "anger": {
+          "f1": 0.5478,
+          "precision": 0.4193,
+          "recall": 0.7896
+        },
+        "disgust": {
+          "f1": 0.3491,
+          "precision": 0.296,
+          "recall": 0.4253
+        },
+        "fear": {
+          "f1": 0.3565,
+          "precision": 0.3585,
+          "recall": 0.3545
+        },
+        "joy": {
+          "f1": 0.8247,
+          "precision": 0.8016,
+          "recall": 0.8492
+        },
+        "sadness": {
+          "f1": 0.5009,
+          "precision": 0.3713,
+          "recall": 0.7696
+        },
+        "surprise": {
+          "f1": 0.3228,
+          "precision": 0.3178,
+          "recall": 0.328
+        }
+      }
+    },
+    "Group_5.4_TextStats": {
+      "macro_f1": 0.4762,
+      "micro_f1": 0.5727,
+      "dim": 25090,
+      "per_class": {
+        "anger": {
+          "f1": 0.5474,
+          "precision": 0.4155,
+          "recall": 0.802
+        },
+        "disgust": {
+          "f1": 0.3253,
+          "precision": 0.2532,
+          "recall": 0.4548
+        },
+        "fear": {
+          "f1": 0.3525,
+          "precision": 0.3755,
+          "recall": 0.3321
+        },
+        "joy": {
+          "f1": 0.8261,
+          "precision": 0.7838,
+          "recall": 0.8731
+        },
+        "sadness": {
+          "f1": 0.4978,
+          "precision": 0.3591,
+          "recall": 0.8113
+        },
+        "surprise": {
+          "f1": 0.3079,
+          "precision": 0.3273,
+          "recall": 0.2907
+        }
+      }
+    },
+    "Group_5.5_SpellingVar": {
+      "macro_f1": 0.4879,
+      "micro_f1": 0.5785,
+      "dim": 25089,
+      "per_class": {
+        "anger": {
+          "f1": 0.5485,
+          "precision": 0.4235,
+          "recall": 0.7784
+        },
+        "disgust": {
+          "f1": 0.3371,
+          "precision": 0.2813,
+          "recall": 0.4204
+        },
+        "fear": {
+          "f1": 0.3846,
+          "precision": 0.45,
+          "recall": 0.3358
+        },
+        "joy": {
+          "f1": 0.8256,
+          "precision": 0.8033,
+          "recall": 0.8492
+        },
+        "sadness": {
+          "f1": 0.5024,
+          "precision": 0.371,
+          "recall": 0.7781
+        },
+        "surprise": {
+          "f1": 0.329,
+          "precision": 0.3176,
+          "recall": 0.3413
+        }
+      }
+    },
+    "Group_5.6_VerbalMarkers": {
+      "macro_f1": 0.4882,
+      "micro_f1": 0.5818,
+      "dim": 25090,
+      "per_class": {
+        "anger": {
+          "f1": 0.549,
+          "precision": 0.4273,
+          "recall": 0.7677
+        },
+        "disgust": {
+          "f1": 0.3456,
+          "precision": 0.3088,
+          "recall": 0.3924
+        },
+        "fear": {
+          "f1": 0.3752,
+          "precision": 0.3896,
+          "recall": 0.3619
+        },
+        "joy": {
+          "f1": 0.8255,
+          "precision": 0.7982,
+          "recall": 0.8546
+        },
+        "sadness": {
+          "f1": 0.5033,
+          "precision": 0.375,
+          "recall": 0.7647
+        },
+        "surprise": {
+          "f1": 0.3307,
+          "precision": 0.3208,
+          "recall": 0.3413
+        }
+      }
+    }
+  }
+}

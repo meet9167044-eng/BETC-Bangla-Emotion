@@ -1,0 +1,31 @@
+{
+  "experiment_id": "E3",
+  "phase": "phase14_feature_ablation",
+  "category": "feature_engineering_ablation",
+  "description": "E0 + expressive/punctuation features",
+  "feature_groups_enabled": [
+    "tfidf",
+    "expressive"
+  ],
+  "total_feature_dim": 25013,
+  "validation_metrics": {
+    "macro_f1": 0.3388,
+    "micro_f1": 0.4112,
+    "per_class": {
+      "anger": {"f1": 0.431},
+      "disgust": {"f1": 0.2519},
+      "fear": {"f1": 0.1704},
+      "joy": {"f1": 0.591},
+      "sadness": {"f1": 0.373},
+      "surprise": {"f1": 0.2158}
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.3301,
+    "_note": "Test metrics recorded for reference only. Feature selection decisions are based solely on validation metrics."
+  },
+  "timing_seconds": {
+    "feature_extraction": 10.4,
+    "model_fit": 458.2
+  }
+}

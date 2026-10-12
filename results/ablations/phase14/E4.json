@@ -1,0 +1,31 @@
+{
+  "experiment_id": "E4",
+  "phase": "phase14_feature_ablation",
+  "category": "feature_engineering_ablation",
+  "description": "E0 + negation/intensifier/diminisher features",
+  "feature_groups_enabled": [
+    "tfidf",
+    "negation"
+  ],
+  "total_feature_dim": 25010,
+  "validation_metrics": {
+    "macro_f1": 0.4733,
+    "micro_f1": 0.5715,
+    "per_class": {
+      "anger": {"f1": 0.534},
+      "disgust": {"f1": 0.3263},
+      "fear": {"f1": 0.3522},
+      "joy": {"f1": 0.814},
+      "sadness": {"f1": 0.500},
+      "surprise": {"f1": 0.3127}
+    }
+  },
+  "test_metrics": {
+    "macro_f1": 0.4667,
+    "_note": "Test metrics recorded for reference only. Feature selection decisions are based solely on validation metrics."
+  },
+  "timing_seconds": {
+    "feature_extraction": 10.7,
+    "model_fit": 314.1
+  }
+}

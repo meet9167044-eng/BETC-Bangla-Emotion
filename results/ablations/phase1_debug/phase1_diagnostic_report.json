@@ -1,0 +1,291 @@
+{
+  "timestamp": "2026-10-11 23:49:54",
+  "feature_statistics": [
+    {
+      "feature": "expr_exclamation_count",
+      "min": 0.0,
+      "max": 46.0,
+      "mean": 0.1309,
+      "std": 0.8402,
+      "pct_zero": 94.27
+    },
+    {
+      "feature": "expr_question_count",
+      "min": 0.0,
+      "max": 40.0,
+      "mean": 0.1551,
+      "std": 0.8559,
+      "pct_zero": 92.0
+    },
+    {
+      "feature": "expr_repeated_excl_count",
+      "min": 0.0,
+      "max": 11.0,
+      "mean": 0.014,
+      "std": 0.1473,
+      "pct_zero": 98.78
+    },
+    {
+      "feature": "expr_repeated_ques_count",
+      "min": 0.0,
+      "max": 10.0,
+      "mean": 0.0132,
+      "std": 0.1455,
+      "pct_zero": 98.85
+    },
+    {
+      "feature": "expr_repeated_punct_count",
+      "min": 0.0,
+      "max": 23.0,
+      "mean": 0.1275,
+      "std": 0.5308,
+      "pct_zero": 90.94
+    },
+    {
+      "feature": "expr_elongated_word_count",
+      "min": 0.0,
+      "max": 23.0,
+      "mean": 0.1493,
+      "std": 0.5481,
+      "pct_zero": 88.92
+    },
+    {
+      "feature": "expr_char_count",
+      "min": 1.0,
+      "max": 3457.0,
+      "mean": 78.8704,
+      "std": 103.7544,
+      "pct_zero": 0.0
+    },
+    {
+      "feature": "expr_word_count",
+      "min": 1.0,
+      "max": 522.0,
+      "mean": 13.6377,
+      "std": 16.9671,
+      "pct_zero": 0.0
+    },
+    {
+      "feature": "expr_avg_word_len",
+      "min": 1.0,
+      "max": 117.0,
+      "mean": 4.8236,
+      "std": 1.4162,
+      "pct_zero": 0.0
+    },
+    {
+      "feature": "expr_uppercase_ratio",
+      "min": 0.0,
+      "max": 0.49275362491607666,
+      "mean": 0.0005,
+      "std": 0.0066,
+      "pct_zero": 98.68
+    },
+    {
+      "feature": "expr_digit_count",
+      "min": 0.0,
+      "max": 143.0,
+      "mean": 0.1902,
+      "std": 1.7789,
+      "pct_zero": 95.16
+    },
+    {
+      "feature": "expr_bangla_char_ratio",
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.798,
+      "std": 0.0643,
+      "pct_zero": 0.01
+    },
+    {
+      "feature": "expr_all_caps_word_count",
+      "min": 0.0,
+      "max": 10.0,
+      "mean": 0.0079,
+      "std": 0.1409,
+      "pct_zero": 99.48
+    }
+  ],
+  "results": {
+    "E0_Baseline": {
+      "macro_f1": 0.4553,
+      "micro_f1": 0.5512,
+      "per_class": {
+        "anger": {
+          "f1": 0.5336,
+          "precision": 0.4098,
+          "recall": 0.7648
+        },
+        "disgust": {
+          "f1": 0.3248,
+          "precision": 0.2542,
+          "recall": 0.4499
+        },
+        "fear": {
+          "f1": 0.2744,
+          "precision": 0.1851,
+          "recall": 0.5299
+        },
+        "joy": {
+          "f1": 0.8126,
+          "precision": 0.8164,
+          "recall": 0.8087
+        },
+        "sadness": {
+          "f1": 0.5038,
+          "precision": 0.3814,
+          "recall": 0.742
+        },
+        "surprise": {
+          "f1": 0.2827,
+          "precision": 0.2776,
+          "recall": 0.288
+        }
+      }
+    },
+    "E3_Unscaled": {
+      "macro_f1": 0.3386,
+      "micro_f1": 0.4111,
+      "per_class": {
+        "anger": {
+          "f1": 0.4309,
+          "precision": 0.2748,
+          "recall": 0.9976
+        },
+        "disgust": {
+          "f1": 0.2518,
+          "precision": 0.1774,
+          "recall": 0.4335
+        },
+        "fear": {
+          "f1": 0.1705,
+          "precision": 0.1025,
+          "recall": 0.5075
+        },
+        "joy": {
+          "f1": 0.5906,
+          "precision": 0.4616,
+          "recall": 0.8195
+        },
+        "sadness": {
+          "f1": 0.3733,
+          "precision": 0.2294,
+          "recall": 1.0
+        },
+        "surprise": {
+          "f1": 0.2144,
+          "precision": 0.1504,
+          "recall": 0.3733
+        }
+      }
+    },
+    "E3_MaxAbsScaled": {
+      "macro_f1": 0.4689,
+      "micro_f1": 0.5638,
+      "per_class": {
+        "anger": {
+          "f1": 0.5344,
+          "precision": 0.4132,
+          "recall": 0.7559
+        },
+        "disgust": {
+          "f1": 0.3273,
+          "precision": 0.2588,
+          "recall": 0.445
+        },
+        "fear": {
+          "f1": 0.3264,
+          "precision": 0.3657,
+          "recall": 0.2948
+        },
+        "joy": {
+          "f1": 0.8164,
+          "precision": 0.8233,
+          "recall": 0.8096
+        },
+        "sadness": {
+          "f1": 0.5029,
+          "precision": 0.3812,
+          "recall": 0.7385
+        },
+        "surprise": {
+          "f1": 0.3058,
+          "precision": 0.2806,
+          "recall": 0.336
+        }
+      }
+    },
+    "E3_Log1pScaled": {
+      "macro_f1": 0.4669,
+      "micro_f1": 0.5587,
+      "per_class": {
+        "anger": {
+          "f1": 0.5354,
+          "precision": 0.4176,
+          "recall": 0.7459
+        },
+        "disgust": {
+          "f1": 0.3251,
+          "precision": 0.2525,
+          "recall": 0.4565
+        },
+        "fear": {
+          "f1": 0.3209,
+          "precision": 0.3904,
+          "recall": 0.2724
+        },
+        "joy": {
+          "f1": 0.8155,
+          "precision": 0.834,
+          "recall": 0.7979
+        },
+        "sadness": {
+          "f1": 0.4992,
+          "precision": 0.3777,
+          "recall": 0.7357
+        },
+        "surprise": {
+          "f1": 0.3054,
+          "precision": 0.2459,
+          "recall": 0.4027
+        }
+      }
+    },
+    "E3_SelectiveScaled": {
+      "macro_f1": 0.4769,
+      "micro_f1": 0.5675,
+      "per_class": {
+        "anger": {
+          "f1": 0.5336,
+          "precision": 0.4107,
+          "recall": 0.7612
+        },
+        "disgust": {
+          "f1": 0.3242,
+          "precision": 0.3021,
+          "recall": 0.3498
+        },
+        "fear": {
+          "f1": 0.3981,
+          "precision": 0.5455,
+          "recall": 0.3134
+        },
+        "joy": {
+          "f1": 0.8166,
+          "precision": 0.826,
+          "recall": 0.8074
+        },
+        "sadness": {
+          "f1": 0.5022,
+          "precision": 0.381,
+          "recall": 0.7364
+        },
+        "surprise": {
+          "f1": 0.2869,
+          "precision": 0.2362,
+          "recall": 0.3653
+        }
+      }
+    }
+  }
+}

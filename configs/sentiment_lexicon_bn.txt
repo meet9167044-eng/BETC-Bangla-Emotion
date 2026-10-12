@@ -1,0 +1,184 @@
+# configs/sentiment_lexicon_bn.txt
+# Bangla Sentiment Lexicon for BETC Phase 14
+#
+# STATUS: DRAFT — requires native speaker validation and cross-referencing
+# against a published peer-reviewed Bangla sentiment lexicon before use
+# in published results.
+#
+# SOURCES:
+#   (a) Ekman emotion vocabulary in Bangla NLP research
+#   (b) Surface-form observation of BETC dataset context (no label-induction)
+#   (c) Common Bangla descriptors in Bengali opinion mining literature
+#       (e.g., vocabulary from Das & Bandyopadhyay 2010, Alam & Yao 2020 survey)
+#
+# FORMAT: WORD POLARITY
+# POLARITY: pos (positive) | neg (negative)
+#
+# ─── Positive words ───────────────────────────────────────────────────────────
+ভালো pos
+ভালোবাসা pos
+ভালোবাসি pos
+ভালোলাগা pos
+সুন্দর pos
+আনন্দ pos
+খুশি pos
+সুখ pos
+সুখী pos
+মজা pos
+মজার pos
+দারুণ pos
+অসাধারণ pos
+চমৎকার pos
+শান্তি pos
+শান্তিপূর্ণ pos
+হাসি pos
+হাসিখুশি pos
+প্রেম pos
+প্রিয় pos
+আদর pos
+স্নেহ pos
+ধন্যবাদ pos
+কৃতজ্ঞ pos
+কৃতজ্ঞতা pos
+অভিনন্দন pos
+শুভ pos
+উৎসাহ pos
+উৎসাহী pos
+সফল pos
+সাফল্য pos
+বিজয় pos
+জয় pos
+গর্ব pos
+গর্বিত pos
+উপভোগ pos
+মনোরম pos
+আশা pos
+স্বপ্ন pos
+প্রেরণা pos
+অনুপ্রেরণা pos
+স্বাগত pos
+মিষ্টি pos
+সহানুভূতি pos
+সহমর্মিতা pos
+ভক্তি pos
+শ্রদ্ধা pos
+বিস্ময়কর pos
+অবাক pos
+আশ্চর্য pos
+আশ্চর্যজনক pos
+উত্তেজনা pos
+উত্তেজিত pos
+উল্লাস pos
+উল্লসিত pos
+প্রশংসা pos
+প্রশংসনীয় pos
+অপূর্ব pos
+নিখুঁত pos
+নিরাপদ pos
+আরামদায়ক pos
+সুরক্ষিত pos
+বিনোদন pos
+পছন্দ pos
+পছন্দনীয় pos
+উপকারী pos
+উপকার pos
+সহায়তা pos
+সাহায্য pos
+আশীর্বাদ pos
+শুভকামনা pos
+শুভেচ্ছা pos
+তৃপ্তি pos
+সন্তোষ pos
+সন্তুষ্ট pos
+উজ্জ্বল pos
+পরিষ্কার pos
+সত্যিই ভালো pos
+# ─── Negative words ───────────────────────────────────────────────────────────
+খারাপ neg
+ঘৃণা neg
+ঘৃণ্য neg
+রাগ neg
+রাগান্বিত neg
+ক্ষোভ neg
+ক্রোধ neg
+দুঃখ neg
+দুঃখিত neg
+কষ্ট neg
+যন্ত্রণা neg
+ব্যথা neg
+ভয় neg
+ভীতি neg
+আতঙ্ক neg
+ভয়ঙ্কর neg
+ভয়াবহ neg
+বিরক্ত neg
+বিরক্তি neg
+বিরক্তিকর neg
+অসুখী neg
+দুর্ভোগ neg
+হতাশা neg
+হতাশ neg
+নিরাশা neg
+নিরাশ neg
+বিষণ্নতা neg
+বিষণ্ণ neg
+অবমাননা neg
+অপমান neg
+লজ্জা neg
+লজ্জিত neg
+ব্যর্থ neg
+ব্যর্থতা neg
+পরাজয় neg
+পরাজিত neg
+মৃত্যু neg
+শোক neg
+কান্না neg
+কাঁদা neg
+অশ্রু neg
+চিৎকার neg
+অভিযোগ neg
+ঝগড়া neg
+ঝামেলা neg
+সমস্যা neg
+বিপদ neg
+বিপজ্জনক neg
+ভয়ের neg
+আতঙ্কিত neg
+উদ্বেগ neg
+উদ্বিগ্ন neg
+ক্লান্ত neg
+ক্লান্তি neg
+বিরক্তকর neg
+অপছন্দ neg
+ঘৃণিত neg
+জঘন্য neg
+নোংরা neg
+নষ্ট neg
+বিশ্বাসঘাতক neg
+বিশ্বাসঘাতকতা neg
+প্রতারণা neg
+প্রতারক neg
+মিথ্যা neg
+মিথ্যুক neg
+অন্যায় neg
+অত্যাচার neg
+নির্যাতন neg
+নিষ্ঠুর neg
+নিষ্ঠুরতা neg
+কুৎসিত neg
+ক্ষতি neg
+ক্ষতিকর neg
+অসুস্থ neg
+রোগ neg
+বেদনা neg
+দুর্দশা neg
+অসহায় neg
+একাকী neg
+একাকীত্ব neg
+মন খারাপ neg
+মনোকষ্ট neg
+বিপর্যয় neg
+দুর্ঘটনা neg
+মারামারি neg
+হত্যা neg
+অপরাধ neg

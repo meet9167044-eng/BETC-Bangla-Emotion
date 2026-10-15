@@ -1,0 +1,306 @@
+{
+  "timestamp": "2026-10-13 17:44:10",
+  "champion_pipeline": {
+    "feature_dims": 25089,
+    "val_macro_f1": 0.4904,
+    "val_micro_f1": 0.5821,
+    "per_class": {
+      "anger": {
+        "f1": 0.5494,
+        "precision": 0.4206,
+        "recall": 0.792
+      },
+      "disgust": {
+        "f1": 0.3444,
+        "precision": 0.3176,
+        "recall": 0.376
+      },
+      "fear": {
+        "f1": 0.3923,
+        "precision": 0.4577,
+        "recall": 0.3433
+      },
+      "joy": {
+        "f1": 0.8249,
+        "precision": 0.802,
+        "recall": 0.8492
+      },
+      "sadness": {
+        "f1": 0.5025,
+        "precision": 0.3724,
+        "recall": 0.7724
+      },
+      "surprise": {
+        "f1": 0.3287,
+        "precision": 0.3125,
+        "recall": 0.3467
+      }
+    },
+    "thresholds": {
+      "anger": 0.36,
+      "disgust": 0.38,
+      "fear": 0.34,
+      "joy": 0.53,
+      "sadness": 0.13,
+      "surprise": 0.3
+    }
+  },
+  "pattern_prevalence_val": {
+    "short_text": 1104,
+    "has_negation": 2775,
+    "has_emoji": 599,
+    "has_hashtag": 7,
+    "code_mixed": 27
+  },
+  "disgust_errors": {
+    "total_fp": 492,
+    "total_fn": 380,
+    "fp_patterns": {
+      "short_text": {
+        "count": 66,
+        "pct": 13.4
+      },
+      "has_negation": {
+        "count": 248,
+        "pct": 50.4
+      },
+      "has_emoji": {
+        "count": 2,
+        "pct": 0.4
+      },
+      "has_hashtag": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "code_mixed": {
+        "count": 4,
+        "pct": 0.8
+      }
+    },
+    "fn_patterns": {
+      "short_text": {
+        "count": 15,
+        "pct": 3.9
+      },
+      "has_negation": {
+        "count": 245,
+        "pct": 64.5
+      },
+      "has_emoji": {
+        "count": 2,
+        "pct": 0.5
+      },
+      "has_hashtag": {
+        "count": 1,
+        "pct": 0.3
+      },
+      "code_mixed": {
+        "count": 7,
+        "pct": 1.8
+      }
+    },
+    "emonoba_sensitivity": {
+      "emonoba_assumption_rows": {
+        "n": 4750,
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0
+      },
+      "other_rows": {
+        "n": 1420,
+        "f1": 0.4508,
+        "precision": 0.5627,
+        "recall": 0.376
+      }
+    },
+    "fp_by_source": {
+      "EmoNoBa": 314,
+      "UBMEC": 178
+    },
+    "fn_by_source": {
+      "UBMEC": 338,
+      "MONOVAB": 42
+    }
+  },
+  "surprise_errors": {
+    "total_fp": 286,
+    "total_fn": 245,
+    "fp_patterns": {
+      "short_text": {
+        "count": 28,
+        "pct": 9.8
+      },
+      "has_negation": {
+        "count": 144,
+        "pct": 50.3
+      },
+      "has_emoji": {
+        "count": 55,
+        "pct": 19.2
+      },
+      "has_hashtag": {
+        "count": 0,
+        "pct": 0.0
+      },
+      "code_mixed": {
+        "count": 1,
+        "pct": 0.3
+      }
+    },
+    "fn_patterns": {
+      "short_text": {
+        "count": 34,
+        "pct": 13.9
+      },
+      "has_negation": {
+        "count": 116,
+        "pct": 47.3
+      },
+      "has_emoji": {
+        "count": 7,
+        "pct": 2.9
+      },
+      "has_hashtag": {
+        "count": 1,
+        "pct": 0.4
+      },
+      "code_mixed": {
+        "count": 0,
+        "pct": 0.0
+      }
+    },
+    "fp_by_source": {
+      "EmoNoBa": 208,
+      "UBMEC": 75,
+      "MONOVAB": 3
+    },
+    "fn_by_source": {
+      "EmoNoBa": 168,
+      "UBMEC": 76,
+      "MONOVAB": 1
+    }
+  },
+  "co_occurrence_true": {
+    "anger": {
+      "sadness": 134,
+      "surprise": 15,
+      "fear": 17,
+      "joy": 20,
+      "disgust": 145
+    },
+    "sadness": {
+      "anger": 134,
+      "fear": 7,
+      "surprise": 15,
+      "joy": 15,
+      "disgust": 21
+    },
+    "joy": {
+      "surprise": 24,
+      "anger": 20,
+      "sadness": 15,
+      "fear": 4
+    },
+    "surprise": {
+      "joy": 24,
+      "anger": 15,
+      "sadness": 15,
+      "fear": 4,
+      "disgust": 1
+    },
+    "fear": {
+      "anger": 17,
+      "sadness": 7,
+      "joy": 4,
+      "surprise": 4,
+      "disgust": 1
+    },
+    "disgust": {
+      "anger": 145,
+      "sadness": 21,
+      "surprise": 1,
+      "fear": 1
+    }
+  },
+  "fp_confusion_map": {
+    "joy": {
+      "sadness": 144,
+      "surprise": 60,
+      "anger": 225,
+      "fear": 22,
+      "disgust": 41
+    },
+    "anger": {
+      "sadness": 988,
+      "joy": 263,
+      "surprise": 183,
+      "fear": 108,
+      "disgust": 357
+    },
+    "sadness": {
+      "joy": 226,
+      "anger": 968,
+      "surprise": 182,
+      "fear": 190,
+      "disgust": 376
+    },
+    "disgust": {
+      "sadness": 237,
+      "anger": 191,
+      "surprise": 31,
+      "joy": 29,
+      "fear": 36
+    },
+    "surprise": {
+      "sadness": 88,
+      "joy": 69,
+      "anger": 74,
+      "fear": 54,
+      "disgust": 16
+    },
+    "fear": {
+      "anger": 49,
+      "sadness": 34,
+      "joy": 9,
+      "surprise": 9,
+      "disgust": 13
+    }
+  },
+  "improvement_proposals": [
+    {
+      "priority": 1,
+      "target": "Disgust",
+      "hypothesis": "Disgust FPs overlap with anger/sadness in co-occurring multi-label texts. Add per-class C regularization search or raise disgust threshold.",
+      "action": "Threshold fine-tuning per class in Phase 7 (optimize_thresholds sweep).",
+      "experiment": "Phase 7 threshold optimization with wider sweep [0.05 – 0.95, step 0.005] for Disgust."
+    },
+    {
+      "priority": 2,
+      "target": "Disgust",
+      "hypothesis": "EmoNoBa disgust assumption sensitivity: rows derived from non-native annotation may have lower F1. Validate via sensitivity analysis.",
+      "action": "Compare Disgust F1 on emonoba_disgust_assumption=True vs =False. If large gap, consider separate C value or label smoothing for those rows.",
+      "experiment": "Sensitivity analysis (done in Step 5 above). Inspect per-source F1 for emonoba."
+    },
+    {
+      "priority": 3,
+      "target": "Surprise",
+      "hypothesis": "Surprise is often expressed with emoji (2.9% of FN have emoji). Adding Surprise-specific emoji features may help.",
+      "action": "Extend emoji feature set to include surprise-specific symbols: 😮 😲 🤯 😱 !!.",
+      "experiment": "Targeted Surprise-emoji feature extraction and ablation (Phase 5.2 extension)."
+    },
+    {
+      "priority": 4,
+      "target": "Disgust + Surprise",
+      "hypothesis": "Short texts (< 5 words) often express Disgust/Surprise with single exclamation words or expressive particles.",
+      "action": "Add character n-gram boost for short texts, or add a 'short-text' indicator feature.",
+      "experiment": "Test short-text binary flag + expanded char-ngram range [2-6] in ablation."
+    },
+    {
+      "priority": 5,
+      "target": "General",
+      "hypothesis": "Class imbalance (Disgust 2,845; Surprise 1,749 vs Joy 10,368) causes systematic under-prediction of minority classes.",
+      "action": "Phase 8: Test class_weight overrides and targeted oversampling for Disgust & Surprise.",
+      "experiment": "Phase 8 class imbalance experiments."
+    }
+  ]
+}

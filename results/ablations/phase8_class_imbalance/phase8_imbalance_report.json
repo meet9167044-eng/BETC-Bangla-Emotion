@@ -1,0 +1,281 @@
+{
+  "timestamp": "2026-10-15 22:59:19",
+  "champion_at_entry": {
+    "pipeline": "Phase 5 Champion + Phase 7 thresholds",
+    "macro_f1": 0.4913,
+    "micro_f1": 0.5825
+  },
+  "strategies": {
+    "S0_balanced_current": {
+      "description": "class_weight=balanced (Phase 5 champion + Phase 7 thresholds)",
+      "macro_f1": 0.4913,
+      "micro_f1": 0.5825,
+      "per_class": {
+        "anger": {
+          "f1": 0.5494,
+          "precision": 0.4206,
+          "recall": 0.792
+        },
+        "disgust": {
+          "f1": 0.3453,
+          "precision": 0.3181,
+          "recall": 0.3777
+        },
+        "fear": {
+          "f1": 0.3932,
+          "precision": 0.46,
+          "recall": 0.3433
+        },
+        "joy": {
+          "f1": 0.8255,
+          "precision": 0.801,
+          "recall": 0.8515
+        },
+        "sadness": {
+          "f1": 0.503,
+          "precision": 0.3719,
+          "recall": 0.7767
+        },
+        "surprise": {
+          "f1": 0.3312,
+          "precision": 0.3128,
+          "recall": 0.352
+        }
+      },
+      "time_s": 350.0
+    },
+    "S1_no_weighting": {
+      "description": "class_weight=None (uniform)",
+      "macro_f1": 0.4897,
+      "micro_f1": 0.5515,
+      "per_class": {
+        "anger": {
+          "f1": 0.5061,
+          "precision": 0.4516,
+          "recall": 0.5757
+        },
+        "disgust": {
+          "f1": 0.277,
+          "precision": 0.287,
+          "recall": 0.2677
+        },
+        "fear": {
+          "f1": 0.5236,
+          "precision": 0.4918,
+          "recall": 0.5597
+        },
+        "joy": {
+          "f1": 0.8209,
+          "precision": 0.872,
+          "recall": 0.7754
+        },
+        "sadness": {
+          "f1": 0.469,
+          "precision": 0.3348,
+          "recall": 0.7823
+        },
+        "surprise": {
+          "f1": 0.3419,
+          "precision": 0.2609,
+          "recall": 0.496
+        }
+      },
+      "time_s": 302.1
+    },
+    "S2_cw_2x_positive": {
+      "description": "class_weight={0:1.0, 1:2.0} \u2014 2x positive boost",
+      "macro_f1": 0.4805,
+      "micro_f1": 0.5868,
+      "per_class": {
+        "anger": {
+          "f1": 0.5384,
+          "precision": 0.4332,
+          "recall": 0.711
+        },
+        "disgust": {
+          "f1": 0.2284,
+          "precision": 0.3592,
+          "recall": 0.1675
+        },
+        "fear": {
+          "f1": 0.5116,
+          "precision": 0.8319,
+          "recall": 0.3694
+        },
+        "joy": {
+          "f1": 0.8236,
+          "precision": 0.7853,
+          "recall": 0.8659
+        },
+        "sadness": {
+          "f1": 0.4971,
+          "precision": 0.3845,
+          "recall": 0.7032
+        },
+        "surprise": {
+          "f1": 0.2838,
+          "precision": 0.3795,
+          "recall": 0.2267
+        }
+      },
+      "time_s": 292.1
+    },
+    "S3_cw_3x_positive": {
+      "description": "class_weight={0:1.0, 1:3.0} \u2014 3x positive boost",
+      "macro_f1": 0.4634,
+      "micro_f1": 0.5896,
+      "per_class": {
+        "anger": {
+          "f1": 0.5333,
+          "precision": 0.4277,
+          "recall": 0.708
+        },
+        "disgust": {
+          "f1": 0.258,
+          "precision": 0.4232,
+          "recall": 0.1856
+        },
+        "fear": {
+          "f1": 0.4261,
+          "precision": 0.8929,
+          "recall": 0.2799
+        },
+        "joy": {
+          "f1": 0.8116,
+          "precision": 0.7348,
+          "recall": 0.9064
+        },
+        "sadness": {
+          "f1": 0.5063,
+          "precision": 0.3995,
+          "recall": 0.6912
+        },
+        "surprise": {
+          "f1": 0.2452,
+          "precision": 0.4354,
+          "recall": 0.1707
+        }
+      },
+      "time_s": 596.8
+    },
+    "S4_cw_1.5x_positive": {
+      "description": "class_weight={0:1.0, 1:1.5} \u2014 1.5x positive boost",
+      "macro_f1": 0.4927,
+      "micro_f1": 0.5762,
+      "per_class": {
+        "anger": {
+          "f1": 0.5307,
+          "precision": 0.4378,
+          "recall": 0.6738
+        },
+        "disgust": {
+          "f1": 0.2451,
+          "precision": 0.3287,
+          "recall": 0.1954
+        },
+        "fear": {
+          "f1": 0.5568,
+          "precision": 0.7362,
+          "recall": 0.4478
+        },
+        "joy": {
+          "f1": 0.8229,
+          "precision": 0.8178,
+          "recall": 0.8281
+        },
+        "sadness": {
+          "f1": 0.4819,
+          "precision": 0.3634,
+          "recall": 0.7152
+        },
+        "surprise": {
+          "f1": 0.3188,
+          "precision": 0.3383,
+          "recall": 0.3013
+        }
+      },
+      "time_s": 672.4
+    },
+    "S5_oversample_fear_surprise_2x": {
+      "description": "Oversample Fear & Surprise to 2x; class_weight=balanced",
+      "macro_f1": 0.4911,
+      "micro_f1": 0.5758,
+      "per_class": {
+        "anger": {
+          "f1": 0.5408,
+          "precision": 0.4195,
+          "recall": 0.7606
+        },
+        "disgust": {
+          "f1": 0.3168,
+          "precision": 0.2918,
+          "recall": 0.3465
+        },
+        "fear": {
+          "f1": 0.4219,
+          "precision": 0.4854,
+          "recall": 0.3731
+        },
+        "joy": {
+          "f1": 0.8226,
+          "precision": 0.7984,
+          "recall": 0.8483
+        },
+        "sadness": {
+          "f1": 0.5028,
+          "precision": 0.3672,
+          "recall": 0.7972
+        },
+        "surprise": {
+          "f1": 0.3419,
+          "precision": 0.2852,
+          "recall": 0.4267
+        }
+      },
+      "time_s": 643.1
+    },
+    "S6_oversample_rare3_2x": {
+      "description": "Oversample Fear, Disgust & Surprise to 2x; class_weight=balanced",
+      "macro_f1": 0.4906,
+      "micro_f1": 0.5752,
+      "per_class": {
+        "anger": {
+          "f1": 0.5332,
+          "precision": 0.4216,
+          "recall": 0.7252
+        },
+        "disgust": {
+          "f1": 0.3454,
+          "precision": 0.3045,
+          "recall": 0.399
+        },
+        "fear": {
+          "f1": 0.4165,
+          "precision": 0.4654,
+          "recall": 0.3769
+        },
+        "joy": {
+          "f1": 0.8227,
+          "precision": 0.7927,
+          "recall": 0.8551
+        },
+        "sadness": {
+          "f1": 0.502,
+          "precision": 0.3633,
+          "recall": 0.812
+        },
+        "surprise": {
+          "f1": 0.3236,
+          "precision": 0.2887,
+          "recall": 0.368
+        }
+      },
+      "time_s": 697.8
+    }
+  },
+  "best_unconstrained": "S4_cw_1.5x_positive",
+  "best_safe": "S0_balanced_current",
+  "selected_strategy": "S0_balanced_current",
+  "selected_macro_f1": 0.4913,
+  "selected_micro_f1": 0.5825
+}

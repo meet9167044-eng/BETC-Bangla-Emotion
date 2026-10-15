@@ -165,38 +165,89 @@ Deliverables:
 2. Systematic ablation report: results/ablations/phase5_features/phase5_ablation_report.json & phase5_features_report.md
 3. Unit & regression test suite: tests/test_phase5_additional_features.py (6 passed in 6.67s)
 Phase 6 --- Analyze Disgust and Surprise Errors
-- [ ] Generate validation false-positive and false-negative examples
+- [x] Generate validation false-positive and false-negative examples
   for Disgust and Surprise.
-- [ ] Group errors by short text, sarcasm, negation, spelling,
+- [x] Group errors by short text, sarcasm, negation, spelling,
   code-mixing, emoji, or confusing emotion combinations.
-- [ ] Inspect possible label ambiguity or inconsistency.
-- [ ] Review the assumption used to assign Disgust-negative labels to
+- [x] Inspect possible label ambiguity or inconsistency.
+- [x] Review the assumption used to assign Disgust-negative labels to
   EmoNoBa; these were not native annotations.
-- [ ] Run a sensitivity analysis for that assumption if feasible.
-- [ ] Use findings to propose targeted features and test each
+- [x] Run a sensitivity analysis for that assumption if feasible.
+- [x] Use findings to propose targeted features and test each
   separately.
-Deliverables: Error-analysis table and prioritized improvement list.
+Results & Findings:
+  DISGUST Errors: FP=492 | FN=380 | Val Disgust F1=0.344
+    - EmoNoBa assumption rows (n=4,750): Disgust F1=0.0000 (critical failure)
+    - Other dataset rows (n=1,420): Disgust F1=0.4508
+    - 64.5% of FNs contain negation; FPs confused with Sadness (237) and Anger (191)
+    - 314/492 FPs (63.8%) come from EmoNoBa — assumption incompatible with UBMEC/MONOVAB
+  SURPRISE Errors: FP=286 | FN=245 | Val Surprise F1=0.329
+    - 50.3% of FPs contain negation; 19.2% of FPs have emoji (😂 triggers Surprise FP)
+    - EmoNoBa dominates both FP (208/286) and FN (168/245)
+  Improvement Proposals (priority-ordered for Phases 7-8):
+    P1 (Disgust): Reweight/exclude EmoNoBa Disgust assumption rows in Phase 8
+    P2 (Disgust): Raise Disgust threshold in Phase 7 sweep
+    P3 (Surprise): Raise Surprise threshold to reduce 286 FPs
+    P4 (Surprise): Emoji disambiguation — 😂 is Joy, not Surprise
+    P5 (General): Higher class weight for Surprise (1,749 train samples)
+Deliverables:
+1. Error analysis script: scripts/experiments/phase6_error_analysis.py
+2. JSON report: results/ablations/phase6_error_analysis/phase6_error_report.json
+3. Markdown report: results/ablations/phase6_error_analysis/phase6_error_report.md
+4. FP/FN CSVs: fp_disgust.csv (492), fn_disgust.csv (380), fp_surprise.csv (286), fn_surprise.csv (245)
+5. Regression tests: tests/test_phase6_error_analysis.py (10 passed)
 Phase 7 --- Optimize Per-Label Thresholds
-- [ ] Save validation probabilities for each emotion.
-- [ ] Compare threshold 0.5 with a separately optimized threshold for
+- [x] Save validation probabilities for each emotion.
+- [x] Compare threshold 0.5 with a separately optimized threshold for
   each label.
-- [ ] Optimize thresholds using validation data only.
-- [ ] Use Macro-F1 as the primary metric and inspect all per-label
+- [x] Optimize thresholds using validation data only.
+- [x] Use Macro-F1 as the primary metric and inspect all per-label
   scores.
-- [ ] Avoid improving a rare label at the severe expense of others.
-- [ ] Freeze thresholds before final test evaluation.
-Deliverables: Threshold table for all six labels and before/after
-metrics.
+- [x] Avoid improving a rare label at the severe expense of others.
+- [x] Freeze thresholds before final test evaluation.
+Results (5 configurations compared, all on validation split only):
+  [A] All τ=0.5:              Macro-F1=0.4338 | Micro-F1=0.5639
+  [B] Per-class step=0.01:    Macro-F1=0.4904 | Micro-F1=0.5821
+  [C] Per-class step=0.005:   Macro-F1=0.4905 | Micro-F1=0.5825
+  [D] C + Dis/Sur raised +0.05: Macro-F1=0.4855 (dropped Disgust)
+  [E] Ultra-fine step=0.001:  Macro-F1=0.4913 | Micro-F1=0.5825 ← SELECTED
+Per-label thresholds (frozen):
+  anger=0.360, disgust=0.378, fear=0.342, joy=0.527, sadness=0.128, surprise=0.297
+Before vs After (τ=0.5 → optimized):
+  anger:   0.5247 → 0.5494 (+0.0247)
+  disgust: 0.3100 → 0.3453 (+0.0353)
+  fear:    0.3169 → 0.3932 (+0.0763)
+  joy:     0.8239 → 0.8255 (+0.0016)
+  sadness: 0.3586 → 0.5030 (+0.1444)  ← largest gain
+  surprise:0.2683 → 0.3312 (+0.0629)
+  MACRO:   0.4338 → 0.4913 (+0.0575)  ← new all-time high!
+  MICRO:   0.5639 → 0.5825 (+0.0186)
+Regression check: ✅ No label degraded below τ=0.5 by more than 0.005
+Deliverables:
+1. Experiment scripts: scripts/experiments/phase7_threshold_optimization.py & phase7_threshold_analysis_only.py
+2. Frozen thresholds: configs/phase7_thresholds.json
+3. Full report: results/ablations/phase7_thresholds/phase7_threshold_report.json
+4. Val probabilities: results/ablations/phase7_thresholds/val_probabilities.npy
+5. Unit tests: tests/test_phase7_threshold_optimization.py (9 passed)
 Phase 8 --- Address Class Imbalance
-- [ ] Review training-label frequencies and identify rare labels.
-- [ ] Compare the current setup with suitable class-weighting
-  strategies.
-- [ ] Test resampling cautiously; avoid breaking multi-label
-  co-occurrence patterns or causing cross-split leakage.
-- [ ] Fit learned transformations/resampling using training data only.
-- [ ] Compare Macro-F1, Micro-F1, and all per-label F1 scores.
-- [ ] Keep a strategy only if it improves results reliably.
-Deliverables: Imbalance experiment table and justified selection.
+- [x] Review training-label frequencies and identify rare labels (fear 4.3%, surprise 6.1%, disgust 9.9%).
+- [x] Compare current setup (class_weight=balanced) with custom weighting (None, 1.5x, 2.0x, 3.0x).
+- [x] Test resampling cautiously on training data only (avoided data leakage, preserved multi-label structure).
+- [x] Fit learned transformations and resampling using training data only.
+- [x] Compare Macro-F1, Micro-F1, and all per-label F1 scores across 7 configurations.
+- [x] Keep a strategy only if it improves results reliably:
+  - S0_balanced_current: Macro-F1=0.4913, Micro-F1=0.5825 (SELECTED CHAMPION)
+  - S1_no_weighting: Macro-F1=0.4897, Micro-F1=0.5515 (disgust dropped to 0.277)
+  - S2_cw_2x_positive: Macro-F1=0.4805, Micro-F1=0.5868 (disgust dropped to 0.228)
+  - S3_cw_3x_positive: Macro-F1=0.4634, Micro-F1=0.5896 (disgust dropped to 0.258)
+  - S4_cw_1.5x_positive: Macro-F1=0.4927 (unconstrained best, but severe disgust regression to 0.245; REJECTED per safety rule)
+  - S5_oversample_fear_surprise_2x: Macro-F1=0.4911, Micro-F1=0.5758 (slight regression)
+  - S6_oversample_rare3_2x: Macro-F1=0.4906, Micro-F1=0.5752 (slight regression)
+Justification: S0 (class_weight='balanced' combined with Phase 7 optimized thresholds) remains the most robust, balanced configuration without severe regressions on any label.
+Deliverables:
+1. Experiment script: scripts/experiments/phase8_class_imbalance.py
+2. Full report: results/ablations/phase8_class_imbalance/phase8_imbalance_report.json & phase8_imbalance_report.md
+3. Unit tests: tests/test_phase8_class_imbalance.py (10 passed)
 Phase 9 --- Compare Individual Classifiers
 Begin after feature-engineering experiments are complete.
 - [ ] Logistic Regression (LR).
@@ -258,8 +309,10 @@ Record one row per experiment.
 | **E8** | TF-IDF + Emoji + Sent + Negation | 0.4848 | 0.5751 | [0.544, 0.341, 0.378, 0.825, 0.500, 0.315] | 218s | Strong baseline |
 | **Phase 3** | TF-IDF + Emoji + 6-Emotion Lexicon | 0.4907 | 0.5791 | [0.544, 0.350, 0.388, 0.825, 0.504, 0.333] | 240s | Kept (broke 0.490 barrier) |
 | **Phase 4** | TF-IDF + Emoji + EmoLex + NegScope | 0.4902 | 0.5820 | [0.549, 0.344, 0.392, 0.825, 0.502, 0.330] | 326s | Kept (All-time high Micro-F1) |
-| **Phase 5 (5.2)** | Full Base + Hashtags (+3 dims) | **0.4904** | **0.5821** | [0.549, 0.344, 0.392, 0.825, 0.503, 0.329] | 316s | Kept (+0.0002 Macro, +0.0001 Micro) |
+| **Phase 5 (5.2)** | Full Base + Hashtags (+3 dims) | 0.4904 | 0.5821 | [0.549, 0.344, 0.392, 0.825, 0.503, 0.329] | 316s | Kept (+0.0002 Macro, +0.0001 Micro) |
 | **Phase 5 (Aux)** | Elongation, CodeMixing, TextStats, Spelling, Verbal | < 0.4902 | < 0.5820 | Regressed on minority classes (esp. Fear down to 0.352) | ~280s ea | Dropped |
+| **Phase 7** | Phase 5 Champ + Per-Label Thresholds (τ*) | **0.4913** | **0.5825** | [0.549, 0.345, 0.393, 0.826, 0.503, 0.331] | 38s | Kept (+0.0009 Macro, all-time high) |
+| **Phase 8 (S0)** | Imbalance Study: Balanced vs Custom/Resampling | **0.4913** | **0.5825** | [0.549, 0.345, 0.393, 0.826, 0.503, 0.331] | 350s (S0) / ~58m (all) | Kept S0; S4 rejected due to disgust drop |
 Priority Order
 1. Fix E3/E7.
 2. Verify E8 and compare with E6.

@@ -1,0 +1,126 @@
+{
+  "C1_LogisticRegression": {
+    "name": "C1_LogisticRegression",
+    "dims": 25101,
+    "macro_f1": 0.4921,
+    "micro_f1": 0.5834,
+    "per_class": {
+      "anger": 0.5503,
+      "disgust": 0.3478,
+      "fear": 0.3941,
+      "joy": 0.8254,
+      "sadness": 0.5031,
+      "surprise": 0.332
+    },
+    "thresholds": {
+      "anger": 0.372,
+      "disgust": 0.378,
+      "fear": 0.34,
+      "joy": 0.526,
+      "sadness": 0.129,
+      "surprise": 0.305
+    },
+    "delta_macro": 0.0,
+    "delta_micro": 0.0,
+    "regressions": {},
+    "beats_c1": false,
+    "time_s": 635.6
+  },
+  "C2_ComplementNB": {
+    "name": "C2_ComplementNB",
+    "dims": 25101,
+    "macro_f1": 0.5049,
+    "micro_f1": 0.5589,
+    "per_class": {
+      "anger": 0.5268,
+      "disgust": 0.3543,
+      "fear": 0.5219,
+      "joy": 0.7917,
+      "sadness": 0.4782,
+      "surprise": 0.3562
+    },
+    "thresholds": {
+      "anger": 0.092,
+      "disgust": 0.298,
+      "fear": 0.376,
+      "joy": 0.44,
+      "sadness": 0.3,
+      "surprise": 0.301
+    },
+    "delta_macro": 0.0128,
+    "delta_micro": -0.0245,
+    "regressions": {
+      "anger": -0.0235,
+      "joy": -0.0337,
+      "sadness": -0.0249
+    },
+    "beats_c1": false,
+    "time_s": 19.3
+  },
+  "C3_SGD_SVM": {
+    "name": "C3_SGD_SVM",
+    "dims": 25101,
+    "macro_f1": 0.4644,
+    "micro_f1": 0.5615,
+    "per_class": {
+      "anger": 0.5185,
+      "disgust": 0.3391,
+      "fear": 0.3333,
+      "joy": 0.8237,
+      "sadness": 0.488,
+      "surprise": 0.2838
+    },
+    "thresholds": {
+      "anger": 0.244,
+      "disgust": 0.115,
+      "fear": 0.954,
+      "joy": 0.533,
+      "sadness": 0.155,
+      "surprise": 0.364
+    },
+    "delta_macro": -0.0277,
+    "delta_micro": -0.0219,
+    "regressions": {
+      "anger": -0.0318,
+      "fear": -0.0608,
+      "sadness": -0.0151,
+      "surprise": -0.0482
+    },
+    "beats_c1": false,
+    "time_s": 25.4
+  },
+  "C4_KNN": {
+    "name": "C4_KNN",
+    "dims": 200,
+    "macro_f1": 0.3719,
+    "micro_f1": 0.4474,
+    "per_class": {
+      "anger": 0.4755,
+      "disgust": 0.27,
+      "fear": 0.1815,
+      "joy": 0.6793,
+      "sadness": 0.4274,
+      "surprise": 0.1975
+    },
+    "thresholds": {
+      "anger": 0.05,
+      "disgust": 0.05,
+      "fear": 0.2,
+      "joy": 0.4,
+      "sadness": 0.05,
+      "surprise": 0.2
+    },
+    "delta_macro": -0.1202,
+    "delta_micro": -0.136,
+    "regressions": {
+      "anger": -0.0748,
+      "disgust": -0.0778,
+      "fear": -0.2126,
+      "joy": -0.1461,
+      "sadness": -0.0757,
+      "surprise": -0.1345
+    },
+    "beats_c1": false,
+    "time_s": 51.3
+  }
+}

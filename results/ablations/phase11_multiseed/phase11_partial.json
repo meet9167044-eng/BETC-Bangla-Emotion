@@ -1,0 +1,197 @@
+{
+  "s0_runs": {
+    "42": {
+      "seed": 42,
+      "macro_f1": 0.4921,
+      "micro_f1": 0.5834,
+      "per_class": {
+        "anger": 0.5503,
+        "disgust": 0.3478,
+        "fear": 0.3941,
+        "joy": 0.8254,
+        "sadness": 0.5031,
+        "surprise": 0.332
+      },
+      "thresholds": {
+        "anger": 0.372,
+        "disgust": 0.378,
+        "fear": 0.34,
+        "joy": 0.526,
+        "sadness": 0.129,
+        "surprise": 0.305
+      }
+    },
+    "123": {
+      "seed": 123,
+      "macro_f1": 0.4923,
+      "micro_f1": 0.5839,
+      "per_class": {
+        "anger": 0.5502,
+        "disgust": 0.348,
+        "fear": 0.3949,
+        "joy": 0.8254,
+        "sadness": 0.5032,
+        "surprise": 0.332
+      },
+      "thresholds": {
+        "anger": 0.375,
+        "disgust": 0.384,
+        "fear": 0.341,
+        "joy": 0.526,
+        "sadness": 0.135,
+        "surprise": 0.305
+      }
+    },
+    "999": {
+      "seed": 999,
+      "macro_f1": 0.4921,
+      "micro_f1": 0.5837,
+      "per_class": {
+        "anger": 0.5503,
+        "disgust": 0.3478,
+        "fear": 0.3941,
+        "joy": 0.8254,
+        "sadness": 0.5032,
+        "surprise": 0.332
+      },
+      "thresholds": {
+        "anger": 0.373,
+        "disgust": 0.378,
+        "fear": 0.34,
+        "joy": 0.526,
+        "sadness": 0.135,
+        "surprise": 0.305
+      }
+    }
+  },
+  "s3_runs_opt": {
+    "42": {
+      "seed": 42,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5746,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.499,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    },
+    "123": {
+      "seed": 123,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5745,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.4989,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    },
+    "999": {
+      "seed": 999,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5745,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.4989,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    }
+  },
+  "s3_runs_frozen": {
+    "42": {
+      "seed": 42,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5746,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.499,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    },
+    "123": {
+      "seed": 123,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5745,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.4989,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    },
+    "999": {
+      "seed": 999,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5745,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.4989,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      }
+    }
+  }
+}

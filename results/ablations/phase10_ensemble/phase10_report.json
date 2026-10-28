@@ -1,0 +1,199 @@
+{
+  "phase": "Phase 10",
+  "date": "2026-10-28",
+  "s0_reference": {
+    "name": "S0_LR_Chain (Phase 9 champion)",
+    "macro_f1": 0.4921,
+    "micro_f1": 0.5834,
+    "per_class": {
+      "anger": 0.5503,
+      "disgust": 0.3478,
+      "fear": 0.3941,
+      "joy": 0.8254,
+      "sadness": 0.5031,
+      "surprise": 0.332
+    }
+  },
+  "selected": "S3_Vote_LR70_CNB30",
+  "results": {
+    "S0_LR_Chain": {
+      "name": "S0_LR_Chain",
+      "dims": 25101,
+      "macro_f1": 0.4921,
+      "micro_f1": 0.5834,
+      "per_class": {
+        "anger": 0.5503,
+        "disgust": 0.3478,
+        "fear": 0.3941,
+        "joy": 0.8254,
+        "sadness": 0.5031,
+        "surprise": 0.332
+      },
+      "thresholds": {
+        "anger": 0.372,
+        "disgust": 0.378,
+        "fear": 0.34,
+        "joy": 0.526,
+        "sadness": 0.129,
+        "surprise": 0.305
+      },
+      "delta_macro": 0.0,
+      "delta_micro": 0.0,
+      "regressions": {},
+      "beats_s0": false,
+      "sweep_time_s": 12.0,
+      "description": "LR ClassifierChain alone (Phase 9 champion)"
+    },
+    "S1_CNB_Chain": {
+      "name": "S1_CNB_Chain",
+      "dims": 25101,
+      "macro_f1": 0.5049,
+      "micro_f1": 0.5589,
+      "per_class": {
+        "anger": 0.5268,
+        "disgust": 0.3543,
+        "fear": 0.5219,
+        "joy": 0.7917,
+        "sadness": 0.4782,
+        "surprise": 0.3562
+      },
+      "thresholds": {
+        "anger": 0.092,
+        "disgust": 0.298,
+        "fear": 0.376,
+        "joy": 0.44,
+        "sadness": 0.3,
+        "surprise": 0.301
+      },
+      "delta_macro": 0.0128,
+      "delta_micro": -0.0245,
+      "regressions": {
+        "anger": -0.0235,
+        "joy": -0.0337,
+        "sadness": -0.0249
+      },
+      "beats_s0": false,
+      "sweep_time_s": 11.6,
+      "description": "CNB ClassifierChain alone (Phase 9 unconstrained best)"
+    },
+    "S2_Vote_50_50": {
+      "name": "S2_Vote_50_50",
+      "dims": 25101,
+      "macro_f1": 0.5192,
+      "micro_f1": 0.5715,
+      "per_class": {
+        "anger": 0.5457,
+        "disgust": 0.3668,
+        "fear": 0.5364,
+        "joy": 0.8083,
+        "sadness": 0.4903,
+        "surprise": 0.3675
+      },
+      "thresholds": {
+        "anger": 0.184,
+        "disgust": 0.315,
+        "fear": 0.304,
+        "joy": 0.618,
+        "sadness": 0.273,
+        "surprise": 0.239
+      },
+      "delta_macro": 0.0271,
+      "delta_micro": -0.0119,
+      "regressions": {
+        "joy": -0.0171,
+        "sadness": -0.0128
+      },
+      "beats_s0": false,
+      "sweep_time_s": 14.0,
+      "description": "Soft vote: 0.50 LR + 0.50 CNB"
+    },
+    "S3_Vote_LR70_CNB30": {
+      "name": "S3_Vote_LR70_CNB30",
+      "dims": 25101,
+      "macro_f1": 0.517,
+      "micro_f1": 0.5746,
+      "per_class": {
+        "anger": 0.5442,
+        "disgust": 0.3633,
+        "fear": 0.5156,
+        "joy": 0.8176,
+        "sadness": 0.499,
+        "surprise": 0.3621
+      },
+      "thresholds": {
+        "anger": 0.286,
+        "disgust": 0.269,
+        "fear": 0.313,
+        "joy": 0.542,
+        "sadness": 0.205,
+        "surprise": 0.262
+      },
+      "delta_macro": 0.0249,
+      "delta_micro": -0.0088,
+      "regressions": {},
+      "beats_s0": true,
+      "sweep_time_s": 11.6,
+      "description": "Soft vote: 0.70 LR + 0.30 CNB"
+    },
+    "S4_Vote_LR30_CNB70": {
+      "name": "S4_Vote_LR30_CNB70",
+      "dims": 25101,
+      "macro_f1": 0.5179,
+      "micro_f1": 0.5717,
+      "per_class": {
+        "anger": 0.5438,
+        "disgust": 0.3694,
+        "fear": 0.5349,
+        "joy": 0.7972,
+        "sadness": 0.4877,
+        "surprise": 0.3744
+      },
+      "thresholds": {
+        "anger": 0.161,
+        "disgust": 0.356,
+        "fear": 0.288,
+        "joy": 0.483,
+        "sadness": 0.258,
+        "surprise": 0.244
+      },
+      "delta_macro": 0.0258,
+      "delta_micro": -0.0117,
+      "regressions": {
+        "joy": -0.0282,
+        "sadness": -0.0154
+      },
+      "beats_s0": false,
+      "sweep_time_s": 10.7,
+      "description": "Soft vote: 0.30 LR + 0.70 CNB"
+    },
+    "S5_LabelWise_Oracle": {
+      "name": "S5_LabelWise_Oracle",
+      "dims": 25101,
+      "macro_f1": 0.5185,
+      "micro_f1": 0.5814,
+      "per_class": {
+        "anger": 0.5503,
+        "disgust": 0.3543,
+        "fear": 0.5219,
+        "joy": 0.8254,
+        "sadness": 0.5031,
+        "surprise": 0.3562
+      },
+      "thresholds": {
+        "anger": 0.372,
+        "disgust": 0.298,
+        "fear": 0.376,
+        "joy": 0.526,
+        "sadness": 0.129,
+        "surprise": 0.301
+      },
+      "delta_macro": 0.0264,
+      "delta_micro": -0.002,
+      "regressions": {},
+      "beats_s0": true,
+      "sweep_time_s": 10.5,
+      "description": "Oracle: per-label best model (LR for anger/joy/sadness, CNB for disgust/fear/surprise). UPPER BOUND — not deployable.",
+      "oracle": true
+    }
+  }
+}

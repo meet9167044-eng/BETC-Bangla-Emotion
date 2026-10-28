@@ -1,0 +1,85 @@
+{
+  "pipeline_name": "BETC Champion Pipeline (Phase 10 S3 Soft Vote)",
+  "features": {
+    "total_dim": 25101,
+    "groups": [
+      {
+        "name": "Word + Char TF-IDF",
+        "dim": 25000
+      },
+      {
+        "name": "Emoji Per-Indicator Counts",
+        "dim": 52
+      },
+      {
+        "name": "6-Emotion Lexicon Features",
+        "dim": 6
+      },
+      {
+        "name": "Expanded Negation Scope & Polarity Inversion",
+        "dim": 28
+      },
+      {
+        "name": "Hashtag Intensity (MaxAbsScaled)",
+        "dim": 3
+      },
+      {
+        "name": "Intensifier-Emotion Bigrams Group C (MaxAbsScaled)",
+        "dim": 12
+      }
+    ]
+  },
+  "models": {
+    "model_A": {
+      "type": "ClassifierChain",
+      "base_estimator": "LogisticRegression(C=1.0, class_weight='balanced', solver='saga', max_iter=1000, random_state=42)",
+      "chain_order": [
+        3,
+        0,
+        4,
+        1,
+        5,
+        2
+      ],
+      "weight_in_ensemble": 0.7
+    },
+    "model_B": {
+      "type": "ClassifierChain",
+      "base_estimator": "ComplementNB(alpha=1.0)",
+      "chain_order": [
+        3,
+        0,
+        4,
+        1,
+        5,
+        2
+      ],
+      "weight_in_ensemble": 0.3
+    }
+  },
+  "thresholds": {
+    "anger": 0.286,
+    "disgust": 0.269,
+    "fear": 0.313,
+    "joy": 0.542,
+    "sadness": 0.205,
+    "surprise": 0.262
+  },
+  "test_performance": {
+    "macro_f1": 0.5107,
+    "micro_f1": 0.5725,
+    "macro_precision": 0.4534,
+    "macro_recall": 0.6364,
+    "hamming_loss": 0.1988,
+    "jaccard": 0.5241,
+    "subset_accuracy": 0.3382
+  },
+  "per_class_f1": {
+    "anger": 0.542,
+    "disgust": 0.3752,
+    "fear": 0.4619,
+    "joy": 0.8141,
+    "sadness": 0.4943,
+    "surprise": 0.3767
+  }
+}

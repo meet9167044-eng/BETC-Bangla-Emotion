@@ -1,0 +1,141 @@
+{
+  "S0_baseline": {
+    "name": "S0_baseline",
+    "dims": 25089,
+    "macro_f1": 0.4912,
+    "micro_f1": 0.5824,
+    "per_class": {
+      "anger": 0.5491,
+      "disgust": 0.3451,
+      "fear": 0.3932,
+      "joy": 0.8255,
+      "sadness": 0.5031,
+      "surprise": 0.3312
+    },
+    "thresholds": {
+      "anger": 0.36,
+      "disgust": 0.378,
+      "fear": 0.342,
+      "joy": 0.527,
+      "sadness": 0.128,
+      "surprise": 0.297
+    },
+    "delta_macro": -0.0001,
+    "delta_micro": -0.0001,
+    "regressions": {},
+    "safe": false,
+    "time_s": 256.9
+  },
+  "A_interrogative": {
+    "name": "A_interrogative",
+    "dims": 25097,
+    "macro_f1": 0.4891,
+    "micro_f1": 0.5745,
+    "per_class": {
+      "anger": 0.5474,
+      "disgust": 0.3422,
+      "fear": 0.3773,
+      "joy": 0.825,
+      "sadness": 0.5019,
+      "surprise": 0.3411
+    },
+    "thresholds": {
+      "anger": 0.366,
+      "disgust": 0.381,
+      "fear": 0.322,
+      "joy": 0.624,
+      "sadness": 0.133,
+      "surprise": 0.242
+    },
+    "delta_macro": -0.0022,
+    "delta_micro": -0.008,
+    "regressions": {
+      "fear": -0.0157
+    },
+    "safe": false,
+    "time_s": 291.2
+  },
+  "B_contrast": {
+    "name": "B_contrast",
+    "dims": 25099,
+    "macro_f1": 0.4891,
+    "micro_f1": 0.5823,
+    "per_class": {
+      "anger": 0.5484,
+      "disgust": 0.3434,
+      "fear": 0.3846,
+      "joy": 0.8252,
+      "sadness": 0.5036,
+      "surprise": 0.3295
+    },
+    "thresholds": {
+      "anger": 0.373,
+      "disgust": 0.396,
+      "fear": 0.341,
+      "joy": 0.533,
+      "sadness": 0.126,
+      "surprise": 0.304
+    },
+    "delta_macro": -0.0022,
+    "delta_micro": -0.0002,
+    "regressions": {},
+    "safe": false,
+    "time_s": 227.6
+  },
+  "C_intensifier_bigrams": {
+    "name": "C_intensifier_bigrams",
+    "dims": 25101,
+    "macro_f1": 0.4921,
+    "micro_f1": 0.5834,
+    "per_class": {
+      "anger": 0.5503,
+      "disgust": 0.3478,
+      "fear": 0.3941,
+      "joy": 0.8254,
+      "sadness": 0.5031,
+      "surprise": 0.332
+    },
+    "thresholds": {
+      "anger": 0.372,
+      "disgust": 0.378,
+      "fear": 0.34,
+      "joy": 0.526,
+      "sadness": 0.129,
+      "surprise": 0.305
+    },
+    "delta_macro": 0.0008,
+    "delta_micro": 0.0009,
+    "regressions": {},
+    "safe": true,
+    "time_s": 253.8
+  },
+  "D_combined_ABC": {
+    "name": "D_combined_ABC",
+    "dims": 25119,
+    "macro_f1": 0.4902,
+    "micro_f1": 0.578,
+    "per_class": {
+      "anger": 0.5474,
+      "disgust": 0.3477,
+      "fear": 0.3742,
+      "joy": 0.8251,
+      "sadness": 0.5013,
+      "surprise": 0.3453
+    },
+    "thresholds": {
+      "anger": 0.367,
+      "disgust": 0.39,
+      "fear": 0.322,
+      "joy": 0.567,
+      "sadness": 0.132,
+      "surprise": 0.24
+    },
+    "delta_macro": -0.0011,
+    "delta_micro": -0.0045,
+    "regressions": {
+      "fear": -0.0188
+    },
+    "safe": false,
+    "time_s": 266.9
+  }
+}

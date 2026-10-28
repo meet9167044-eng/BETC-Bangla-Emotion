@@ -1,0 +1,16 @@
+{
+  "phase": "Phase 8b",
+  "selected": "C_intensifier_bigrams",
+  "dims": 25101,
+  "macro_f1": 0.4921,
+  "micro_f1": 0.5834,
+  "thresholds": {
+    "anger": 0.372,
+    "disgust": 0.378,
+    "fear": 0.34,
+    "joy": 0.526,
+    "sadness": 0.129,
+    "surprise": 0.305
+  },
+  "note": "Thresholds optimised on validation split ONLY. Test set not touched."
+}

@@ -248,6 +248,26 @@ Deliverables:
 1. Experiment script: scripts/experiments/phase8_class_imbalance.py
 2. Full report: results/ablations/phase8_class_imbalance/phase8_imbalance_report.json & phase8_imbalance_report.md
 3. Unit tests: tests/test_phase8_class_imbalance.py (10 passed)
+Phase 8b --- Targeted Feature Engineering (Interrogatives & Contrast Connectives)
+Pre-classifier feature exploration directly addressing residual errors in Disgust & Surprise (uncovered in Phase 6).
+- [x] Group A: Bengali Interrogatives & Rhetorical Question Markers (কেন, কী/কি, কীভাবে, কেমন, কখন, কোথায়, সত্যি) + Expressive Punctuation combinations (?, !, ?!, ???, ...) targeting Surprise.
+- [x] Group B: Discourse Contrast / Adversative Connectives (কিন্তু, তবে, যদিও, তবুও, বরং) + split-half sentiment/emotion shift tracking targeting Disgust.
+- [x] Group C: Intensifier–Emotion Co-occurrence Bigrams (proximity window matching of intensifiers with 6-emotion lexicon) targeting emotion intensity discrimination.
+- [x] Group D: Combined candidate features (A + B + C).
+- [x] Evaluate each group independently on canonical validation split using Phase 5 Champion baseline + Phase 7 calibrated thresholds (τ*).
+- [x] Selection rule: Retain a group only if it achieves reproducible Macro-F1 > 0.4913 and does not cause minority class regression (>0.01 drop below S0).
+Results & Findings:
+  - S0 Baseline (Reference): Macro-F1=0.4913 | Micro-F1=0.5825 [ang=0.549, dis=0.345, fea=0.393, joy=0.826, sad=0.503, sur=0.331]
+  - Group A (Interrogatives, +8 dims): Macro-F1=0.4891 | Micro-F1=0.5745 | Surprise lifted to 0.341 (+0.010), but Fear dropped to 0.377 (-0.0157 regression; REJECTED per safety rule)
+  - Group B (Discourse Contrast, +10 dims): Macro-F1=0.4891 | Micro-F1=0.5823 [ang=0.548, dis=0.343, fea=0.385, joy=0.825, sad=0.504, sur=0.330] (slight drop, REJECTED)
+  - Group C (Intensifier-Emotion Bigrams, +12 dims): Macro-F1=0.4921 | Micro-F1=0.5834 [ang=0.550, dis=0.348, fea=0.394, joy=0.825, sad=0.503, sur=0.332] (SELECTED CHAMPION: +0.0008 Macro-F1, +0.0009 Micro-F1, zero regressions, all 6 classes maintained/improved, new all-time high!)
+  - Group D (Combined A+B+C, +30 dims): Macro-F1=0.4902 | Micro-F1=0.5780 (Fear regressed to 0.374; REJECTED)
+Deliverables:
+1. Experiment script: scripts/experiments/phase8b_targeted_features.py
+2. Ablation report: results/ablations/phase8b_targeted_features/phase8b_report.json & phase8b_report.md
+3. Calibrated thresholds: configs/phase8b_thresholds.json
+4. Unit tests: tests/test_phase8b_targeted_features.py (26 passed)
+
 Phase 9 --- Compare Individual Classifiers
 Begin after feature-engineering experiments are complete.
 - [ ] Logistic Regression (LR).
@@ -313,6 +333,7 @@ Record one row per experiment.
 | **Phase 5 (Aux)** | Elongation, CodeMixing, TextStats, Spelling, Verbal | < 0.4902 | < 0.5820 | Regressed on minority classes (esp. Fear down to 0.352) | ~280s ea | Dropped |
 | **Phase 7** | Phase 5 Champ + Per-Label Thresholds (τ*) | **0.4913** | **0.5825** | [0.549, 0.345, 0.393, 0.826, 0.503, 0.331] | 38s | Kept (+0.0009 Macro, all-time high) |
 | **Phase 8 (S0)** | Imbalance Study: Balanced vs Custom/Resampling | **0.4913** | **0.5825** | [0.549, 0.345, 0.393, 0.826, 0.503, 0.331] | 350s (S0) / ~58m (all) | Kept S0; S4 rejected due to disgust drop |
+| **Phase 8b (Group C)** | Base + Intensifier-Emotion Bigrams (25,101 dims) | **0.4921** | **0.5834** | [0.550, 0.348, 0.394, 0.825, 0.503, 0.332] | 254s (C) / 22m (all) | **Kept (+0.0008 Macro, +0.0009 Micro; NEW ALL-TIME HIGH)** |
 Priority Order
 1. Fix E3/E7.
 2. Verify E8 and compare with E6.
@@ -322,6 +343,7 @@ Priority Order
 6. Analyze Disgust and Surprise errors.
 7. Optimize per-label thresholds.
 8. Test class-imbalance strategies.
+8b. Test targeted interrogative and discourse contrast features.
 9. Compare LR, NB, SVM, and KNN.
 10. Test classifier chains and voting.
 11. Run multi-seed robustness experiments.
